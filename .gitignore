@@ -1,3 +1,16 @@
+# virtuelle Umgebung - gehoert nicht ins Repo, siehe README
 .venv/
 
+# Python-Bytecode
 __pycache__/
+*.py[cod]
+
+# Laufzeitdaten: persoenlicher Lernfortschritt, wird beim ersten
+# Bewerten automatisch neu angelegt
+progress.json
+
+# Log des lokalen Streamlit-Servers
+streamlit.log
+
+# macOS
+.DS_Store
