@@ -1,0 +1,363 @@
+russisch,deutsch,transkription,wortart,niveau,beispiel
+вода,das Wasser,wadá,Substantiv,A1,Я пью воду. — Ich trinke Wasser.
+хлеб,das Brot,chljep,Substantiv,A1,Мы покупаем хлеб. — Wir kaufen Brot.
+дом,das Haus,dom,Substantiv,A1,Это мой дом. — Das ist mein Haus.
+друг,der Freund,druk,Substantiv,A1,Он мой лучший друг. — Er ist mein bester Freund.
+книга,das Buch,kníga,Substantiv,A1,Я читаю книгу. — Ich lese ein Buch.
+город,die Stadt,górat,Substantiv,A1,Москва — большой город. — Moskau ist eine große Stadt.
+работа,die Arbeit,rabóta,Substantiv,A1,Моя работа интересная. — Meine Arbeit ist interessant.
+семья,die Familie,simjá,Substantiv,A1,У меня большая семья. — Ich habe eine große Familie.
+время,die Zeit,wrjémja,Substantiv,A1,У меня нет времени. — Ich habe keine Zeit.
+день,der Tag,djen,Substantiv,A1,Сегодня хороший день. — Heute ist ein schöner Tag.
+ночь,die Nacht,notsch,Substantiv,A1,Спокойной ночи! — Gute Nacht!
+утро,der Morgen,útra,Substantiv,A1,Утром я пью кофе. — Morgens trinke ich Kaffee.
+вечер,der Abend,wjétschir,Substantiv,A1,Вечером мы дома. — Abends sind wir zu Hause.
+неделя,die Woche,nidjélja,Substantiv,A1,На следующей неделе я работаю. — Nächste Woche arbeite ich.
+месяц,der Monat,mjéssjats,Substantiv,A1,Он живёт здесь месяц. — Er wohnt seit einem Monat hier.
+год,das Jahr,got,Substantiv,A1,Прошлый год был трудный. — Das letzte Jahr war schwer.
+час,die Stunde,tschas,Substantiv,A1,Я жду уже час. — Ich warte schon eine Stunde.
+минута,die Minute,minúta,Substantiv,A1,"Одну минуту, пожалуйста! — Einen Moment bitte!"
+мама,"die Mama, die Mutter",máma,Substantiv,A1,Моя мама работает в школе. — Meine Mutter arbeitet in der Schule.
+папа,"der Papa, der Vater",pápa,Substantiv,A1,Папа читает газету. — Papa liest die Zeitung.
+брат,der Bruder,brat,Substantiv,A1,У меня есть брат. — Ich habe einen Bruder.
+сестра,die Schwester,sistrá,Substantiv,A1,Моя сестра студентка. — Meine Schwester ist Studentin.
+сын,der Sohn,syn,Substantiv,A1,Их сын ходит в школу. — Ihr Sohn geht zur Schule.
+дочь,die Tochter,dotsch,Substantiv,A1,Её дочь очень весёлая. — Ihre Tochter ist sehr fröhlich.
+жена,die Ehefrau,schyná,Substantiv,A1,Его жена врач. — Seine Frau ist Ärztin.
+муж,der Ehemann,musch,Substantiv,A1,Мой муж дома. — Mein Mann ist zu Hause.
+человек,der Mensch,tschilawjék,Substantiv,A1,Он хороший человек. — Er ist ein guter Mensch.
+женщина,die Frau,schénschtschina,Substantiv,A1,Эта женщина — наш врач. — Diese Frau ist unsere Ärztin.
+мужчина,der Mann,muschtschína,Substantiv,A1,Там стоит мужчина. — Dort steht ein Mann.
+ребёнок,das Kind,ribjónak,Substantiv,A1,Ребёнок спит. — Das Kind schläft.
+имя,der Vorname,ímja,Substantiv,A1,Как ваше имя? — Wie ist Ihr Vorname?
+школа,die Schule,schkóla,Substantiv,A1,Дети идут в школу. — Die Kinder gehen in die Schule.
+студент,der Student,studjént,Substantiv,A1,Я студент из Германии. — Ich bin Student aus Deutschland.
+учитель,der Lehrer,utschítil,Substantiv,A1,Наш учитель говорит медленно. — Unser Lehrer spricht langsam.
+врач,der Arzt,wratsch,Substantiv,A1,Мне нужен врач. — Ich brauche einen Arzt.
+язык,die Sprache; die Zunge,jisýk,Substantiv,A1,Я учу русский язык. — Ich lerne die russische Sprache.
+слово,das Wort,slówa,Substantiv,A1,Это новое слово. — Das ist ein neues Wort.
+вопрос,die Frage,waprós,Substantiv,A1,У меня есть вопрос. — Ich habe eine Frage.
+письмо,der Brief,pismó,Substantiv,A1,Я пишу письмо другу. — Ich schreibe einem Freund einen Brief.
+газета,die Zeitung,gasjéta,Substantiv,A1,Он читает газету. — Er liest die Zeitung.
+деньги,das Geld,djéngi,Substantiv,A1,У меня мало денег. — Ich habe wenig Geld.
+рубль,der Rubel,rubl,Substantiv,A1,Это стоит сто рублей. — Das kostet hundert Rubel.
+магазин,"das Geschäft, der Laden",magasín,Substantiv,A1,Магазин закрыт. — Das Geschäft ist geschlossen.
+квартира,die Wohnung,kwartíra,Substantiv,A1,Наша квартира небольшая. — Unsere Wohnung ist nicht groß.
+комната,das Zimmer,kómnata,Substantiv,A1,В комнате два окна. — Im Zimmer sind zwei Fenster.
+окно,das Fenster,aknó,Substantiv,A1,"Открой окно, пожалуйста. — Mach bitte das Fenster auf."
+дверь,die Tür,dwjer,Substantiv,A1,Дверь закрыта. — Die Tür ist zu.
+стол,der Tisch,stol,Substantiv,A1,Книга на столе. — Das Buch liegt auf dem Tisch.
+улица,die Straße,úlitsa,Substantiv,A1,Мы гуляем по улице. — Wir spazieren durch die Straße.
+страна,das Land,straná,Substantiv,A1,Россия — большая страна. — Russland ist ein großes Land.
+машина,das Auto,maschýna,Substantiv,A1,Это его машина. — Das ist sein Auto.
+автобус,der Bus,aftóbus,Substantiv,A1,Автобус идёт в центр. — Der Bus fährt ins Zentrum.
+поезд,der Zug,pójest,Substantiv,A1,Поезд опаздывает. — Der Zug hat Verspätung.
+билет,"die Fahrkarte, das Ticket",biljét,Substantiv,A1,Мне нужен билет. — Ich brauche eine Fahrkarte.
+телефон,"das Telefon, das Handy",tilifón,Substantiv,A1,Мой телефон не работает. — Mein Handy funktioniert nicht.
+чай,der Tee,tschaj,Substantiv,A1,Хочешь чай? — Möchtest du Tee?
+кофе,der Kaffee,kófje,Substantiv,A1,Я пью кофе без сахара. — Ich trinke Kaffee ohne Zucker.
+молоко,die Milch,malakó,Substantiv,A1,"Купи молоко, пожалуйста. — Kauf bitte Milch."
+суп,die Suppe,sup,Substantiv,A1,Суп очень вкусный. — Die Suppe ist sehr lecker.
+мясо,das Fleisch,mjássa,Substantiv,A1,Я не ем мясо. — Ich esse kein Fleisch.
+сыр,der Käse,syr,Substantiv,A1,На столе хлеб и сыр. — Auf dem Tisch sind Brot und Käse.
+яблоко,der Apfel,jáblaka,Substantiv,A1,Дай мне яблоко. — Gib mir einen Apfel.
+собака,der Hund,sabáka,Substantiv,A1,Наша собака большая. — Unser Hund ist groß.
+кошка,die Katze,kóschka,Substantiv,A1,Кошка спит на диване. — Die Katze schläft auf dem Sofa.
+погода,das Wetter,pagóda,Substantiv,A1,Какая сегодня погода? — Wie ist heute das Wetter?
+музыка,die Musik,músyka,Substantiv,A1,Я люблю русскую музыку. — Ich mag russische Musik.
+фильм,der Film,film,Substantiv,A1,Это очень хороший фильм. — Das ist ein sehr guter Film.
+рука,"die Hand, der Arm",ruká,Substantiv,A1,У меня болит рука. — Mir tut die Hand weh.
+голова,der Kopf,galawá,Substantiv,A1,У меня болит голова. — Ich habe Kopfschmerzen.
+глаз,das Auge,glas,Substantiv,A1,У неё зелёные глаза. — Sie hat grüne Augen.
+быть,sein,byt,Verb,A1,Я хочу быть врачом. — Ich möchte Arzt sein.
+говорить,"sprechen, sagen",gawarít,Verb,A1,Я говорю по-русски. — Ich spreche Russisch.
+читать,lesen,tschitát,Verb,A1,Она читает журнал. — Sie liest eine Zeitschrift.
+писать,schreiben,pisát,Verb,A1,Я пишу письмо. — Ich schreibe einen Brief.
+работать,arbeiten,rabótat,Verb,A1,Где ты работаешь? — Wo arbeitest du?
+жить,"leben, wohnen",schyt,Verb,A1,Мы живём в Берлине. — Wir wohnen in Berlin.
+знать,"wissen, kennen",snat,Verb,A1,Я не знаю. — Ich weiß nicht.
+делать,"machen, tun",djélat,Verb,A1,Что ты делаешь? — Was machst du?
+идти,gehen,ittí,Verb,A1,Я иду домой. — Ich gehe nach Hause.
+ехать,fahren,jéchat,Verb,A1,Мы едем в Москву. — Wir fahren nach Moskau.
+хотеть,"wollen, möchten",chatjét,Verb,A1,Я хочу есть. — Ich möchte essen.
+мочь,können,motsch,Verb,A1,Я не могу прийти. — Ich kann nicht kommen.
+любить,"lieben, mögen",ljubít,Verb,A1,Я люблю музыку. — Ich liebe Musik.
+понимать,verstehen,panimát,Verb,A1,Ты меня понимаешь? — Verstehst du mich?
+есть,essen,jest,Verb,A1,Мы едим суп. — Wir essen Suppe.
+пить,trinken,pit,Verb,A1,Он пьёт кофе. — Er trinkt Kaffee.
+смотреть,"schauen, ansehen",smatrjét,Verb,A1,Мы смотрим фильм. — Wir schauen einen Film.
+видеть,sehen,wídit,Verb,A1,Я вижу твой дом. — Ich sehe dein Haus.
+слушать,"zuhören, hören",slúschat,Verb,A1,Она слушает музыку. — Sie hört Musik.
+спрашивать,fragen,spráschiwat,Verb,A1,Я спрашиваю дорогу. — Ich frage nach dem Weg.
+отвечать,antworten,atwitschát,Verb,A1,Он не отвечает. — Er antwortet nicht.
+покупать,kaufen,pakupát,Verb,A1,Мы покупаем продукты. — Wir kaufen Lebensmittel.
+давать,geben,dawát,Verb,A1,Дай мне книгу. — Gib mir das Buch.
+брать,nehmen,brat,Verb,A1,Я беру этот билет. — Ich nehme dieses Ticket.
+ждать,warten,schdat,Verb,A1,Я жду автобус. — Ich warte auf den Bus.
+помогать,helfen,pamagát,Verb,A1,Он всегда мне помогает. — Er hilft mir immer.
+спать,schlafen,spat,Verb,A1,Ребёнок спит. — Das Kind schläft.
+играть,spielen,igrát,Verb,A1,Дети играют во дворе. — Die Kinder spielen im Hof.
+гулять,spazieren gehen,gulját,Verb,A1,Мы гуляем в парке. — Wir spazieren im Park.
+учить,lernen; lehren,utschít,Verb,A1,Я учу новые слова. — Ich lerne neue Wörter.
+звонить,anrufen,swanít,Verb,A1,Позвони мне вечером. — Ruf mich am Abend an.
+открывать,öffnen,atkrywát,Verb,A1,Магазин открывают в девять. — Der Laden wird um neun geöffnet.
+закрывать,schließen,sakrywát,Verb,A1,"Закрой дверь, пожалуйста. — Mach bitte die Tür zu."
+стоить,kosten,stóit,Verb,A1,Сколько стоит билет? — Was kostet die Fahrkarte?
+нравиться,gefallen,nráwitsa,Verb,A1,Мне нравится этот город. — Mir gefällt diese Stadt.
+большой,groß,balschój,Adjektiv,A1,Это большой дом. — Das ist ein großes Haus.
+маленький,klein,málinkij,Adjektiv,A1,У неё маленькая собака. — Sie hat einen kleinen Hund.
+хороший,gut,charóschij,Adjektiv,A1,Он хороший человек. — Er ist ein guter Mensch.
+плохой,schlecht,plachój,Adjektiv,A1,Сегодня плохая погода. — Heute ist schlechtes Wetter.
+новый,neu,nówyj,Adjektiv,A1,У меня новый телефон. — Ich habe ein neues Handy.
+старый,alt,stáryj,Adjektiv,A1,Это старый город. — Das ist eine alte Stadt.
+молодой,jung,maladój,Adjektiv,A1,Он ещё молодой. — Er ist noch jung.
+красивый,"schön, hübsch",krasívyj,Adjektiv,A1,Какой красивый вид! — Was für eine schöne Aussicht!
+тёплый,warm,tjóplyj,Adjektiv,A1,Сегодня тёплый день. — Heute ist ein warmer Tag.
+холодный,kalt,chalódnyj,Adjektiv,A1,Вода очень холодная. — Das Wasser ist sehr kalt.
+дорогой,teuer; lieb,daragój,Adjektiv,A1,Этот билет слишком дорогой. — Diese Fahrkarte ist zu teuer.
+дешёвый,"billig, günstig",dischówyj,Adjektiv,A1,Здесь всё дешёвое. — Hier ist alles günstig.
+вкусный,lecker,fkúsnyj,Adjektiv,A1,Это очень вкусный суп. — Das ist eine sehr leckere Suppe.
+интересный,interessant,intirjésnyj,Adjektiv,A1,Это интересная книга. — Das ist ein interessantes Buch.
+трудный,"schwer, schwierig",trúdnyj,Adjektiv,A1,Русский язык трудный. — Die russische Sprache ist schwer.
+русский,russisch,rússkij,Adjektiv,A1,Он русский студент. — Er ist ein russischer Student.
+немецкий,deutsch,nimjétskij,Adjektiv,A1,Я читаю немецкий текст. — Ich lese einen deutschen Text.
+сейчас,"jetzt, gerade",sitschás,Adverb,A1,Я сейчас занят. — Ich bin gerade beschäftigt.
+всегда,immer,fsigdá,Adverb,A1,Он всегда опаздывает. — Er kommt immer zu spät.
+очень,sehr,ótschin,Adverb,A1,Это очень вкусно. — Das ist sehr lecker.
+быстро,schnell,býstra,Adverb,A1,Ты говоришь слишком быстро. — Du sprichst zu schnell.
+медленно,langsam,mjédlinna,Adverb,A1,"Говорите медленно, пожалуйста. — Sprechen Sie bitte langsam."
+хорошо,gut,charaschó,Adverb,A1,Она хорошо поёт. — Sie singt gut.
+плохо,schlecht,plócha,Adverb,A1,Я плохо сплю. — Ich schlafe schlecht.
+сегодня,heute,sivódnja,Adverb,A1,Сегодня я дома. — Heute bin ich zu Hause.
+завтра,morgen,sáftra,Adverb,A1,Завтра у меня экзамен. — Morgen habe ich eine Prüfung.
+вчера,gestern,ftschirá,Adverb,A1,Вчера было холодно. — Gestern war es kalt.
+здесь,hier,sdjes,Adverb,A1,Я живу здесь. — Ich wohne hier.
+там,dort,tam,Adverb,A1,Там мой автобус. — Dort ist mein Bus.
+много,viel,mnóga,Adverb,A1,Он много работает. — Er arbeitet viel.
+мало,wenig,mála,Adverb,A1,У нас мало времени. — Wir haben wenig Zeit.
+тоже,auch,tósche,Adverb,A1,Я тоже студент. — Ich bin auch Student.
+потом,"danach, später",patóm,Adverb,A1,"Сначала работа, потом отдых. — Erst die Arbeit, dann die Erholung."
+рано,früh,rána,Adverb,A1,Я встаю рано. — Ich stehe früh auf.
+поздно,spät,pósna,Adverb,A1,Уже поздно. — Es ist schon spät.
+где,wo,gdje,Adverb,A1,Где ты живёшь? — Wo wohnst du?
+когда,wann,kagdá,Adverb,A1,Когда начинается фильм? — Wann beginnt der Film?
+почему,warum,patschimú,Adverb,A1,Почему ты не пришёл? — Warum bist du nicht gekommen?
+сколько,wie viel,skólka,Adverb,A1,Сколько это стоит? — Wie viel kostet das?
+Здравствуйте!,Guten Tag! (höflich),sdrástwujtje,Wendung,A1,"Здравствуйте, как дела? — Guten Tag, wie geht es Ihnen?"
+Доброе утро!,Guten Morgen!,dóbraje útra,Wendung,A1,"Доброе утро, Анна! — Guten Morgen, Anna!"
+Добрый вечер!,Guten Abend!,dóbryj wjétschir,Wendung,A1,"Добрый вечер, проходите! — Guten Abend, kommen Sie herein!"
+Привет!,Hallo! (informell),priwjét,Wendung,A1,"Привет, как ты? — Hallo, wie geht's dir?"
+Пока!,Tschüss!,paká,Wendung,A1,"Пока, до завтра! — Tschüss, bis morgen!"
+Спасибо!,Danke!,spasíba,Wendung,A1,Спасибо большое! — Vielen Dank!
+Пожалуйста!,Bitte!,paschálusta,Wendung,A1,"Пожалуйста, помогите мне. — Bitte helfen Sie mir."
+Как дела?,Wie geht es dir?,kak dilá,Wendung,A1,"Привет, как дела? — Hallo, wie geht es dir?"
+До свидания!,Auf Wiedersehen!,da swidánija,Wendung,A1,"До свидания, до завтра! — Auf Wiedersehen, bis morgen!"
+Извините!,Entschuldigung! (höflich),iswinítje,Wendung,A1,"Извините, я не понимаю. — Entschuldigung, ich verstehe nicht."
+Меня зовут…,Ich heiße…,minjá sawút,Wendung,A1,Меня зовут Анна. — Ich heiße Anna.
+Очень приятно!,Sehr angenehm!,ótschin prijátna,Wendung,A1,"Очень приятно познакомиться. — Sehr angenehm, Sie kennenzulernen."
+Я не понимаю.,Ich verstehe nicht.,ja ni panimáju,Wendung,A1,"Извините, я не понимаю. — Entschuldigung, ich verstehe nicht."
+Сколько стоит?,Was kostet das?,skólka stóit,Wendung,A1,Сколько стоит этот билет? — Was kostet diese Fahrkarte?
+здоровье,die Gesundheit,sdarówje,Substantiv,A2,Здоровье важнее денег. — Gesundheit ist wichtiger als Geld.
+больница,das Krankenhaus,balnítsa,Substantiv,A2,Он лежит в больнице. — Er liegt im Krankenhaus.
+аптека,die Apotheke,aptjéka,Substantiv,A2,Аптека рядом с вокзалом. — Die Apotheke ist neben dem Bahnhof.
+вокзал,der Bahnhof,waksál,Substantiv,A2,Встретимся на вокзале. — Treffen wir uns am Bahnhof.
+аэропорт,der Flughafen,aerapórt,Substantiv,A2,Мы едем в аэропорт. — Wir fahren zum Flughafen.
+самолёт,das Flugzeug,samaljót,Substantiv,A2,Самолёт вылетает в семь. — Das Flugzeug startet um sieben.
+гостиница,das Hotel,gastínitsa,Substantiv,A2,Мы живём в гостинице. — Wir wohnen im Hotel.
+отпуск,der Urlaub,ótpusk,Substantiv,A2,Летом у меня отпуск. — Im Sommer habe ich Urlaub.
+путешествие,die Reise,putischéstwije,Substantiv,A2,Это было долгое путешествие. — Das war eine lange Reise.
+граница,die Grenze,granítsa,Substantiv,A2,Мы едем за границу. — Wir fahren ins Ausland.
+паспорт,der Pass,páspart,Substantiv,A2,Покажите ваш паспорт. — Zeigen Sie Ihren Pass.
+очередь,die Warteschlange; die Reihe,ótschirit,Substantiv,A2,Здесь большая очередь. — Hier ist eine lange Schlange.
+остановка,die Haltestelle,astanófka,Substantiv,A2,Автобусная остановка там. — Die Bushaltestelle ist dort.
+метро,"die Metro, die U-Bahn",mitró,Substantiv,A2,Я еду на метро. — Ich fahre mit der Metro.
+дорога,"der Weg, die Straße",daróga,Substantiv,A2,Дорога занимает час. — Der Weg dauert eine Stunde.
+центр,das Zentrum,tsentr,Substantiv,A2,Мы живём в центре города. — Wir wohnen im Stadtzentrum.
+площадь,der Platz,plóschtschit,Substantiv,A2,На площади много людей. — Auf dem Platz sind viele Leute.
+парк,der Park,park,Substantiv,A2,Дети играют в парке. — Die Kinder spielen im Park.
+музей,das Museum,musjéj,Substantiv,A2,Музей открыт до шести. — Das Museum ist bis sechs geöffnet.
+театр,das Theater,tiátr,Substantiv,A2,Вечером мы идём в театр. — Am Abend gehen wir ins Theater.
+ресторан,das Restaurant,ristarán,Substantiv,A2,Этот ресторан очень дорогой. — Dieses Restaurant ist sehr teuer.
+кафе,das Café,kafé,Substantiv,A2,Давай встретимся в кафе. — Lass uns im Café treffen.
+счёт,die Rechnung; das Konto,schtschot,Substantiv,A2,"Принесите счёт, пожалуйста. — Bringen Sie bitte die Rechnung."
+цена,der Preis,tsyná,Substantiv,A2,Цена слишком высокая. — Der Preis ist zu hoch.
+скидка,der Rabatt,skítka,Substantiv,A2,Здесь скидка двадцать процентов. — Hier gibt es zwanzig Prozent Rabatt.
+рынок,der Markt,rýnak,Substantiv,A2,На рынке фрукты дешевле. — Auf dem Markt ist Obst billiger.
+продукты,die Lebensmittel,pradúkty,Substantiv,A2,Я купил продукты на неделю. — Ich habe Lebensmittel für die Woche gekauft.
+завтрак,das Frühstück,sáftrak,Substantiv,A2,Завтрак в восемь часов. — Frühstück um acht Uhr.
+обед,das Mittagessen,abjét,Substantiv,A2,После обеда я работаю. — Nach dem Mittagessen arbeite ich.
+ужин,das Abendessen,úschyn,Substantiv,A2,Ужин уже готов. — Das Abendessen ist schon fertig.
+кухня,die Küche,kúchnja,Substantiv,A2,Мама на кухне. — Mama ist in der Küche.
+здание,das Gebäude,sdánije,Substantiv,A2,Это старое здание. — Das ist ein altes Gebäude.
+этаж,"die Etage, der Stock",etásch,Substantiv,A2,Мы живём на третьем этаже. — Wir wohnen im dritten Stock.
+зарплата,das Gehalt,sarpláta,Substantiv,A2,Зарплата здесь неплохая. — Das Gehalt ist hier nicht schlecht.
+начальник,"der Chef, der Vorgesetzte",natschálnik,Substantiv,A2,Мой начальник очень строгий. — Mein Chef ist sehr streng.
+коллега,der Kollege,kalljéga,Substantiv,A2,Мой коллега помог мне. — Mein Kollege hat mir geholfen.
+встреча,das Treffen,fstrjétscha,Substantiv,A2,Встреча начинается в десять. — Das Treffen beginnt um zehn.
+собрание,"die Versammlung, das Meeting",sabránije,Substantiv,A2,Завтра у нас собрание. — Morgen haben wir ein Meeting.
+документ,das Dokument,dakumjént,Substantiv,A2,"Подпишите документ, пожалуйста. — Unterschreiben Sie bitte das Dokument."
+экзамен,die Prüfung,eksámin,Substantiv,A2,Я сдал экзамен. — Ich habe die Prüfung bestanden.
+урок,"die Unterrichtsstunde, die Lektion",urók,Substantiv,A2,Урок длится сорок минут. — Die Stunde dauert vierzig Minuten.
+университет,die Universität,uniwirsitjét,Substantiv,A2,Она учится в университете. — Sie studiert an der Universität.
+ошибка,der Fehler,aschýpka,Substantiv,A2,Это была моя ошибка. — Das war mein Fehler.
+правда,die Wahrheit,práwda,Substantiv,A2,Скажи мне правду. — Sag mir die Wahrheit.
+причина,der Grund,pritschína,Substantiv,A2,У него была важная причина. — Er hatte einen wichtigen Grund.
+проблема,das Problem,prabljéma,Substantiv,A2,У нас небольшая проблема. — Wir haben ein kleines Problem.
+возможность,die Möglichkeit,wasmóschnast,Substantiv,A2,У меня нет такой возможности. — Ich habe diese Möglichkeit nicht.
+мнение,die Meinung,mnjénije,Substantiv,A2,"По моему мнению, это правильно. — Meiner Meinung nach ist das richtig."
+новость,"die Nachricht, die Neuigkeit",nówast,Substantiv,A2,У меня хорошая новость. — Ich habe eine gute Nachricht.
+история,die Geschichte,istórija,Substantiv,A2,Он рассказал интересную историю. — Er hat eine interessante Geschichte erzählt.
+жизнь,das Leben,schysn,Substantiv,A2,Жизнь в городе дорогая. — Das Leben in der Stadt ist teuer.
+любовь,die Liebe,ljubóf,Substantiv,A2,Это была любовь с первого взгляда. — Das war Liebe auf den ersten Blick.
+надежда,die Hoffnung,nadjéschda,Substantiv,A2,У нас ещё есть надежда. — Wir haben noch Hoffnung.
+настроение,"die Stimmung, die Laune",nastrajénije,Substantiv,A2,У меня хорошее настроение. — Ich habe gute Laune.
+подарок,das Geschenk,padárak,Substantiv,A2,Это подарок для тебя. — Das ist ein Geschenk für dich.
+праздник,"das Fest, der Feiertag",prásnik,Substantiv,A2,Завтра большой праздник. — Morgen ist ein großer Feiertag.
+день рождения,der Geburtstag,djen raschdjénija,Substantiv,A2,У неё завтра день рождения. — Sie hat morgen Geburtstag.
+зима,der Winter,simá,Substantiv,A2,Зимой здесь очень холодно. — Im Winter ist es hier sehr kalt.
+весна,der Frühling,wisná,Substantiv,A2,Весной всё цветёт. — Im Frühling blüht alles.
+лето,der Sommer,ljéta,Substantiv,A2,Летом мы едем на море. — Im Sommer fahren wir ans Meer.
+осень,der Herbst,óssin,Substantiv,A2,Осенью часто идёт дождь. — Im Herbst regnet es oft.
+дождь,der Regen,doschd,Substantiv,A2,На улице идёт дождь. — Draußen regnet es.
+снег,der Schnee,snjek,Substantiv,A2,Вчера выпал снег. — Gestern ist Schnee gefallen.
+солнце,die Sonne,sóntse,Substantiv,A2,Сегодня светит солнце. — Heute scheint die Sonne.
+море,das Meer,mórje,Substantiv,A2,Я хочу поехать на море. — Ich möchte ans Meer fahren.
+лес,der Wald,ljes,Substantiv,A2,Мы гуляли в лесу. — Wir sind im Wald spazieren gegangen.
+река,der Fluss,riká,Substantiv,A2,Река очень широкая. — Der Fluss ist sehr breit.
+рассказывать,erzählen,rasskásywat,Verb,A2,Он рассказывает о поездке. — Er erzählt von der Reise.
+объяснять,erklären,abjisnját,Verb,A2,Учитель объясняет правило. — Der Lehrer erklärt die Regel.
+повторять,wiederholen,paftarját,Verb,A2,"Повторите, пожалуйста. — Wiederholen Sie bitte."
+запоминать,sich merken,sapaminát,Verb,A2,Я плохо запоминаю имена. — Ich merke mir Namen schlecht.
+забывать,vergessen,sabywát,Verb,A2,Я всегда забываю ключи. — Ich vergesse immer die Schlüssel.
+вспоминать,sich erinnern,fspaminát,Verb,A2,Я часто вспоминаю о детстве. — Ich erinnere mich oft an die Kindheit.
+думать,"denken, glauben",dúmat,Verb,A2,"Я думаю, ты прав. — Ich denke, du hast recht."
+считать,zählen; meinen,schtschitát,Verb,A2,"Я считаю, что это ошибка. — Ich meine, das ist ein Fehler."
+решать,entscheiden; lösen,rischát,Verb,A2,Мы решаем эту проблему. — Wir lösen dieses Problem.
+выбирать,"wählen, aussuchen",wybirát,Verb,A2,"Выбирай, что хочешь. — Such dir aus, was du willst."
+пробовать,"probieren, versuchen",próbawat,Verb,A2,Попробуй этот суп. — Probier diese Suppe.
+начинать,"anfangen, beginnen",natschinát,Verb,A2,Мы начинаем в девять. — Wir fangen um neun an.
+заканчивать,beenden,sakántschiwat,Verb,A2,Я заканчиваю работу в пять. — Ich beende die Arbeit um fünf.
+продолжать,"fortsetzen, weitermachen",pradalschát,Verb,A2,"Продолжайте, пожалуйста. — Machen Sie bitte weiter."
+готовить,kochen; vorbereiten,gatówit,Verb,A2,Она готовит ужин. — Sie kocht das Abendessen.
+отдыхать,sich ausruhen,addychát,Verb,A2,Летом мы отдыхаем на море. — Im Sommer erholen wir uns am Meer.
+встречать,"treffen, begegnen",fstritschát,Verb,A2,Я встречаю друга на вокзале. — Ich hole einen Freund am Bahnhof ab.
+приходить,kommen (zu Fuß),prichadít,Verb,A2,Он приходит домой поздно. — Er kommt spät nach Hause.
+уходить,weggehen,uchadít,Verb,A2,Я ухожу через час. — Ich gehe in einer Stunde.
+приезжать,ankommen (mit Fahrzeug),prijischát,Verb,A2,Гости приезжают завтра. — Die Gäste kommen morgen an.
+уезжать,"abfahren, wegfahren",ujischát,Verb,A2,Мы уезжаем в понедельник. — Wir fahren am Montag ab.
+возвращаться,zurückkehren,waswraschtschátsa,Verb,A2,Он возвращается в среду. — Er kommt am Mittwoch zurück.
+оставаться,bleiben,astawátsa,Verb,A2,Я остаюсь дома. — Ich bleibe zu Hause.
+искать,suchen,iskát,Verb,A2,Я ищу свой телефон. — Ich suche mein Handy.
+находить,finden,nachadít,Verb,A2,Я не нахожу ключи. — Ich finde die Schlüssel nicht.
+терять,verlieren,tirját,Verb,A2,Не теряй время. — Verlier keine Zeit.
+менять,"ändern, wechseln",minját,Verb,A2,Я меняю деньги в банке. — Ich wechsle Geld in der Bank.
+платить,bezahlen,platít,Verb,A2,Я плачу картой. — Ich bezahle mit Karte.
+заказывать,bestellen,sakásywat,Verb,A2,Мы заказываем пиццу. — Wir bestellen Pizza.
+советовать,"raten, empfehlen",sawjétawat,Verb,A2,"Я советую тебе отдохнуть. — Ich rate dir, dich auszuruhen."
+просить,bitten,prasít,Verb,A2,Я прошу тебя помочь. — Ich bitte dich zu helfen.
+благодарить,danken,blagadarít,Verb,A2,Я благодарю вас за помощь. — Ich danke Ihnen für die Hilfe.
+извиняться,sich entschuldigen,iswinjátsa,Verb,A2,Он извинился за опоздание. — Er hat sich für die Verspätung entschuldigt.
+опаздывать,sich verspäten,apásdywat,Verb,A2,Не опаздывай! — Komm nicht zu spät!
+торопиться,sich beeilen,tarapítsa,Verb,A2,Не торопись! — Beeil dich nicht!
+успевать,"es schaffen, rechtzeitig sein",uspiwát,Verb,A2,Я не успеваю закончить. — Ich schaffe es nicht fertig zu werden.
+надеяться,hoffen,nadjéjatsa,Verb,A2,"Надеюсь, всё будет хорошо. — Ich hoffe, alles wird gut."
+бояться,sich fürchten,bajátsa,Verb,A2,Она боится собак. — Sie hat Angst vor Hunden.
+радоваться,sich freuen,rádawatsa,Verb,A2,Дети радуются подаркам. — Die Kinder freuen sich über die Geschenke.
+улыбаться,lächeln,ulybátsa,Verb,A2,Она всегда улыбается. — Sie lächelt immer.
+смеяться,lachen,smijátsa,Verb,A2,Мы много смеялись. — Wir haben viel gelacht.
+плакать,weinen,plákat,Verb,A2,Ребёнок плачет. — Das Kind weint.
+болеть,krank sein; schmerzen,baljét,Verb,A2,Я часто болею зимой. — Ich bin im Winter oft krank.
+чувствовать,fühlen,tschústwawat,Verb,A2,Я чувствую себя хорошо. — Ich fühle mich gut.
+отдавать,"zurückgeben, abgeben",addawát,Verb,A2,Отдай мне книгу. — Gib mir das Buch zurück.
+получать,"bekommen, erhalten",palutschát,Verb,A2,Я получаю письмо каждый месяц. — Ich bekomme jeden Monat einen Brief.
+показывать,zeigen,pakásywat,Verb,A2,Покажи мне фотографию. — Zeig mir das Foto.
+строить,bauen,stróit,Verb,A2,Здесь строят новый дом. — Hier wird ein neues Haus gebaut.
+убирать,"aufräumen, putzen",ubirát,Verb,A2,По субботам я убираю квартиру. — Samstags putze ich die Wohnung.
+мыть,"waschen, spülen",myt,Verb,A2,Он моет посуду. — Er spült das Geschirr.
+надевать,anziehen,nadiwát,Verb,A2,"Надень куртку, холодно. — Zieh die Jacke an, es ist kalt."
+вставать,aufstehen,fstawát,Verb,A2,Я встаю в семь часов. — Ich stehe um sieben Uhr auf.
+ложиться,sich hinlegen,laschýtsa,Verb,A2,Я ложусь спать в одиннадцать. — Ich gehe um elf schlafen.
+звать,"rufen, nennen",swat,Verb,A2,Как тебя зовут? — Wie heißt du?
+пользоваться,benutzen,pólsawatsa,Verb,A2,Я пользуюсь этим словарём. — Ich benutze dieses Wörterbuch.
+важный,wichtig,wáschnyj,Adjektiv,A2,Это очень важный вопрос. — Das ist eine sehr wichtige Frage.
+лёгкий,"leicht, einfach",ljóchkij,Adjektiv,A2,Это лёгкое задание. — Das ist eine leichte Aufgabe.
+сложный,kompliziert,slóschnyj,Adjektiv,A2,Это сложный текст. — Das ist ein komplizierter Text.
+свободный,frei,swabódnyj,Adjektiv,A2,У тебя есть свободное время? — Hast du freie Zeit?
+занятый,beschäftigt,sánjatyj,Adjektiv,A2,Сегодня я очень занятый. — Heute bin ich sehr beschäftigt.
+довольный,zufrieden,dawólnyj,Adjektiv,A2,Начальник доволен результатом. — Der Chef ist mit dem Ergebnis zufrieden.
+весёлый,"fröhlich, lustig",wissjólyj,Adjektiv,A2,Это был весёлый вечер. — Das war ein lustiger Abend.
+грустный,traurig,grúsnyj,Adjektiv,A2,У неё грустный голос. — Sie hat eine traurige Stimme.
+серьёзный,"ernst, seriös",sirjósnyj,Adjektiv,A2,Это серьёзная проблема. — Das ist ein ernstes Problem.
+спокойный,ruhig,spakójnyj,Adjektiv,A2,Здесь очень спокойный район. — Das ist hier ein sehr ruhiges Viertel.
+уверенный,"sicher, überzeugt",uwjérinnyj,Adjektiv,A2,Я в этом уверен. — Ich bin mir da sicher.
+здоровый,gesund,sdaróvyj,Adjektiv,A2,Он совершенно здоровый. — Er ist völlig gesund.
+больной,krank,balnój,Adjektiv,A2,Ребёнок сегодня больной. — Das Kind ist heute krank.
+сильный,stark,sílnyj,Adjektiv,A2,Был сильный ветер. — Es war ein starker Wind.
+слабый,schwach,slábyj,Adjektiv,A2,У меня слабый интернет. — Ich habe schwaches Internet.
+чистый,sauber,tschístyj,Adjektiv,A2,В комнате чистый воздух. — Im Zimmer ist saubere Luft.
+грязный,schmutzig,grjásnyj,Adjektiv,A2,Улица очень грязная. — Die Straße ist sehr schmutzig.
+широкий,breit,schyrókij,Adjektiv,A2,Это широкая улица. — Das ist eine breite Straße.
+узкий,"eng, schmal",úskij,Adjektiv,A2,Здесь узкий коридор. — Hier ist ein schmaler Flur.
+высокий,"hoch, groß (Person)",wysókij,Adjektiv,A2,Он очень высокий. — Er ist sehr groß.
+низкий,niedrig,nískij,Adjektiv,A2,Здесь низкие цены. — Hier sind die Preise niedrig.
+длинный,lang,dlínnyj,Adjektiv,A2,Это был длинный день. — Das war ein langer Tag.
+короткий,kurz,karótkij,Adjektiv,A2,Напиши короткое письмо. — Schreib einen kurzen Brief.
+тихий,"leise, still",tíchij,Adjektiv,A2,У неё тихий голос. — Sie hat eine leise Stimme.
+громкий,laut,grómkij,Adjektiv,A2,Музыка слишком громкая. — Die Musik ist zu laut.
+удобный,"bequem, praktisch",udóbnyj,Adjektiv,A2,Это удобное время. — Das ist eine passende Zeit.
+необходимый,notwendig,niabchadímyj,Adjektiv,A2,Это необходимый документ. — Das ist ein notwendiges Dokument.
+возможный,möglich,wasmóschnyj,Adjektiv,A2,Это единственный возможный вариант. — Das ist die einzige mögliche Variante.
+похожий,ähnlich,pachóschyj,Adjektiv,A2,Он похож на отца. — Er sieht seinem Vater ähnlich.
+разный,verschieden,rásnyj,Adjektiv,A2,У нас разные мнения. — Wir haben verschiedene Meinungen.
+одинаковый,"gleich, identisch",adinákawyj,Adjektiv,A2,У нас одинаковые сумки. — Wir haben gleiche Taschen.
+следующий,nächster,sljédujuschtschij,Adjektiv,A2,На следующей неделе я свободен. — Nächste Woche bin ich frei.
+прошлый,"vergangener, letzter",próschlyj,Adjektiv,A2,В прошлом году было теплее. — Letztes Jahr war es wärmer.
+уже,"schon, bereits",usché,Adverb,A2,Я уже закончил. — Ich bin schon fertig.
+ещё,noch,jischtschó,Adverb,A2,Он ещё работает. — Er arbeitet noch.
+иногда,manchmal,inagdá,Adverb,A2,Иногда я хожу в кино. — Manchmal gehe ich ins Kino.
+часто,oft,tschásta,Adverb,A2,Она часто звонит домой. — Sie ruft oft zu Hause an.
+редко,selten,rjétka,Adverb,A2,Мы редко видимся. — Wir sehen uns selten.
+обычно,"gewöhnlich, normalerweise",abýtschna,Adverb,A2,Обычно я встаю рано. — Normalerweise stehe ich früh auf.
+вместе,zusammen,wmjéstje,Adverb,A2,Мы работаем вместе. — Wir arbeiten zusammen.
+отдельно,"getrennt, separat",addjélna,Adverb,A2,Мы платим отдельно. — Wir zahlen getrennt.
+особенно,besonders,asóbinna,Adverb,A2,Мне особенно нравится этот музей. — Mir gefällt besonders dieses Museum.
+наверное,"wahrscheinlich, wohl",nawjérnaje,Adverb,A2,Он наверное дома. — Er ist wahrscheinlich zu Hause.
+конечно,"natürlich, klar",kanjéschna,Adverb,A2,"Конечно, я помогу. — Natürlich helfe ich."
+почти,fast,patschtí,Adverb,A2,Я почти готов. — Ich bin fast fertig.
+слишком,"zu, allzu",slíschkam,Adverb,A2,Это слишком дорого. — Das ist zu teuer.
+достаточно,"genug, ausreichend",dastátatschna,Adverb,A2,У нас достаточно времени. — Wir haben genug Zeit.
+сначала,"zuerst, zunächst",snatschála,Adverb,A2,Сначала поедим. — Zuerst essen wir.
+наконец,"endlich, schließlich",nakanjéts,Adverb,A2,Наконец мы приехали. — Endlich sind wir angekommen.
+вдруг,plötzlich,wdruk,Adverb,A2,Вдруг пошёл дождь. — Plötzlich begann es zu regnen.
+недавно,"vor kurzem, neulich",nidáwna,Adverb,A2,Он недавно переехал. — Er ist neulich umgezogen.
+давно,"seit langem, lange her",dawnó,Adverb,A2,Мы давно не виделись. — Wir haben uns lange nicht gesehen.
+скоро,bald,skóra,Adverb,A2,Скоро начнётся фильм. — Bald beginnt der Film.
+наверх,nach oben,nawjérch,Adverb,A2,"Иди наверх, пожалуйста. — Geh bitte nach oben."
+направо,nach rechts,napráwa,Adverb,A2,Поверните направо. — Biegen Sie nach rechts ab.
+налево,nach links,naljéwa,Adverb,A2,Идите налево до площади. — Gehen Sie nach links bis zum Platz.
+прямо,geradeaus,prjáma,Adverb,A2,"Идите прямо, потом направо. — Gehen Sie geradeaus, dann rechts."
+Как вас зовут?,Wie heißen Sie?,kak was sawút,Wendung,A2,"Здравствуйте, как вас зовут? — Guten Tag, wie heißen Sie?"
+Откуда вы?,Woher kommen Sie?,atkúda wy,Wendung,A2,Откуда вы приехали? — Woher sind Sie gekommen?
+"Говорите медленнее, пожалуйста.",Sprechen Sie bitte langsamer.,gawarítje mjédlinnije paschálusta,Wendung,A2,"Говорите медленнее, пожалуйста, я плохо понимаю. — Sprechen Sie bitte langsamer, ich verstehe schlecht."
+"Повторите, пожалуйста.",Wiederholen Sie bitte.,paftarítje paschálusta,Wendung,A2,"Извините, повторите, пожалуйста. — Entschuldigung, wiederholen Sie bitte."
+Как пройти…?,Wie komme ich zu…?,kak prajtí,Wendung,A2,Как пройти к вокзалу? — Wie komme ich zum Bahnhof?
+Ничего страшного!,Macht nichts!,nitschiwó stráschnawa,Wendung,A2,"Ничего страшного, бывает. — Macht nichts, das kommt vor."
+К сожалению…,Leider…,k saschaljéniju,Wendung,A2,"К сожалению, я не могу прийти. — Leider kann ich nicht kommen."
+На мой взгляд…,Meiner Ansicht nach…,na moj wsgljat,Wendung,A2,"На мой взгляд, это хорошая идея. — Meiner Ansicht nach ist das eine gute Idee."
+Всё в порядке.,Alles in Ordnung.,fsjo f parjátkje,Wendung,A2,"Не волнуйся, всё в порядке. — Mach dir keine Sorgen, alles in Ordnung."
+Мне кажется…,"Mir scheint…, ich glaube…",mnje káschitsa,Wendung,A2,"Мне кажется, он прав. — Ich glaube, er hat recht."
+Приятного аппетита!,Guten Appetit!,prijátnawa apitíta,Wendung,A2,"Приятного аппетита, друзья! — Guten Appetit, Freunde!"
+С днём рождения!,Herzlichen Glückwunsch zum Geburtstag!,s dnjom raschdjénija,Wendung,A2,"С днём рождения, Анна! — Herzlichen Glückwunsch zum Geburtstag, Anna!"
+Добро пожаловать!,Herzlich willkommen!,dabró paschálawat,Wendung,A2,Добро пожаловать в Москву! — Herzlich willkommen in Moskau!
+Удачи!,Viel Erfolg!,udátschi,Wendung,A2,Удачи на экзамене! — Viel Erfolg bei der Prüfung!
+Не за что!,Keine Ursache!,nje sa schta,Wendung,A2,— Спасибо! — Не за что! — Danke! — Keine Ursache!
+потому что,weil,patamú schta,Konjunktion,A2,"Я не пришёл, потому что был болен. — Ich bin nicht gekommen, weil ich krank war."
+поэтому,deshalb,paétamu,Konjunktion,A2,"Идёт дождь, поэтому мы дома. — Es regnet, deshalb sind wir zu Hause."
+если,"wenn, falls",jésli,Konjunktion,A2,"Если будет время, я приду. — Wenn ich Zeit habe, komme ich."
+хотя,obwohl,chatjá,Konjunktion,A2,"Хотя было поздно, мы гуляли. — Obwohl es spät war, sind wir spazieren gegangen."
+чтобы,"damit, um zu",schtóby,Konjunktion,A2,"Я учу русский, чтобы работать в Москве. — Ich lerne Russisch, um in Moskau zu arbeiten."
+между,zwischen,mjéschdu,Präposition,A2,Магазин между банком и аптекой. — Der Laden ist zwischen Bank und Apotheke.
+около,"neben, ungefähr",ókala,Präposition,A2,Мы живём около парка. — Wir wohnen neben dem Park.
+через,"durch, in (zeitlich)",tschéris,Präposition,A2,Я приду через час. — Ich komme in einer Stunde.
+после,nach,póslje,Präposition,A2,После работы я иду домой. — Nach der Arbeit gehe ich nach Hause.
+во время,während,wa wrjémja,Präposition,A2,Во время урока нельзя говорить. — Während des Unterrichts darf man nicht sprechen.

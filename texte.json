@@ -1,0 +1,86 @@
+[
+  {
+    "id": "a1-mein-tag",
+    "niveau": "A1",
+    "titel": "Мой день",
+    "russisch": "Меня зовут Анна. Я живу в Берлине и работаю в школе. Утром я встаю рано, пью кофе и ем хлеб с сыром. Потом я иду на работу. Школа недалеко, я иду пешком двадцать минут. Днём я много работаю, но моя работа очень интересная. Вечером я читаю книгу или смотрю фильм. Ночью я сплю восемь часов. Мне нравится мой день.",
+    "deutsch": "Ich heiße Anna. Ich wohne in Berlin und arbeite in einer Schule. Morgens stehe ich früh auf, trinke Kaffee und esse Brot mit Käse. Dann gehe ich zur Arbeit. Die Schule ist nicht weit, ich gehe zwanzig Minuten zu Fuß. Tagsüber arbeite ich viel, aber meine Arbeit ist sehr interessant. Abends lese ich ein Buch oder schaue einen Film. Nachts schlafe ich acht Stunden. Mir gefällt mein Tag."
+  },
+  {
+    "id": "a1-familie",
+    "niveau": "A1",
+    "titel": "Моя семья",
+    "russisch": "У меня большая семья. Мой папа врач, он работает в больнице. Моя мама учитель, она работает в школе. У меня есть брат и сестра. Мой брат ещё маленький, ему семь лет. Он играет в парке каждый день. Моя сестра студентка, она учится в университете. Вечером мы все дома. Мы едим ужин, говорим о работе и смотрим фильм. Я очень люблю свою семью.",
+    "deutsch": "Ich habe eine große Familie. Mein Vater ist Arzt, er arbeitet in einem Krankenhaus. Meine Mutter ist Lehrerin, sie arbeitet in einer Schule. Ich habe einen Bruder und eine Schwester. Mein Bruder ist noch klein, er ist sieben Jahre alt. Er spielt jeden Tag im Park. Meine Schwester ist Studentin, sie studiert an der Universität. Abends sind wir alle zu Hause. Wir essen Abendbrot, sprechen über die Arbeit und schauen einen Film. Ich liebe meine Familie sehr."
+  },
+  {
+    "id": "a1-magazin",
+    "niveau": "A1",
+    "titel": "В магазине",
+    "russisch": "Сегодня суббота, и я иду в магазин. Мне нужно купить продукты на неделю. Я беру хлеб, молоко, сыр и мясо. Ещё я покупаю яблоки, потому что они очень вкусные. В магазине большая очередь, и я жду десять минут. Всё стоит тридцать евро. Это недорого. Потом я иду домой пешком. Дома я готовлю суп. Вечером придут мои друзья.",
+    "deutsch": "Heute ist Samstag, und ich gehe in den Laden. Ich muss Lebensmittel für die Woche kaufen. Ich nehme Brot, Milch, Käse und Fleisch. Außerdem kaufe ich Äpfel, weil sie sehr lecker sind. Im Laden ist eine lange Schlange, und ich warte zehn Minuten. Alles kostet dreißig Euro. Das ist nicht teuer. Danach gehe ich zu Fuß nach Hause. Zu Hause koche ich Suppe. Am Abend kommen meine Freunde."
+  },
+  {
+    "id": "a1-wohnung",
+    "niveau": "A1",
+    "titel": "Наша квартира",
+    "russisch": "Мы живём в маленькой квартире в центре города. В квартире три комнаты и кухня. Моя комната небольшая, но очень светлая. В ней есть стол, окно и много книг. Кухня старая, но там всегда тепло. Утром я пью там чай и читаю газету. Наша улица тихая, машин мало. Магазин и аптека рядом. Мне здесь очень нравится, и я не хочу переезжать.",
+    "deutsch": "Wir wohnen in einer kleinen Wohnung im Stadtzentrum. Die Wohnung hat drei Zimmer und eine Küche. Mein Zimmer ist nicht groß, aber sehr hell. Darin stehen ein Tisch, ein Fenster und viele Bücher. Die Küche ist alt, aber dort ist es immer warm. Morgens trinke ich dort Tee und lese die Zeitung. Unsere Straße ist ruhig, es gibt wenig Autos. Der Laden und die Apotheke sind in der Nähe. Es gefällt mir hier sehr, und ich will nicht umziehen."
+  },
+  {
+    "id": "a2-wochenende",
+    "niveau": "A2",
+    "titel": "Выходные за городом",
+    "russisch": "В прошлую субботу мы с друзьями поехали за город. Погода была прекрасная: светило солнце, но было не очень жарко. Мы приехали на поезде, а потом долго шли пешком через лес. Река была холодная, но мой друг всё-таки решил плавать. Днём мы готовили еду на огне и много смеялись. Вечером стало прохладно, и мы вернулись домой поздно. Я очень устал, но это были прекрасные выходные. В следующем месяце мы поедем туда снова.",
+    "deutsch": "Am vergangenen Samstag sind meine Freunde und ich aufs Land gefahren. Das Wetter war herrlich: Die Sonne schien, aber es war nicht sehr heiß. Wir kamen mit dem Zug an und gingen dann lange zu Fuß durch den Wald. Der Fluss war kalt, aber mein Freund beschloss trotzdem zu schwimmen. Tagsüber kochten wir Essen über dem Feuer und lachten viel. Am Abend wurde es kühl, und wir kehrten spät nach Hause zurück. Ich war sehr müde, aber es war ein wunderbares Wochenende. Nächsten Monat fahren wir wieder dorthin."
+  },
+  {
+    "id": "a2-neue-arbeit",
+    "niveau": "A2",
+    "titel": "Новая работа",
+    "russisch": "Месяц назад я начал работать в новой фирме. Сначала было трудно: я никого не знал и постоянно делал ошибки. Мой начальник строгий, но справедливый человек, и он всё терпеливо объяснял. Коллеги тоже помогали мне, особенно одна женщина из соседнего отдела. Теперь я понимаю, что мне просто нужно было время. Зарплата здесь не намного выше, чем на старом месте, но работа гораздо интереснее. Я больше не боюсь понедельника, и это, наверное, самое важное.",
+    "deutsch": "Vor einem Monat habe ich angefangen, in einer neuen Firma zu arbeiten. Am Anfang war es schwierig: Ich kannte niemanden und machte ständig Fehler. Mein Chef ist ein strenger, aber gerechter Mensch, und er hat alles geduldig erklärt. Auch die Kollegen halfen mir, besonders eine Frau aus der Nachbarabteilung. Jetzt verstehe ich, dass ich einfach Zeit gebraucht habe. Das Gehalt ist hier nicht viel höher als an der alten Stelle, aber die Arbeit ist viel interessanter. Ich habe keine Angst mehr vor dem Montag, und das ist wahrscheinlich das Wichtigste."
+  },
+  {
+    "id": "a2-petersburg",
+    "niveau": "A2",
+    "titel": "Поездка в Петербург",
+    "russisch": "Прошлым летом я первый раз поехал в Петербург. Дорога заняла почти целый день, и я приехал поздно вечером. Гостиница была недорогая и находилась недалеко от центра. На следующее утро я пошёл гулять по городу. Улицы там широкие, а здания очень красивые и старые. Днём я был в музее и провёл там четыре часа. Вечером я сидел в маленьком кафе у реки и просто смотрел на воду. Через неделю мне уже не хотелось уезжать.",
+    "deutsch": "Letzten Sommer bin ich zum ersten Mal nach Petersburg gefahren. Die Fahrt dauerte fast einen ganzen Tag, und ich kam spät am Abend an. Das Hotel war günstig und lag nicht weit vom Zentrum. Am nächsten Morgen ging ich in der Stadt spazieren. Die Straßen sind dort breit, und die Gebäude sind sehr schön und alt. Tagsüber war ich in einem Museum und verbrachte dort vier Stunden. Am Abend saß ich in einem kleinen Café am Fluss und schaute einfach aufs Wasser. Nach einer Woche wollte ich schon nicht mehr abreisen."
+  },
+  {
+    "id": "a2-wetter",
+    "niveau": "A2",
+    "titel": "Плохая погода",
+    "russisch": "Всю прошлую неделю шёл дождь. Каждое утро я вставал, смотрел в окно и видел одно и то же серое небо. На улице было холодно и грязно, и никто не хотел выходить из дома. Мои планы на выходные не получились: мы собирались в парк, но остались в квартире. Мы играли в карты, пили чай и слушали музыку. Честно говоря, это тоже было неплохо. А в воскресенье вечером наконец выглянуло солнце.",
+    "deutsch": "Die ganze letzte Woche hat es geregnet. Jeden Morgen stand ich auf, schaute aus dem Fenster und sah denselben grauen Himmel. Draußen war es kalt und schmutzig, und niemand wollte das Haus verlassen. Meine Pläne für das Wochenende klappten nicht: Wir wollten in den Park, blieben aber in der Wohnung. Wir spielten Karten, tranken Tee und hörten Musik. Ehrlich gesagt war das auch nicht schlecht. Und am Sonntagabend kam endlich die Sonne heraus."
+  },
+  {
+    "id": "b1-umzug",
+    "niveau": "B1",
+    "titel": "Переезд в другой город",
+    "russisch": "Когда мне предложили работу в другом городе, я долго не мог решить, стоит ли соглашаться. С одной стороны, это была прекрасная возможность, о которой я мечтал несколько лет. С другой стороны, здесь у меня остались друзья, привычная квартира и любимое кафе на углу. В конце концов я понял, что буду жалеть, если откажусь. Переезд оказался сложнее, чем я думал: первые недели я чувствовал себя чужим и почти ни с кем не разговаривал. Но постепенно город стал моим.",
+    "deutsch": "Als mir eine Stelle in einer anderen Stadt angeboten wurde, konnte ich mich lange nicht entscheiden, ob ich zusagen sollte. Einerseits war es eine großartige Möglichkeit, von der ich einige Jahre geträumt hatte. Andererseits blieben hier meine Freunde, die vertraute Wohnung und das Lieblingscafé an der Ecke. Am Ende begriff ich, dass ich es bereuen würde, wenn ich ablehnte. Der Umzug erwies sich als schwieriger, als ich gedacht hatte: In den ersten Wochen fühlte ich mich fremd und sprach fast mit niemandem. Aber allmählich wurde die Stadt meine."
+  },
+  {
+    "id": "b1-plaene",
+    "niveau": "B1",
+    "titel": "Разговор о планах",
+    "russisch": "Вчера мы с сестрой полвечера спорили о том, что делать летом. Она уверена, что нужно ехать к морю, потому что после такого длинного года мы оба заслужили отдых. Я же считаю, что лучше потратить эти деньги на ремонт: в квартире давно пора менять окна. Мы так ничего и не решили. Наверное, закончится тем, что мы поедем на неделю куда-нибудь недалеко, а остальное отложим до следующего года. Так у нас бывает почти каждый раз.",
+    "deutsch": "Gestern haben meine Schwester und ich einen halben Abend darüber gestritten, was wir im Sommer machen. Sie ist überzeugt, dass wir ans Meer fahren müssen, weil wir beide nach so einem langen Jahr Erholung verdient haben. Ich dagegen finde, dass man das Geld besser für die Renovierung ausgibt: In der Wohnung müssten längst die Fenster ausgetauscht werden. Wir haben überhaupt nichts entschieden. Wahrscheinlich endet es damit, dass wir für eine Woche irgendwohin in die Nähe fahren und den Rest auf nächstes Jahr verschieben. So ist es bei uns fast jedes Mal."
+  },
+  {
+    "id": "b1-sprachen",
+    "niveau": "B1",
+    "titel": "Изучение языков",
+    "russisch": "Многие думают, что выучить иностранный язык можно только в детстве. Мне кажется, это не совсем так. Взрослые учатся медленнее, зато они лучше понимают, зачем им это нужно, и умеют работать регулярно. Самое трудное — не грамматика и даже не новые слова, а привычка заниматься каждый день хотя бы двадцать минут. Тот, кто занимается час раз в неделю, обычно быстро всё забывает. Я убедился в этом на собственном опыте, когда бросил учить русский и через полгода начал почти сначала.",
+    "deutsch": "Viele denken, dass man eine Fremdsprache nur in der Kindheit lernen kann. Mir scheint, das stimmt nicht ganz. Erwachsene lernen langsamer, dafür verstehen sie besser, wozu sie es brauchen, und können regelmäßig arbeiten. Das Schwerste ist nicht die Grammatik und nicht einmal die neuen Wörter, sondern die Gewohnheit, jeden Tag wenigstens zwanzig Minuten zu üben. Wer einmal pro Woche eine Stunde lernt, vergisst gewöhnlich schnell alles wieder. Davon habe ich mich aus eigener Erfahrung überzeugt, als ich aufhörte, Russisch zu lernen, und nach einem halben Jahr fast von vorn anfing."
+  },
+  {
+    "id": "b1-heizung",
+    "niveau": "B1",
+    "titel": "Проблема с квартирой",
+    "russisch": "Две недели назад у нас в квартире перестало работать отопление. Я сразу позвонил хозяину, но он ответил, что сейчас занят и приедет в выходные. В выходные, разумеется, никто не приехал. Мы с соседями написали письмо в фирму, которая отвечает за дом, и только после этого что-то начало происходить. Мастер пришёл в среду, посмотрел на трубы, сказал, что ничего страшного, и всё починил за час. До сих пор не понимаю, почему это заняло две недели.",
+    "deutsch": "Vor zwei Wochen fiel bei uns in der Wohnung die Heizung aus. Ich rief sofort den Vermieter an, aber er antwortete, er sei gerade beschäftigt und komme am Wochenende. Am Wochenende kam natürlich niemand. Wir schrieben zusammen mit den Nachbarn einen Brief an die Firma, die für das Haus zuständig ist, und erst danach begann etwas zu geschehen. Der Handwerker kam am Mittwoch, sah sich die Rohre an, sagte, es sei nichts Schlimmes, und reparierte alles in einer Stunde. Bis heute verstehe ich nicht, warum das zwei Wochen gedauert hat."
+  }
+]
