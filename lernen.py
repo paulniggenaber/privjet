@@ -6,6 +6,7 @@ from datetime import date
 import pandas as pd
 import streamlit as st
 
+from batch import batch_bereich
 from daten import als_datum
 from karte import zeige_flashcard
 from konfig import DE_RU, MAX_BOX, MIXED, M_GEMISCHT, M_TIPPEN, RU_DE
@@ -78,9 +79,6 @@ def tab_lernen(df: pd.DataFrame, progress: dict, niveaus, wortarten, richtung, m
     faellig = [w for w in gefiltert["russisch"] if is_due(w, progress, heute)]
     pool = list(gefiltert["russisch"]) if st.session_state.alle_ueben else faellig
 
-    if filter_geaendert or st.session_state.karte not in pool:
-        ziehe_karte(pool)
-
     in_box5 = sum(1 for w in gefiltert["russisch"] if progress.get(w, {}).get("box") == MAX_BOX)
     boxen = [progress.get(w, {}).get("box", 1) for w in gefiltert["russisch"]]
     anteil = sum((b - 1) / (MAX_BOX - 1) for b in boxen) / len(boxen) if boxen else 0.0
@@ -96,6 +94,15 @@ def tab_lernen(df: pd.DataFrame, progress: dict, niveaus, wortarten, richtung, m
         st.warning("Keine Vokabeln passen zu den gewählten Filtern.")
         return
 
+    batch_rest = batch_bereich("", list(gefiltert["russisch"]), progress)
+    if batch_rest is not None:
+        vorhanden = set(df["russisch"])
+        pool = [w for w in batch_rest if w in vorhanden]
+        if not pool:
+            return
+    if filter_geaendert or st.session_state.karte not in pool:
+        ziehe_karte(pool)
+
     if not pool:
         naechste = min(als_datum(progress[w]["next_due"]) for w in gefiltert["russisch"])
         st.success(
@@ -108,7 +115,7 @@ def tab_lernen(df: pd.DataFrame, progress: dict, niveaus, wortarten, richtung, m
             st.rerun()
         return
 
-    if st.session_state.alle_ueben:
+    if st.session_state.alle_ueben and batch_rest is None:
         st.caption("Freies Üben aktiv – alle Karten des Filters sind freigeschaltet.")
 
     karte = df[df["russisch"] == st.session_state.karte].iloc[0]

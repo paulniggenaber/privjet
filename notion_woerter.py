@@ -11,6 +11,7 @@ from datetime import date
 import pandas as pd
 import streamlit as st
 
+from batch import batch_bereich
 from daten import als_datum
 from karte import zeige_flashcard
 from konfig import DE_RU, MAX_BOX, NOTION_GRUPPEN, NOTION_PROGRESS_JSON
@@ -57,8 +58,6 @@ def tab_notion(df: pd.DataFrame, progress: dict) -> None:
     ids = list(gefiltert["id"])
     faellig = [w for w in ids if is_due(w, progress, heute)]
     pool = ids if st.session_state.n_alle_ueben else faellig
-    if filter_geaendert or st.session_state.n_karte not in pool:
-        _ziehe_karte(pool)
 
     boxen = [progress.get(w, {}).get("box", 1) for w in ids]
     anteil = sum((b - 1) / (MAX_BOX - 1) for b in boxen) / len(boxen) if boxen else 0.0
@@ -76,6 +75,15 @@ def tab_notion(df: pd.DataFrame, progress: dict) -> None:
         )
     st.divider()
 
+    batch_rest = batch_bereich("n_", ids, progress)
+    if batch_rest is not None:
+        vorhanden = set(df["id"])
+        pool = [w for w in batch_rest if w in vorhanden]
+        if not pool:
+            return
+    if filter_geaendert or st.session_state.n_karte not in pool:
+        _ziehe_karte(pool)
+
     if not pool:
         naechste = min(als_datum(progress[w]["next_due"]) for w in ids)
         st.success(
@@ -88,7 +96,7 @@ def tab_notion(df: pd.DataFrame, progress: dict) -> None:
             st.rerun()
         return
 
-    if st.session_state.n_alle_ueben:
+    if st.session_state.n_alle_ueben and batch_rest is None:
         st.caption("Freies Üben aktiv – alle Karten des Filters sind freigeschaltet.")
         if st.button("Freies Üben beenden", key="n_frei_ende"):
             st.session_state.n_alle_ueben = False

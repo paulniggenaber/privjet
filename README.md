@@ -32,6 +32,7 @@ Die App öffnet sich unter <http://localhost:8501>. Beenden mit `Ctrl+C`.
 | `leitner.py` | Fälligkeit und Bewertung einer Karte |
 | `vergleich.py` | Textvergleich ohne Streamlit: Antwortprüfung, Stichwortabgleich |
 | `karte.py` | die Flashcard mit der 3D-Drehung |
+| `batch.py` | Batch-Modus: N Karten einer Box üben, bis alle eine Box höher liegen |
 | `tastenfeld.py` | kyrillisches Tastenfeld (ЙЦУКЕН) |
 | `lernen.py` | Tab „Lernen" – Kartenwahl, Kartenmodus, Tippmodus |
 | `notion_woerter.py` | Tab „Notion-Wörter" – Wortbank aus Notion, Karten DE → RU |
@@ -74,6 +75,15 @@ Neue Wörter kommen per `notion_import.py` dazu: Seiteninhalt als Markdown
 speichern und `python notion_import.py seite.md` aufrufen. Das Skript hängt
 nur an bzw. aktualisiert Übersetzungen – gelöscht wird nichts. Eine geplante
 Claude-Routine macht das jeden Morgen um 6:30 und pusht, wenn es Neues gibt.
+
+## Batch lernen
+
+In den Tabs „Lernen" und „Notion-Wörter" startet „🎯 Batch lernen" jederzeit –
+unabhängig von der Fälligkeit – einen Batch: Box (1 → 2, 2 → 3, …) und
+Batchgröße wählen, die App zieht zufällig so viele Karten aus dieser Box (im
+aktuellen Filter). Sie werden so lange abgefragt, bis alle mindestens eine Box
+höher liegen. Bewertet wird normal nach Leitner: „Nochmal" wirft die Karte in
+Box 1 zurück, sie bleibt im Batch, bis sie das Ziel wieder erreicht.
 
 ## Lernlogik (Leitner)
 
