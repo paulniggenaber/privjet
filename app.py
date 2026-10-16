@@ -8,11 +8,22 @@ from datetime import date
 import pandas as pd
 import streamlit as st
 
-from daten import load_progress, load_texte, load_verben, load_vocab
-from konfig import DE_RU, MIXED, M_GEMISCHT, M_KARTEN, M_TIPPEN, RU_DE, VOCAB_CSV
+from daten import load_notion, load_progress, load_texte, load_verben, load_vocab
+from konfig import (
+    DE_RU,
+    MIXED,
+    M_GEMISCHT,
+    M_KARTEN,
+    M_TIPPEN,
+    NOTION_PROGRESS_JSON,
+    RU_DE,
+    VOCAB_CSV,
+)
 from konjugation import DEFAULTS as KONJ_DEFAULTS
 from konjugation import tab_konjugation
 from lernen import tab_lernen
+from notion_woerter import DEFAULTS as NOTION_DEFAULTS
+from notion_woerter import tab_notion
 from uebersetzen import tab_uebersetzen
 from verwalten import tab_verwalten
 
@@ -37,6 +48,7 @@ def init_state() -> None:
         "gelernt_heute": 0,
         "sitzungs_datum": date.today().isoformat(),
         **KONJ_DEFAULTS,
+        **NOTION_DEFAULTS,
     }
     for key, value in defaults.items():
         st.session_state.setdefault(key, value)
@@ -84,13 +96,15 @@ def main() -> None:
             st.rerun()
         st.caption(f"{len(df)} Vokabeln · {len(progress)} davon begonnen")
 
-    lernen, konjugation, uebersetzen, verwalten = st.tabs(
-        ["Lernen", "Konjugation", "Übersetzen", "Vokabeln verwalten"]
+    lernen, notion, konjugation, uebersetzen, verwalten = st.tabs(
+        ["Lernen", "Notion-Wörter", "Konjugation", "Übersetzen", "Vokabeln verwalten"]
     )
     with lernen:
         tab_lernen(
             df, progress, niveaus or alle_niveaus, wortarten or alle_wortarten, richtung, modus
         )
+    with notion:
+        tab_notion(load_notion(), load_progress(NOTION_PROGRESS_JSON))
     with konjugation:
         tab_konjugation(load_verben())
     with uebersetzen:

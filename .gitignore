@@ -8,6 +8,7 @@ __pycache__/
 # Laufzeitdaten: persoenlicher Lernfortschritt, wird beim ersten
 # Bewerten automatisch neu angelegt
 progress.json
+notion_progress.json
 
 # Log des lokalen Streamlit-Servers
 streamlit.log

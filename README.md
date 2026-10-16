@@ -34,13 +34,17 @@ Die App öffnet sich unter <http://localhost:8501>. Beenden mit `Ctrl+C`.
 | `karte.py` | die Flashcard mit der 3D-Drehung |
 | `tastenfeld.py` | kyrillisches Tastenfeld (ЙЦУКЕН) |
 | `lernen.py` | Tab „Lernen" – Kartenwahl, Kartenmodus, Tippmodus |
+| `notion_woerter.py` | Tab „Notion-Wörter" – Wortbank aus Notion, Karten DE → RU |
+| `notion_import.py` | übernimmt neue Wörter aus der Notion-Seite in `notion_woerter.csv` (ohne Streamlit) |
 | `konjugation.py` | Tab „Konjugation" |
 | `uebersetzen.py` | Tab „Übersetzen" |
 | `verwalten.py` | Tab „Vokabeln verwalten" |
 | `vocab.csv` | Vokabeldaten (UTF-8) |
+| `notion_woerter.csv` | Wortbank aus Notion: kategorie, russisch, deutsch, hinzugefuegt |
 | `texte.json` | Übersetzungstexte mit Musterlösung (UTF-8) |
 | `verben.json` | Konjugationstabellen (UTF-8) |
 | `progress.json` | Lernfortschritt, wird beim ersten Bewerten automatisch angelegt |
+| `notion_progress.json` | eigener Lernfortschritt des Tabs „Notion-Wörter" |
 | `requirements.txt` | Abhängigkeiten |
 
 Die Abhängigkeiten laufen nur in eine Richtung, es gibt keine Zyklen:
@@ -55,6 +59,21 @@ app  →  lernen ┬→ karte, tastenfeld, vergleich
 
 `vergleich.py` kommt ohne Streamlit aus – die Prüflogik lässt sich also ohne
 laufende App testen.
+
+## Notion-Wörter
+
+Der Tab „Notion-Wörter" fragt die Wortbank der Notion-Seite
+[Wortbank](https://app.notion.com/p/3f50147492c98110b057e5387d33a5ea) ab –
+immer Deutsch → Russisch, als Karteikarte zum Selbstbewerten. Gefiltert wird
+nach Substantiven, Verben, Adjektiven und „Rest" (alle übrigen Kategorien der
+Seite). Die Boxen funktionieren wie im Tab „Lernen", der Fortschritt liegt
+aber getrennt in `notion_progress.json` (Schlüssel `kategorie|russisch`, weil
+z. B. что als Fragewort und als Konjunktion vorkommt).
+
+Neue Wörter kommen per `notion_import.py` dazu: Seiteninhalt als Markdown
+speichern und `python notion_import.py seite.md` aufrufen. Das Skript hängt
+nur an bzw. aktualisiert Übersetzungen – gelöscht wird nichts. Eine geplante
+Claude-Routine macht das jeden Morgen um 6:30 und pusht, wenn es Neues gibt.
 
 ## Lernlogik (Leitner)
 

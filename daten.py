@@ -1,4 +1,4 @@
-"""Laden und Speichern von vocab.csv, texte.json und progress.json.
+"""Laden und Speichern von vocab.csv, notion_woerter.csv, texte.json und progress.json.
 
 Geschrieben wird immer atomar (temporäre Datei + os.replace), gelesen
 immer explizit als UTF-8. Defekte Dateien führen nie zum Absturz.
@@ -13,7 +13,16 @@ from pathlib import Path
 import pandas as pd
 import streamlit as st
 
-from konfig import COLUMNS, MAX_BOX, PROGRESS_JSON, TEXTE_JSON, VERBEN_JSON, VOCAB_CSV
+from konfig import (
+    COLUMNS,
+    MAX_BOX,
+    NOTION_COLUMNS,
+    NOTION_CSV,
+    PROGRESS_JSON,
+    TEXTE_JSON,
+    VERBEN_JSON,
+    VOCAB_CSV,
+)
 
 
 @st.cache_data(show_spinner=False)
@@ -28,6 +37,26 @@ def load_vocab() -> pd.DataFrame:
         df[col] = df[col].astype(str).str.strip()
     df = df[df["russisch"] != ""]
     return df.drop_duplicates(subset="russisch", keep="first").reset_index(drop=True)
+
+
+@st.cache_data(show_spinner=False)
+def load_notion() -> pd.DataFrame:
+    """Liest notion_woerter.csv; fehlt die Datei, bleibt die Wortbank leer.
+
+    Schlüssel für den Fortschritt ist `id` = "kategorie|russisch", weil
+    dasselbe russische Wort in mehreren Kategorien vorkommen kann (что, есть).
+    """
+    try:
+        df = pd.read_csv(NOTION_CSV, encoding="utf-8", dtype=str, keep_default_na=False)
+    except (FileNotFoundError, pd.errors.ParserError, pd.errors.EmptyDataError, UnicodeDecodeError):
+        df = pd.DataFrame(columns=NOTION_COLUMNS)
+    df = df.reindex(columns=NOTION_COLUMNS).fillna("")
+    for col in NOTION_COLUMNS:
+        df[col] = df[col].astype(str).str.strip()
+    df = df[(df["russisch"] != "") & (df["deutsch"] != "")]
+    df = df.drop_duplicates(subset=["kategorie", "russisch"], keep="first").reset_index(drop=True)
+    df["id"] = df["kategorie"] + "|" + df["russisch"]
+    return df
 
 
 @st.cache_data(show_spinner=False)
@@ -124,10 +153,10 @@ def new_entry() -> dict:
     return {"box": 1, "next_due": date.today().isoformat(), "richtig": 0, "falsch": 0}
 
 
-def load_progress() -> dict:
+def load_progress(pfad: Path = PROGRESS_JSON) -> dict:
     """Lädt progress.json; bei fehlender oder defekter Datei leerer Fortschritt."""
     try:
-        raw = json.loads(PROGRESS_JSON.read_text(encoding="utf-8"))
+        raw = json.loads(pfad.read_text(encoding="utf-8"))
     except (FileNotFoundError, json.JSONDecodeError, OSError, UnicodeDecodeError):
         return {}
     if not isinstance(raw, dict):
@@ -146,5 +175,5 @@ def load_progress() -> dict:
     return progress
 
 
-def save_progress(progress: dict) -> None:
-    _atomic_write(PROGRESS_JSON, json.dumps(progress, ensure_ascii=False, indent=2))
+def save_progress(progress: dict, pfad: Path = PROGRESS_JSON) -> None:
+    _atomic_write(pfad, json.dumps(progress, ensure_ascii=False, indent=2))

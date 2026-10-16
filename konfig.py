@@ -16,6 +16,13 @@ VERBEN_JSON = BASE_DIR / "verben.json"
 PROGRESS_JSON = BASE_DIR / "progress.json"
 
 
+# Wortbank aus Notion: Daten (per notion_import.py gepflegt) und eigener Fortschritt
+NOTION_CSV = BASE_DIR / "notion_woerter.csv"
+NOTION_PROGRESS_JSON = BASE_DIR / "notion_progress.json"
+NOTION_COLUMNS = ["kategorie", "russisch", "deutsch", "hinzugefuegt"]
+NOTION_GRUPPEN = ["Substantive", "Verben", "Adjektive", "Rest"]
+
+
 COLUMNS = ["russisch", "deutsch", "transkription", "wortart", "niveau", "beispiel"]
 
 
