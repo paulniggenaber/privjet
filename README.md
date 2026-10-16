@@ -79,8 +79,9 @@ Claude-Routine macht das jeden Morgen um 6:30 und pusht, wenn es Neues gibt.
 
 ## Fortschritt auf Streamlit Cloud
 
-Auf Streamlit Cloud wird die Festplatte bei jedem Neustart gelöscht (Push,
-Aufwachen nach Inaktivität). Deshalb kann der Fortschritt in einem privaten
+Ein Push auf `main` lässt `progress.json` auf Streamlit Cloud bestehen. Ob
+der Fortschritt einen kompletten Neustart übersteht (Reboot, Aufwachen nach
+Inaktivität), ist nicht geprüft. Als Absicherung kann er in einem privaten
 GitHub-Gist liegen, mit den Dateien `progress.json` und `notion_progress.json`.
 Aktiv wird das, sobald in den Streamlit-Secrets steht:
 
