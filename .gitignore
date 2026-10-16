@@ -15,3 +15,6 @@ streamlit.log
 
 # macOS
 .DS_Store
+
+# Streamlit-Secrets (Gist-Token) - nie ins Repo
+.streamlit/secrets.toml

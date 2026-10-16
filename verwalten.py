@@ -5,8 +5,8 @@ from collections import Counter
 import pandas as pd
 import streamlit as st
 
-from daten import save_vocab
-from konfig import COLUMNS, MAX_BOX, PROGRESS_JSON
+from daten import save_progress, save_vocab
+from konfig import COLUMNS, MAX_BOX
 
 
 def tab_verwalten(df: pd.DataFrame, progress: dict) -> None:
@@ -54,7 +54,8 @@ def tab_verwalten(df: pd.DataFrame, progress: dict) -> None:
     st.subheader("Lernfortschritt zurücksetzen")
     bestaetigt = st.checkbox("Ja, den gesamten Lernfortschritt wirklich löschen")
     if st.button("Fortschritt zurücksetzen", disabled=not bestaetigt):
-        PROGRESS_JSON.unlink(missing_ok=True)
+        progress.clear()
+        save_progress(progress)
         for key in ("karte", "aufgedeckt", "filter_sig"):
             st.session_state.pop(key, None)
         st.session_state.gelernt_heute = 0

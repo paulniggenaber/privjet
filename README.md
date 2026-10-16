@@ -32,6 +32,7 @@ Die App öffnet sich unter <http://localhost:8501>. Beenden mit `Ctrl+C`.
 | `leitner.py` | Fälligkeit und Bewertung einer Karte |
 | `vergleich.py` | Textvergleich ohne Streamlit: Antwortprüfung, Stichwortabgleich |
 | `karte.py` | die Flashcard mit der 3D-Drehung |
+| `gist.py` | Lesen/Schreiben einer Datei in einem GitHub-Gist (dauerhafter Fortschritt auf Streamlit Cloud) |
 | `batch.py` | Batch-Modus: N Karten einer Box üben, bis alle eine Box höher liegen |
 | `tastenfeld.py` | kyrillisches Tastenfeld (ЙЦУКЕН) |
 | `lernen.py` | Tab „Lernen" – Kartenwahl, Kartenmodus, Tippmodus |
@@ -75,6 +76,24 @@ Neue Wörter kommen per `notion_import.py` dazu: Seiteninhalt als Markdown
 speichern und `python notion_import.py seite.md` aufrufen. Das Skript hängt
 nur an bzw. aktualisiert Übersetzungen – gelöscht wird nichts. Eine geplante
 Claude-Routine macht das jeden Morgen um 6:30 und pusht, wenn es Neues gibt.
+
+## Fortschritt auf Streamlit Cloud
+
+Auf Streamlit Cloud wird die Festplatte bei jedem Neustart gelöscht (Push,
+Aufwachen nach Inaktivität). Deshalb kann der Fortschritt in einem privaten
+GitHub-Gist liegen, mit den Dateien `progress.json` und `notion_progress.json`.
+Aktiv wird das, sobald in den Streamlit-Secrets steht:
+
+```toml
+[gist]
+id = "<Gist-ID>"
+token = "<Fine-grained Token, nur Account-Recht „Gists: Read and write“>"
+```
+
+Ohne diese Secrets (lokal) bleibt alles wie gehabt bei den lokalen Dateien.
+Beim Speichern übernimmt die App nur die in der Sitzung geänderten Wörter in
+den aktuellen Gist-Stand, sodass sich zwei Geräte nicht gegenseitig
+überschreiben.
 
 ## Batch lernen
 

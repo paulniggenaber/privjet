@@ -4,6 +4,7 @@ Geschrieben wird immer atomar (temporäre Datei + os.replace), gelesen
 immer explizit als UTF-8. Defekte Dateien führen nie zum Absturz.
 """
 
+import copy
 import json
 import os
 import tempfile
@@ -13,6 +14,7 @@ from pathlib import Path
 import pandas as pd
 import streamlit as st
 
+import gist
 from konfig import (
     COLUMNS,
     MAX_BOX,
@@ -153,12 +155,7 @@ def new_entry() -> dict:
     return {"box": 1, "next_due": date.today().isoformat(), "richtig": 0, "falsch": 0}
 
 
-def load_progress(pfad: Path = PROGRESS_JSON) -> dict:
-    """Lädt progress.json; bei fehlender oder defekter Datei leerer Fortschritt."""
-    try:
-        raw = json.loads(pfad.read_text(encoding="utf-8"))
-    except (FileNotFoundError, json.JSONDecodeError, OSError, UnicodeDecodeError):
-        return {}
+def _normalisiere(raw) -> dict:
     if not isinstance(raw, dict):
         return {}
     progress = {}
@@ -175,5 +172,75 @@ def load_progress(pfad: Path = PROGRESS_JSON) -> dict:
     return progress
 
 
+def _gist_konfig() -> dict | None:
+    """[gist] id + token aus den Streamlit-Secrets, sonst None (= lokale Datei)."""
+    try:
+        konfig = st.secrets.get("gist")
+    except Exception:  # keine secrets.toml vorhanden
+        return None
+    if konfig and konfig.get("id") and konfig.get("token"):
+        return {"id": str(konfig["id"]), "token": str(konfig["token"])}
+    return None
+
+
+def _gist_laden(konfig: dict, name: str) -> dict:
+    try:
+        inhalt = gist.lesen(konfig["id"], konfig["token"], name)
+    except gist.GistFehler as exc:
+        # Lieber anhalten als mit leerem Fortschritt weitermachen und ihn
+        # beim nächsten Speichern im Gist zu überschreiben.
+        st.error(f"Lernfortschritt konnte nicht aus dem Gist geladen werden: {exc}. Bitte neu laden.")
+        st.stop()
+    try:
+        return _normalisiere(json.loads(inhalt)) if inhalt else {}
+    except json.JSONDecodeError:
+        return {}
+
+
+def load_progress(pfad: Path = PROGRESS_JSON) -> dict:
+    """Lädt den Fortschritt; bei fehlender oder defekter Datei leerer Fortschritt.
+
+    Mit Gist-Secrets (Streamlit Cloud) kommt er aus dem Gist und wird pro
+    Sitzung zwischengespeichert, damit nicht jeder Klick eine Anfrage kostet.
+    """
+    konfig = _gist_konfig()
+    if konfig is None:
+        try:
+            return _normalisiere(json.loads(pfad.read_text(encoding="utf-8")))
+        except (FileNotFoundError, json.JSONDecodeError, OSError, UnicodeDecodeError):
+            return {}
+    key = f"_gist_{pfad.name}"
+    if key not in st.session_state:
+        progress = _gist_laden(konfig, pfad.name)
+        st.session_state[key] = progress
+        st.session_state[key + "_stand"] = copy.deepcopy(progress)
+    return st.session_state[key]
+
+
 def save_progress(progress: dict, pfad: Path = PROGRESS_JSON) -> None:
-    _atomic_write(pfad, json.dumps(progress, ensure_ascii=False, indent=2))
+    konfig = _gist_konfig()
+    if konfig is None:
+        _atomic_write(pfad, json.dumps(progress, ensure_ascii=False, indent=2))
+        return
+    # Nur die in dieser Sitzung geänderten Wörter in den aktuellen Gist-Stand
+    # übernehmen - so überschreibt ein zweites Gerät nicht den Rest.
+    key = f"_gist_{pfad.name}"
+    stand = st.session_state.get(key + "_stand", {})
+    aktuell = _gist_laden(konfig, pfad.name)
+    for wort in set(stand) | set(progress):
+        if wort not in progress:
+            aktuell.pop(wort, None)
+        elif progress[wort] != stand.get(wort):
+            aktuell[wort] = progress[wort]
+    try:
+        gist.schreiben(
+            konfig["id"], konfig["token"], pfad.name,
+            json.dumps(aktuell, ensure_ascii=False, indent=2),
+        )
+    except gist.GistFehler as exc:
+        st.error(f"Lernfortschritt konnte nicht im Gist gespeichert werden: {exc}")
+        st.stop()
+    progress.clear()
+    progress.update(aktuell)
+    st.session_state[key] = progress
+    st.session_state[key + "_stand"] = copy.deepcopy(aktuell)
