@@ -16,6 +16,12 @@ pip install -r requirements.txt
 
 ## Starten
 
+Am einfachsten per Doppelklick auf `start.command` im Finder (oder
+`./start.command` im Terminal). Das Skript holt per `git pull` die neuesten
+Notion-Wörter, legt bei Bedarf die virtuelle Umgebung an und startet die App.
+
+Manuell geht es so:
+
 ```bash
 streamlit run app.py
 ```
@@ -48,6 +54,7 @@ Die App öffnet sich unter <http://localhost:8501>. Beenden mit `Ctrl+C`.
 | `progress.json` | Lernfortschritt, wird beim ersten Bewerten automatisch angelegt |
 | `notion_progress.json` | eigener Lernfortschritt des Tabs „Notion-Wörter" |
 | `requirements.txt` | Abhängigkeiten |
+| `start.command` | Startskript: git pull + App starten (Doppelklick im Finder) |
 
 Die Abhängigkeiten laufen nur in eine Richtung, es gibt keine Zyklen:
 
