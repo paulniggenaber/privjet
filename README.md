@@ -35,7 +35,7 @@ Die App öffnet sich unter <http://localhost:8501>. Beenden mit `Ctrl+C`.
 | `app.py` | Einstiegspunkt: Seite, Sidebar, Tabs, Session-State |
 | `konfig.py` | Pfade und Konstanten (Boxen, Intervalle, Richtungen, Modi) |
 | `daten.py` | Laden und Speichern von `vocab.csv`, `texte.json`, `progress.json` |
-| `leitner.py` | Fälligkeit und Bewertung einer Karte |
+| `leitner.py` | Box-System: gewichtete Kartenwahl und Bewertung |
 | `vergleich.py` | Textvergleich ohne Streamlit: Antwortprüfung, Stichwortabgleich |
 | `karte.py` | die Flashcard mit der 3D-Drehung |
 | `gist.py` | Lesen/Schreiben einer Datei in einem GitHub-Gist (dauerhafter Fortschritt auf Streamlit Cloud) |
@@ -105,31 +105,32 @@ den aktuellen Gist-Stand, sodass sich zwei Geräte nicht gegenseitig
 
 ## Batch lernen
 
-In den Tabs „Lernen" und „Notion-Wörter" startet „🎯 Batch lernen" jederzeit –
-unabhängig von der Fälligkeit – einen Batch: Box (1 → 2, 2 → 3, …) und
-Batchgröße wählen, die App zieht zufällig so viele Karten aus dieser Box (im
+In den Tabs „Lernen" und „Notion-Wörter" startet „🎯 Batch lernen" jederzeit
+einen Batch: Box (1 → 2, 2 → 3, …) und Batchgröße wählen, die App zieht zufällig so viele Karten aus dieser Box (im
 aktuellen Filter). Sie werden so lange abgefragt, bis alle mindestens eine Box
-höher liegen. Bewertet wird normal nach Leitner: „Nochmal" wirft die Karte in
-Box 1 zurück, sie bleibt im Batch, bis sie das Ziel wieder erreicht.
+höher liegen. Bewertet wird normal: Box k braucht 2^(k-1) Treffer, „Nochmal"
+wirft die Karte zwei Boxen zurück, sie bleibt im Batch, bis sie das Ziel erreicht.
 
-## Lernlogik (Leitner)
+## Lernlogik (Boxen)
 
-Jede Vokabel liegt in einer Box von 1 bis 5:
+Jede Vokabel liegt in einer Box von 1 bis 5. Neue Karten starten in Box 1.
 
-| Box | Intervall bis zur nächsten Abfrage |
-|---|---|
-| 1 | 1 Tag |
-| 2 | 2 Tage |
-| 3 | 4 Tage |
-| 4 | 8 Tage |
-| 5 | 16 Tage |
+| Box | Treffer für den Aufstieg | Ziehgewicht |
+|---|---|---|
+| 1 | 1 | 1 |
+| 2 | 2 | 1/2 |
+| 3 | 4 | 1/4 |
+| 4 | 8 | 1/8 |
+| 5 | – | 1/16 |
 
-* Neue Karten starten in Box 1.
-* **Gewusst** → eine Box hoch (maximal 5), `next_due = heute + Intervall der neuen Box`.
-* **Nochmal** → zurück in Box 1, also morgen wieder fällig.
-* Abgefragt werden nur Karten, deren `next_due` heute oder früher liegt – in zufälliger Reihenfolge.
-* Ist nichts fällig, nennt die App das Datum der nächsten Fälligkeit und bietet
-  **„Trotzdem weiterüben"** an, was alle Karten des aktuellen Filters freischaltet.
+* **Gewusst** → ein Treffer. Sind in Box k 2^(k-1) Treffer erreicht, steigt die
+  Karte eine Box auf, die Treffer starten wieder bei 0. Die Karte zeigt den
+  Stand oben links, z. B. „Box 3/5 · 1/4“.
+* **Nochmal** → zwei Boxen zurück (mindestens Box 1), Treffer wieder 0.
+* Es gibt keine Fälligkeitstermine: Jede Karte des Filters kann jederzeit
+  kommen, gezogen wird zufällig nach dem Ziehgewicht – eine Karte in Box 5
+  kommt 16-mal seltener als eine in Box 1. Dieselbe Karte kommt nie zweimal
+  direkt hintereinander (außer sie ist die einzige im Pool).
 
 `progress.json` wird nach jeder Bewertung atomar geschrieben (temporäre Datei + `os.replace`).
 Fehlt die Datei oder ist sie beschädigt, startet die App mit leerem Fortschritt statt abzustürzen.
@@ -159,7 +160,7 @@ Drei Wege, Wörter zu ergänzen:
    genügt, der Cache wird beim Speichern über die App invalidiert; bei manueller
    Bearbeitung der Datei einmal `R` in Streamlit drücken oder die App neu starten).
 
-Neu ergänzte Wörter landen automatisch in Box 1 und sind sofort fällig.
+Neu ergänzte Wörter landen automatisch in Box 1.
 Wird ein Wort in `russisch` umbenannt, gilt es als neue Vokabel – der alte
 Fortschrittseintrag bleibt verwaist in `progress.json` liegen und stört nicht.
 

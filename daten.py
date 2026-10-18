@@ -8,7 +8,6 @@ import copy
 import json
 import os
 import tempfile
-from datetime import date
 from pathlib import Path
 
 import pandas as pd
@@ -139,15 +138,8 @@ def _as_int(value, fallback: int = 0) -> int:
         return fallback
 
 
-def als_datum(value) -> date:
-    try:
-        return date.fromisoformat(str(value))
-    except (TypeError, ValueError):
-        return date.today()
-
-
 def new_entry() -> dict:
-    return {"box": 1, "next_due": date.today().isoformat(), "richtig": 0, "falsch": 0}
+    return {"box": 1, "treffer": 0, "richtig": 0, "falsch": 0}
 
 
 def _normalisiere(raw) -> dict:
@@ -160,7 +152,7 @@ def _normalisiere(raw) -> dict:
         box = min(max(_as_int(entry.get("box"), 1), 1), MAX_BOX)
         progress[str(word)] = {
             "box": box,
-            "next_due": als_datum(entry.get("next_due")).isoformat(),
+            "treffer": max(_as_int(entry.get("treffer")), 0),
             "richtig": max(_as_int(entry.get("richtig")), 0),
             "falsch": max(_as_int(entry.get("falsch")), 0),
         }

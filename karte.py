@@ -5,7 +5,6 @@ import html
 import streamlit as st
 import streamlit.components.v1 as components
 
-from konfig import MAX_BOX
 
 
 KARTEN_HOEHE = 300
@@ -57,7 +56,7 @@ def _schriftgroesse(text: str) -> str:
     return "1.35rem"
 
 
-def zeige_flashcard(frage: str, antwort: str, karte, richtung: str, box: int, gedreht: bool) -> None:
+def zeige_flashcard(frage: str, antwort: str, karte, richtung: str, box: str, gedreht: bool) -> None:
     """Rendert die Vokabel als 3D-Karte; `gedreht` löst die Drehung animiert aus."""
     esc = html.escape
     beispiel = karte["beispiel"]
@@ -78,7 +77,7 @@ def zeige_flashcard(frage: str, antwort: str, karte, richtung: str, box: int, ge
     <div class="buehne">
       <div class="karte" id="karte">
         <div class="seite vorne">
-          <div class="marke">{esc(richtung)} &middot; Box {box}/{MAX_BOX}</div>
+          <div class="marke">{esc(richtung)} &middot; {esc(box)}</div>
           <div class="wort" style="font-size:{_schriftgroesse(frage)}">{esc(frage)}</div>
           <div class="meta">{esc(karte["wortart"])} &middot; {esc(karte["niveau"])}</div>
           <div class="fuss">Umdrehen mit dem Button darunter</div>

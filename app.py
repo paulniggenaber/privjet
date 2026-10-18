@@ -44,7 +44,6 @@ def init_state() -> None:
         "text_richtung": RU_DE,   # bei "gemischt" pro Text gewürfelt
         "text_neu": False,
         "filter_sig": None,
-        "alle_ueben": False,
         "gelernt_heute": 0,
         "sitzungs_datum": date.today().isoformat(),
         **KONJ_DEFAULTS,
@@ -91,9 +90,6 @@ def main() -> None:
             "Gemischt: pro Karte zufällig das eine oder das andere.",
         )
         st.divider()
-        if st.session_state.alle_ueben and st.button("Freies Üben beenden"):
-            st.session_state.alle_ueben = False
-            st.rerun()
         st.caption(f"{len(df)} Vokabeln · {len(progress)} davon begonnen")
 
     lernen, notion, konjugation, uebersetzen, verwalten = st.tabs(

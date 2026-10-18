@@ -29,7 +29,8 @@ COLUMNS = ["russisch", "deutsch", "transkription", "wortart", "niveau", "beispie
 MAX_BOX = 5
 
 
-BOX_INTERVALS = {1: 1, 2: 2, 3: 4, 4: 8, 5: 16}
+# Ziehgewicht je Box: halbiert sich pro Box, Box-5-Karten kommen 16-mal seltener als Box 1
+BOX_GEWICHT = {b: 2.0 ** -(b - 1) for b in range(1, MAX_BOX + 1)}
 
 
 RU_DE, DE_RU, MIXED = "RU → DE", "DE → RU", "gemischt"

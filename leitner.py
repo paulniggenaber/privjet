@@ -1,29 +1,61 @@
-"""Leitner-System: Fälligkeit und Bewertung einer Karte."""
+"""Box-System: gewichtete Kartenwahl und Bewertung.
 
-from datetime import date, timedelta
+- Aufstieg von Box k nach k+1 nach 2^(k-1) richtigen Antworten in Box k
+  (1 → 2: einmal, 2 → 3: zweimal, 3 → 4: viermal, 4 → 5: achtmal).
+- Falsch: zwei Boxen zurück (mindestens Box 1), Treffer wieder bei 0.
+- Keine Fälligkeitstermine: Jede Karte kann jederzeit kommen, je höher die
+  Box, desto seltener (Gewicht halbiert sich pro Box).
+"""
+
+import random
 from pathlib import Path
 
 import streamlit as st
 
-from daten import als_datum, new_entry, save_progress
-from konfig import BOX_INTERVALS, MAX_BOX, PROGRESS_JSON
+from daten import new_entry, save_progress
+from konfig import BOX_GEWICHT, MAX_BOX, PROGRESS_JSON
 
 
-def is_due(word: str, progress: dict, today: date) -> bool:
-    entry = progress.get(word)
-    return entry is None or als_datum(entry["next_due"]) <= today
+def box(word: str, progress: dict) -> int:
+    return progress.get(word, {}).get("box", 1)
+
+
+def treffer_noetig(b: int) -> int:
+    """Richtige Antworten, die in Box b für den Aufstieg nötig sind."""
+    return 2 ** (b - 1)
+
+
+def stand(word: str, progress: dict) -> str:
+    """Kurztext für die Karte, z. B. „Box 3/5 · 1/4“ (Treffer bis zum Aufstieg)."""
+    entry = progress.get(word, {})
+    b = entry.get("box", 1)
+    if b >= MAX_BOX:
+        return f"Box {b}/{MAX_BOX}"
+    return f"Box {b}/{MAX_BOX} · {entry.get('treffer', 0)}/{treffer_noetig(b)}"
+
+
+def waehle(pool: list[str], progress: dict, ausser: str | None = None) -> str | None:
+    """Zufällige Karte aus dem Pool, gewichtet nach Box; `ausser` nicht zweimal hintereinander."""
+    kandidaten = [w for w in pool if w != ausser] or pool
+    if not kandidaten:
+        return None
+    gewichte = [BOX_GEWICHT[box(w, progress)] for w in kandidaten]
+    return random.choices(kandidaten, weights=gewichte, k=1)[0]
 
 
 def grade(word: str, known: bool, progress: dict, pfad: Path = PROGRESS_JSON) -> None:
     """Bewertet eine Karte und schreibt den Fortschritt sofort auf die Platte."""
-    entry = dict(progress.get(word, new_entry()))
+    entry = {**new_entry(), **progress.get(word, {})}
     if known:
-        entry["box"] = min(entry["box"] + 1, MAX_BOX)
         entry["richtig"] += 1
+        entry["treffer"] += 1
+        if entry["box"] < MAX_BOX and entry["treffer"] >= treffer_noetig(entry["box"]):
+            entry["box"] += 1
+            entry["treffer"] = 0
     else:
-        entry["box"] = 1
         entry["falsch"] += 1
-    entry["next_due"] = (date.today() + timedelta(days=BOX_INTERVALS[entry["box"]])).isoformat()
+        entry["box"] = max(entry["box"] - 2, 1)
+        entry["treffer"] = 0
     progress[word] = entry
     save_progress(progress, pfad)
     st.session_state.gelernt_heute += 1

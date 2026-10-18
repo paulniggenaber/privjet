@@ -59,7 +59,6 @@ def tab_verwalten(df: pd.DataFrame, progress: dict) -> None:
         for key in ("karte", "aufgedeckt", "filter_sig"):
             st.session_state.pop(key, None)
         st.session_state.gelernt_heute = 0
-        st.session_state.alle_ueben = False
         st.success("Fortschritt gelöscht – alle Karten starten wieder in Box 1.")
         st.rerun()
 

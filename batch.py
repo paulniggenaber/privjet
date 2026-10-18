@@ -1,8 +1,8 @@
 """Batch-Modus: N Karten aus Box k ziehen und so lange üben, bis alle mindestens in Box k+1 sind.
 
-Unabhängig von der Fälligkeit, also jederzeit startbar. Bewertet wird ganz
-normal über leitner.grade - „Nochmal“ wirft eine Karte also wie üblich in
-Box 1 zurück, und sie bleibt im Batch, bis sie das Ziel wieder erreicht hat.
+Jederzeit startbar. Bewertet wird ganz normal über leitner.grade: Für den
+Aufstieg braucht es je nach Box 1, 2, 4 oder 8 Treffer, „Nochmal“ wirft eine
+Karte zwei Boxen zurück - sie bleibt im Batch, bis sie das Ziel erreicht hat.
 """
 
 import random
@@ -42,7 +42,7 @@ def batch_bereich(prefix: str, ids: list[str], progress: dict) -> list[str] | No
             )
             st.caption(
                 "Zieht zufällig Karten aus der gewählten Box (im aktuellen Filter) und fragt sie "
-                "ab, bis alle mindestens eine Box höher liegen – egal, ob sie heute fällig sind."
+                "ab, bis alle mindestens eine Box höher liegen (Box k braucht 2^(k-1) Treffer)."
             )
             if st.button(
                 "Batch starten", type="primary", key=f"{prefix}batch_start", disabled=not boxen[von]
