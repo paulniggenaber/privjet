@@ -131,6 +131,9 @@ Jede Vokabel liegt in einer Box von 1 bis 5. Neue Karten starten in Box 1.
   kommen, gezogen wird zufällig nach dem Ziehgewicht – eine Karte in Box 5
   kommt 16-mal seltener als eine in Box 1. Dieselbe Karte kommt nie zweimal
   direkt hintereinander (außer sie ist die einzige im Pool).
+* **Zuletzt falsch:** Eine Karte, die du falsch hattest, kommt im offenen Modus
+  (außerhalb eines Batches) 10-mal häufiger, bis du sie einmal richtig hast
+  (`FEHLER_FAKTOR` in `konfig.py`). Die Karte zeigt dann „· zuletzt falsch“.
 
 `progress.json` wird nach jeder Bewertung atomar geschrieben (temporäre Datei + `os.replace`).
 Fehlt die Datei oder ist sie beschädigt, startet die App mit leerem Fortschritt statt abzustürzen.

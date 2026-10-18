@@ -13,10 +13,10 @@ from tastenfeld import zeige_tastenfeld
 from vergleich import bewerten
 
 
-def ziehe_karte(pool: list[str], progress: dict) -> None:
+def ziehe_karte(pool: list[str], progress: dict, fehler_bonus: bool = True) -> None:
     """Zieht eine neue Karte (gewichtet nach Box) - nach dem Bewerten bzw. bei Filterwechsel."""
     zuletzt = st.session_state.karte or st.session_state.get("letzte_karte")
-    st.session_state.karte = waehle(pool, progress, ausser=zuletzt)
+    st.session_state.karte = waehle(pool, progress, ausser=zuletzt, fehler_bonus=fehler_bonus)
     if st.session_state.karte is None:
         return
     st.session_state.aufgedeckt = False
@@ -94,7 +94,7 @@ def tab_lernen(df: pd.DataFrame, progress: dict, niveaus, wortarten, richtung, m
         if not pool:
             return
     if filter_geaendert or st.session_state.karte not in pool:
-        ziehe_karte(pool, progress)
+        ziehe_karte(pool, progress, fehler_bonus=batch_rest is None)
 
     karte = df[df["russisch"] == st.session_state.karte].iloc[0]
     aktuelle_richtung = st.session_state.karten_richtung if richtung == MIXED else richtung

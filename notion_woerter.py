@@ -27,9 +27,9 @@ def _gruppe(kategorie: str) -> str:
     return kategorie if kategorie in NOTION_GRUPPEN else "Rest"
 
 
-def _ziehe_karte(pool: list[str], progress: dict) -> None:
+def _ziehe_karte(pool: list[str], progress: dict, fehler_bonus: bool = True) -> None:
     zuletzt = st.session_state.n_karte or st.session_state.get("n_letzte_karte")
-    st.session_state.n_karte = waehle(pool, progress, ausser=zuletzt)
+    st.session_state.n_karte = waehle(pool, progress, ausser=zuletzt, fehler_bonus=fehler_bonus)
     st.session_state.n_aufgedeckt = False
 
 
@@ -74,7 +74,7 @@ def tab_notion(df: pd.DataFrame, progress: dict) -> None:
         if not pool:
             return
     if filter_geaendert or st.session_state.n_karte not in pool:
-        _ziehe_karte(pool, progress)
+        _ziehe_karte(pool, progress, fehler_bonus=batch_rest is None)
 
     zeile = df[df["id"] == st.session_state.n_karte].iloc[0]
     karte = {

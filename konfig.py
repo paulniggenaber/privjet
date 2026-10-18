@@ -33,6 +33,11 @@ MAX_BOX = 5
 BOX_GEWICHT = {b: 2.0 ** -(b - 1) for b in range(1, MAX_BOX + 1)}
 
 
+# Zuletzt falsch beantwortete Karten kommen im offenen Modus (außerhalb eines
+# Batches) so viel häufiger, bis sie einmal richtig beantwortet wurden
+FEHLER_FAKTOR = 10
+
+
 RU_DE, DE_RU, MIXED = "RU → DE", "DE → RU", "gemischt"
 
 

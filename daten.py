@@ -139,7 +139,7 @@ def _as_int(value, fallback: int = 0) -> int:
 
 
 def new_entry() -> dict:
-    return {"box": 1, "treffer": 0, "richtig": 0, "falsch": 0}
+    return {"box": 1, "treffer": 0, "richtig": 0, "falsch": 0, "nachholen": False}
 
 
 def _normalisiere(raw) -> dict:
@@ -153,6 +153,7 @@ def _normalisiere(raw) -> dict:
         progress[str(word)] = {
             "box": box,
             "treffer": max(_as_int(entry.get("treffer")), 0),
+            "nachholen": bool(entry.get("nachholen", False)),
             "richtig": max(_as_int(entry.get("richtig")), 0),
             "falsch": max(_as_int(entry.get("falsch")), 0),
         }
