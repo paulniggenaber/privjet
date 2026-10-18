@@ -133,7 +133,10 @@ Jede Vokabel liegt in einer Box von 1 bis 5. Neue Karten starten in Box 1.
   direkt hintereinander (außer sie ist die einzige im Pool).
 * **Zuletzt falsch:** Eine Karte, die du falsch hattest, kommt im offenen Modus
   (außerhalb eines Batches) 10-mal häufiger, bis du sie einmal richtig hast
-  (`FEHLER_FAKTOR` in `konfig.py`). Die Karte zeigt dann „· zuletzt falsch“.
+  (`FEHLER_FAKTOR` in `konfig.py`), und **spätestens als 10. Karte danach
+  sicher** wieder (`WIEDERHOLEN_SPAETESTENS`). Die Karte zeigt dann
+  „· zuletzt falsch“. Die 10-Karten-Frist gilt für die laufende Sitzung, die
+  Markierung „zuletzt falsch“ bleibt gespeichert.
 
 `progress.json` wird nach jeder Bewertung atomar geschrieben (temporäre Datei + `os.replace`).
 Fehlt die Datei oder ist sie beschädigt, startet die App mit leerem Fortschritt statt abzustürzen.

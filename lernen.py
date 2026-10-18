@@ -8,15 +8,15 @@ import streamlit as st
 from batch import batch_bereich
 from karte import zeige_flashcard
 from konfig import DE_RU, MAX_BOX, MIXED, M_GEMISCHT, M_TIPPEN, RU_DE
-from leitner import box, grade, stand, waehle
+from leitner import box, frist_setzen, grade, stand, ziehe
 from tastenfeld import zeige_tastenfeld
 from vergleich import bewerten
 
 
-def ziehe_karte(pool: list[str], progress: dict, fehler_bonus: bool = True) -> None:
+def ziehe_karte(pool: list[str], progress: dict, offen: bool = True) -> None:
     """Zieht eine neue Karte (gewichtet nach Box) - nach dem Bewerten bzw. bei Filterwechsel."""
     zuletzt = st.session_state.karte or st.session_state.get("letzte_karte")
-    st.session_state.karte = waehle(pool, progress, ausser=zuletzt, fehler_bonus=fehler_bonus)
+    st.session_state.karte = ziehe("", pool, progress, ausser=zuletzt, offen=offen)
     if st.session_state.karte is None:
         return
     st.session_state.aufgedeckt = False
@@ -94,7 +94,7 @@ def tab_lernen(df: pd.DataFrame, progress: dict, niveaus, wortarten, richtung, m
         if not pool:
             return
     if filter_geaendert or st.session_state.karte not in pool:
-        ziehe_karte(pool, progress, fehler_bonus=batch_rest is None)
+        ziehe_karte(pool, progress, offen=batch_rest is None)
 
     karte = df[df["russisch"] == st.session_state.karte].iloc[0]
     aktuelle_richtung = st.session_state.karten_richtung if richtung == MIXED else richtung
@@ -127,6 +127,8 @@ def tab_lernen(df: pd.DataFrame, progress: dict, niveaus, wortarten, richtung, m
 
     def bewerten(gewusst: bool) -> None:
         grade(karte["russisch"], known=gewusst, progress=progress)
+        if not gewusst:
+            frist_setzen("", karte["russisch"])
         st.session_state.letzte_karte = karte["russisch"]
         st.session_state.karte = None
         st.rerun()

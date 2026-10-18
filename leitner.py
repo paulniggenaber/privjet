@@ -6,7 +6,8 @@
 - Keine Fälligkeitstermine: Jede Karte kann jederzeit kommen, je höher die
   Box, desto seltener (Gewicht halbiert sich pro Box).
 - Zuletzt falsch beantwortete Karten („nachholen“) kommen im offenen Modus
-  FEHLER_FAKTOR-mal häufiger, bis sie einmal richtig beantwortet wurden.
+  FEHLER_FAKTOR-mal häufiger, bis sie einmal richtig beantwortet wurden -
+  und spätestens als WIEDERHOLEN_SPAETESTENS-te Karte danach sicher.
 """
 
 import random
@@ -15,7 +16,7 @@ from pathlib import Path
 import streamlit as st
 
 from daten import new_entry, save_progress
-from konfig import BOX_GEWICHT, FEHLER_FAKTOR, MAX_BOX, PROGRESS_JSON
+from konfig import BOX_GEWICHT, FEHLER_FAKTOR, MAX_BOX, PROGRESS_JSON, WIEDERHOLEN_SPAETESTENS
 
 
 def box(word: str, progress: dict) -> int:
@@ -56,6 +57,34 @@ def waehle(
         return None
     gewichte = [gewicht(w, progress, fehler_bonus) for w in kandidaten]
     return random.choices(kandidaten, weights=gewichte, k=1)[0]
+
+
+def ziehe(prefix: str, pool: list[str], progress: dict, ausser: str | None, offen: bool) -> str | None:
+    """Nächste Karte für einen Tab. `prefix` trennt die Session-Keys der Tabs.
+
+    Im offenen Modus (kein Batch) hat eine falsch beantwortete Karte eine Frist:
+    Kam sie bis dahin nicht zufällig dran, wird sie bei Ablauf gezogen. Da pro
+    Zug nur eine Karte bewertet wird, fallen nie zwei Fristen auf denselben Zug.
+    """
+    zug = st.session_state.get(f"{prefix}zug", 0) + 1
+    st.session_state[f"{prefix}zug"] = zug
+    fristen = st.session_state.setdefault(f"{prefix}fristen", {})
+    if offen:
+        im_pool = set(pool)
+        pflicht = [w for w, frist in fristen.items() if frist <= zug and w in im_pool and w != ausser]
+        if pflicht:
+            wort = min(pflicht, key=fristen.get)
+            del fristen[wort]
+            return wort
+    wort = waehle(pool, progress, ausser=ausser, fehler_bonus=offen)
+    fristen.pop(wort, None)
+    return wort
+
+
+def frist_setzen(prefix: str, word: str) -> None:
+    """Nach einer falschen Antwort: spätestens in WIEDERHOLEN_SPAETESTENS Karten wieder."""
+    zug = st.session_state.get(f"{prefix}zug", 0)
+    st.session_state.setdefault(f"{prefix}fristen", {})[word] = zug + WIEDERHOLEN_SPAETESTENS
 
 
 def grade(word: str, known: bool, progress: dict, pfad: Path = PROGRESS_JSON) -> None:

@@ -38,6 +38,10 @@ BOX_GEWICHT = {b: 2.0 ** -(b - 1) for b in range(1, MAX_BOX + 1)}
 FEHLER_FAKTOR = 10
 
 
+# ... und kommen im offenen Modus spätestens als so-und-sovielte Karte sicher wieder
+WIEDERHOLEN_SPAETESTENS = 10
+
+
 RU_DE, DE_RU, MIXED = "RU → DE", "DE → RU", "gemischt"
 
 

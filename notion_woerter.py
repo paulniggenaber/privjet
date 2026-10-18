@@ -13,7 +13,7 @@ import streamlit as st
 from batch import batch_bereich
 from karte import zeige_flashcard
 from konfig import DE_RU, MAX_BOX, NOTION_GRUPPEN, NOTION_PROGRESS_JSON
-from leitner import box, grade, stand, waehle
+from leitner import box, frist_setzen, grade, stand, ziehe
 
 
 DEFAULTS = {
@@ -27,9 +27,9 @@ def _gruppe(kategorie: str) -> str:
     return kategorie if kategorie in NOTION_GRUPPEN else "Rest"
 
 
-def _ziehe_karte(pool: list[str], progress: dict, fehler_bonus: bool = True) -> None:
+def _ziehe_karte(pool: list[str], progress: dict, offen: bool = True) -> None:
     zuletzt = st.session_state.n_karte or st.session_state.get("n_letzte_karte")
-    st.session_state.n_karte = waehle(pool, progress, ausser=zuletzt, fehler_bonus=fehler_bonus)
+    st.session_state.n_karte = ziehe("n_", pool, progress, ausser=zuletzt, offen=offen)
     st.session_state.n_aufgedeckt = False
 
 
@@ -74,7 +74,7 @@ def tab_notion(df: pd.DataFrame, progress: dict) -> None:
         if not pool:
             return
     if filter_geaendert or st.session_state.n_karte not in pool:
-        _ziehe_karte(pool, progress, fehler_bonus=batch_rest is None)
+        _ziehe_karte(pool, progress, offen=batch_rest is None)
 
     zeile = df[df["id"] == st.session_state.n_karte].iloc[0]
     karte = {
@@ -96,6 +96,8 @@ def tab_notion(df: pd.DataFrame, progress: dict) -> None:
 
     def bewerten(gewusst: bool) -> None:
         grade(zeile["id"], known=gewusst, progress=progress, pfad=NOTION_PROGRESS_JSON)
+        if not gewusst:
+            frist_setzen("n_", zeile["id"])
         st.session_state.n_letzte_karte = zeile["id"]
         st.session_state.n_karte = None
         st.rerun()
