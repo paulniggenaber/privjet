@@ -10,7 +10,7 @@ VOCAB_CSV = BASE_DIR / "vocab.csv"
 
 
 TEXTE_JSON = BASE_DIR / "texte.json"
-VERBEN_JSON = BASE_DIR / "verben.json"
+NOTION_VERBEN_JSON = BASE_DIR / "notion_verben.json"
 
 
 PROGRESS_JSON = BASE_DIR / "progress.json"

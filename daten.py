@@ -20,9 +20,9 @@ from konfig import (
     MAX_BOX,
     NOTION_COLUMNS,
     NOTION_CSV,
+    NOTION_VERBEN_JSON,
     PROGRESS_JSON,
     TEXTE_JSON,
-    VERBEN_JSON,
     VOCAB_CSV,
 )
 
@@ -79,39 +79,34 @@ def load_texte() -> list[dict]:
 
 
 @st.cache_data(show_spinner=False)
-def load_verben() -> list[dict]:
-    """Liest verben.json als UTF-8. Fehlt oder bricht die Datei, bleibt es leer.
+def load_konjugation() -> dict:
+    """Liest notion_verben.json: Infinitiv (ohne Betonung) -> Präsensformen + Imperativ.
 
-    `praesens` darf None sein - быть hat im Russischen keine Präsensformen.
+    Fehlt oder bricht die Datei, bleibt es leer. Einträge ohne alle sechs
+    Präsensformen werden übersprungen; `imperativ` darf None sein.
     """
     try:
-        roh = json.loads(VERBEN_JSON.read_text(encoding="utf-8"))
+        roh = json.loads(NOTION_VERBEN_JSON.read_text(encoding="utf-8"))
     except (FileNotFoundError, json.JSONDecodeError, OSError, UnicodeDecodeError):
-        return []
+        return {}
     if not isinstance(roh, list):
-        return []
-    verben = []
+        return {}
+    personen = ("я", "ты", "он/она", "мы", "вы", "они")
+    verben = {}
     for eintrag in roh:
-        if not isinstance(eintrag, dict):
+        if not isinstance(eintrag, dict) or not eintrag.get("infinitiv"):
             continue
-        if not all(eintrag.get(f) for f in ("infinitiv", "deutsch", "gruppe")):
+        formen = eintrag.get("formen")
+        if not isinstance(formen, dict) or not all(str(formen.get(p) or "").strip() for p in personen):
             continue
-        zeiten = {
-            zeit: eintrag[zeit]
-            for zeit in ("praesens", "praeteritum")
-            if isinstance(eintrag.get(zeit), dict)
-            and all(str(f).strip() for f in eintrag[zeit].values())
+        infinitiv = str(eintrag["infinitiv"]).strip()
+        verben[infinitiv] = {
+            "infinitiv": infinitiv,
+            "aspekt": str(eintrag.get("aspekt") or "ipf"),
+            "formen": {p: str(formen[p]).strip() for p in personen},
+            "imperativ": str(eintrag["imperativ"]).strip() if eintrag.get("imperativ") else None,
+            "hinweis": str(eintrag.get("hinweis") or ""),
         }
-        if not zeiten:
-            continue
-        verben.append(
-            {
-                "infinitiv": str(eintrag["infinitiv"]).strip(),
-                "deutsch": str(eintrag["deutsch"]).strip(),
-                "gruppe": str(eintrag["gruppe"]).strip(),
-                **zeiten,
-            }
-        )
     return verben
 
 

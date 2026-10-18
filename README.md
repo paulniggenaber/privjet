@@ -44,13 +44,13 @@ Die App öffnet sich unter <http://localhost:8501>. Beenden mit `Ctrl+C`.
 | `lernen.py` | Tab „Lernen" – Kartenwahl, Kartenmodus, Tippmodus |
 | `notion_woerter.py` | Tab „Notion-Wörter" – Wortbank aus Notion, Karten DE → RU |
 | `notion_import.py` | übernimmt neue Wörter aus der Notion-Seite in `notion_woerter.csv` (ohne Streamlit) |
-| `konjugation.py` | Tab „Konjugation" |
+| `konjugation.py` | Tab „Konjugation" – Präsens + Imperativ der Notion-Verben |
 | `uebersetzen.py` | Tab „Übersetzen" |
 | `verwalten.py` | Tab „Vokabeln verwalten" |
 | `vocab.csv` | Vokabeldaten (UTF-8) |
 | `notion_woerter.csv` | Wortbank aus Notion: kategorie, russisch, deutsch, hinzugefuegt |
 | `texte.json` | Übersetzungstexte mit Musterlösung (UTF-8) |
-| `verben.json` | Konjugationstabellen (UTF-8) |
+| `notion_verben.json` | Präsensformen + Imperativ der Notion-Verben (UTF-8) |
 | `progress.json` | Lernfortschritt, wird beim ersten Bewerten automatisch angelegt |
 | `notion_progress.json` | eigener Lernfortschritt des Tabs „Notion-Wörter" |
 | `requirements.txt` | Abhängigkeiten |
@@ -296,63 +296,33 @@ Meldung – der Rest der App läuft normal weiter.
 
 ## Tab „Konjugation"
 
-Abgefragt wird eine einzelne Verbform: oben steht der Infinitiv, darunter die
-gesuchte Person. Du tippst die Form ein, die App prüft sofort.
+Abgefragt werden nur die Verben der Notion-Wortbank. Die App zeigt ein
+zufälliges Verb (Infinitiv mit Betonung und Bedeutung), du tippst alle sechs
+Präsensformen (я … они) und den Imperativ (du-Form) ein. „Prüfen & Lösung
+zeigen“ geht jederzeit, auch mit leeren Feldern. Danach siehst du jede Eingabe
+neben der Lösung, ✅ richtig, 🟡 fast (Tippfehler), ❌ falsch.
 
-**Die deutsche Bedeutung steht bewusst nicht in der Aufgabe** – sie wird
-mitgelernt und erscheint erst zusammen mit der Auflösung. Wer die Form bildet,
-soll auch wissen, was das Verb heißt.
+- Vollendete Verben (стать, познако́миться, уста́ть) haben kein Präsens –
+  gefragt sind dann die Formen des einfachen Futurs; bei быть ebenso das Futur.
+- Verben ohne gebräuchlichen Imperativ (хоте́ть, ви́деть, нра́виться, …)
+  haben nur die sechs Präsensfelder.
+- ё darf als е getippt werden, Groß-/Kleinschreibung ist egal.
+- Kein Box-System: Gezählt wird nur für die laufende Sitzung.
 
-Deshalb gibt es ein zweites Feld: **Bedeutung mit abfragen** (standardmäßig an)
-verlangt zusätzlich die deutsche Übersetzung. Beide Teile werden getrennt
-zurückgemeldet, die Aufgabe zählt nur dann als richtig, wenn beides stimmt.
-Zum reinen Formen-Drillen lässt sich der Schalter ausschalten – dann zählt die
-Verbform allein.
-
-Bei der Bedeutung genügt eine von mehreren Übersetzungen: für `sprechen, sagen`
-wird `sagen` akzeptiert, für `wollen, möchten` auch `moechten`.
-
-* **Zeitform**: `Präsens`, `Präteritum` oder `gemischt`.
-* **Verbgruppen** als Mehrfachauswahl: `regelmäßig (-ать)`,
-  `regelmäßig (-ить)`, `Stammwechsel`, `unregelmäßig`, `reflexiv (-ся)`.
-  So lassen sich gezielt die unregelmäßigen üben.
-* **Prüfen** oder Eingabetaste wertet aus (die Eingabetaste löst in beiden
-  Feldern aus), **🔀 Andere Aufgabe** überspringt ohne Wertung.
-* Nach der Auswertung erscheinen **Bedeutung und die komplette Formentabelle**
-  der Zeitform, die gefragte Zeile hervorgehoben.
-* Drei Zähler oben: richtig, falsch, Trefferquote. Sie gelten **nur für die
-  laufende Sitzung** und wandern nicht in `progress.json` – dort steckt der
-  Vokabel-Fortschritt, den Konjugationsübungen nicht verfälschen sollen.
-
-Die Bewertung nutzt dieselbe Prüfung wie der Tippmodus: Groß-/Kleinschreibung
-ist egal, `е` zählt für `ё` (`живешь` für `живёшь`), und ein einzelner
-Tippfehler landet in der Kategorie *fast*. Eine falsche Person zählt dagegen
-klar als falsch – `читаем` für `читаю` wird nicht durchgewinkt.
-
-Mitgeliefert sind **41 Verben mit 404 Formen**. `быть` hat richtigerweise kein
-Präsens und wird deshalb nur im Präteritum abgefragt.
-
-### Eigene Verben ergänzen
-
-`verben.json` ist eine Liste von Objekten:
+Die Formen stehen in `notion_verben.json` (Infinitiv ohne Betonungszeichen):
 
 ```json
 {
   "infinitiv": "читать",
-  "deutsch": "lesen",
-  "gruppe": "regelmäßig (-ать)",
-  "praesens": {"я": "читаю", "ты": "читаешь", "он/она": "читает",
-               "мы": "читаем", "вы": "читаете", "они": "читают"},
-  "praeteritum": {"он": "читал", "она": "читала",
-                  "оно": "читало", "они": "читали"}
+  "aspekt": "ipf",
+  "formen": {"я": "читаю", "ты": "читаешь", "он/она": "читает",
+             "мы": "читаем", "вы": "читаете", "они": "читают"},
+  "imperativ": "читай / читайте"
 }
 ```
 
-`gruppe` ist frei wählbar und füllt die Auswahlliste. `praesens` darf `null`
-sein oder ganz fehlen, wenn es die Form nicht gibt – das Verb wird dann nur im
-Präteritum abgefragt. Einträge mit leeren Formen werden beim Laden still
-übersprungen; fehlt oder bricht die Datei, zeigt der Tab eine Meldung und der
-Rest der App läuft weiter.
+Ein Notion-Verb ohne Eintrag in dieser Datei taucht im Tab nicht auf. Die
+morgendliche Routine ergänzt neue Verben dort automatisch.
 
 ## Bekannte Einschränkung
 

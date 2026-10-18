@@ -8,7 +8,7 @@ from datetime import date
 import pandas as pd
 import streamlit as st
 
-from daten import load_notion, load_progress, load_texte, load_verben, load_vocab
+from daten import load_konjugation, load_notion, load_progress, load_texte, load_vocab
 from konfig import (
     DE_RU,
     MIXED,
@@ -106,7 +106,7 @@ def main() -> None:
     with notion:
         tab_notion(load_notion(), load_progress(NOTION_PROGRESS_JSON))
     with konjugation:
-        tab_konjugation(load_verben())
+        tab_konjugation(load_notion(), load_konjugation())
     with uebersetzen:
         tab_uebersetzen(load_texte())
     with verwalten:
