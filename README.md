@@ -54,6 +54,8 @@ Die App öffnet sich unter <http://localhost:8501>. Beenden mit `Ctrl+C`.
 | `progress.json` | Lernfortschritt, wird beim ersten Bewerten automatisch angelegt |
 | `notion_progress.json` | eigener Lernfortschritt des Tabs „Notion-Wörter" |
 | `notion_ausgeblendet.json` | aus der Wortbank entfernte Wörter (nur ausgeblendet) |
+| `sitzung.json` | laufende Lernsitzung (aktuelle Karten, Batches, Fristen) – übersteht Neuladen und Neustart |
+| `.streamlit/config.toml` | Sitzung bleibt 24 h statt 2 min erhalten, wenn der Browser-Tab schläft |
 | `requirements.txt` | Abhängigkeiten |
 | `start.command` | Startskript: git pull + App starten (Doppelklick im Finder) |
 

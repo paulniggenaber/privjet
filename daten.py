@@ -22,6 +22,7 @@ from konfig import (
     NOTION_CSV,
     NOTION_VERBEN_JSON,
     PROGRESS_JSON,
+    SITZUNG_JSON,
     TEXTE_JSON,
     VOCAB_CSV,
 )
@@ -141,6 +142,19 @@ def _as_int(value, fallback: int = 0) -> int:
 
 def new_entry() -> dict:
     return {"box": 1, "treffer": 0, "richtig": 0, "falsch": 0, "nachholen": False}
+
+
+def load_sitzung() -> dict:
+    """Gespeicherter Stand der letzten Lernsitzung; fehlt/bricht die Datei: leer."""
+    try:
+        roh = json.loads(SITZUNG_JSON.read_text(encoding="utf-8"))
+    except (FileNotFoundError, json.JSONDecodeError, OSError, UnicodeDecodeError):
+        return {}
+    return roh if isinstance(roh, dict) else {}
+
+
+def save_sitzung(stand: dict) -> None:
+    _atomic_write(SITZUNG_JSON, json.dumps(stand, ensure_ascii=False, indent=2))
 
 
 def load_ausgeblendet() -> set[str]:

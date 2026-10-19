@@ -1,0 +1,4 @@
+[server]
+# Standard sind 120 s: Schläft der Browser-Tab länger (Hintergrund, Ruhezustand),
+# verwirft Streamlit die Sitzung und die App zieht eine neue Karte. 24 h reichen.
+disconnectedSessionTTL = 86400

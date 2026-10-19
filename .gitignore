@@ -10,6 +10,7 @@ __pycache__/
 progress.json
 notion_progress.json
 notion_ausgeblendet.json
+sitzung.json
 
 # Log des lokalen Streamlit-Servers
 streamlit.log

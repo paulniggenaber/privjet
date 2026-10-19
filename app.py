@@ -3,6 +3,7 @@
 Starten mit:  streamlit run app.py
 """
 
+import json
 from datetime import date
 
 import pandas as pd
@@ -13,8 +14,10 @@ from daten import (
     load_konjugation,
     load_notion,
     load_progress,
+    load_sitzung,
     load_texte,
     load_vocab,
+    save_sitzung,
 )
 from konfig import (
     DE_RU,
@@ -24,6 +27,7 @@ from konfig import (
     M_TIPPEN,
     NOTION_PROGRESS_JSON,
     RU_DE,
+    SITZUNG_KEYS,
     VOCAB_CSV,
 )
 from konjugation import DEFAULTS as KONJ_DEFAULTS
@@ -56,6 +60,14 @@ def init_state() -> None:
         **KONJ_DEFAULTS,
         **NOTION_DEFAULTS,
     }
+    # Neue Sitzung (Seite neu geladen, App neu gestartet): da weitermachen, wo
+    # die letzte aufgehört hat - sonst würde mitten in der Abfrage neu gezogen.
+    if "_sitzung" not in st.session_state:
+        gespeichert = load_sitzung()
+        for key in SITZUNG_KEYS:
+            if key in gespeichert:
+                st.session_state.setdefault(key, gespeichert[key])
+        st.session_state._sitzung = {k: gespeichert.get(k) for k in SITZUNG_KEYS}
     for key, value in defaults.items():
         st.session_state.setdefault(key, value)
     if st.session_state.sitzungs_datum != date.today().isoformat():
@@ -117,6 +129,16 @@ def main() -> None:
         tab_uebersetzen(load_texte())
     with verwalten:
         tab_verwalten(df, progress)
+
+    sichere_sitzung()
+
+
+def sichere_sitzung() -> None:
+    """Schreibt den Sitzungsstand, wenn er sich seit dem letzten Mal geändert hat."""
+    stand = {k: st.session_state.get(k) for k in SITZUNG_KEYS}
+    if stand != st.session_state._sitzung:
+        save_sitzung(stand)
+        st.session_state._sitzung = json.loads(json.dumps(stand))
 
 
 if __name__ == "__main__":

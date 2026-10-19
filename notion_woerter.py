@@ -94,7 +94,7 @@ def tab_notion(alle: pd.DataFrame, progress: dict, ausgeblendet: set[str]) -> No
 
     neu_heute = int((gefiltert["hinzugefuegt"] == heute.isoformat()).sum())
     sig = tuple(sorted(gruppen))
-    filter_geaendert = sig != st.session_state.n_filter_sig
+    filter_geaendert = st.session_state.n_filter_sig is not None and sig != st.session_state.n_filter_sig
     st.session_state.n_filter_sig = sig
 
     ids = list(gefiltert["id"])

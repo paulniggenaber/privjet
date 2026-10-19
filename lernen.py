@@ -69,7 +69,7 @@ def tab_lernen(df: pd.DataFrame, progress: dict, niveaus, wortarten, richtung, m
     gefiltert = df[df["niveau"].isin(niveaus) & df["wortart"].isin(wortarten)]
 
     sig = (tuple(sorted(niveaus)), tuple(sorted(wortarten)), modus)
-    filter_geaendert = sig != st.session_state.filter_sig
+    filter_geaendert = st.session_state.filter_sig is not None and sig != st.session_state.filter_sig
     st.session_state.filter_sig = sig
 
     pool = list(gefiltert["russisch"])

@@ -22,6 +22,16 @@ NOTION_PROGRESS_JSON = BASE_DIR / "notion_progress.json"
 # Aus der Wortbank entfernte Wörter (ids) - nur ausgeblendet, weil der tägliche
 # Import sie sonst aus Notion wieder in notion_woerter.csv schreiben würde
 NOTION_AUSGEBLENDET_JSON = BASE_DIR / "notion_ausgeblendet.json"
+
+
+# Lernsitzung (aktuelle Karten, Batches, Wiederhol-Fristen), damit ein Neuladen
+# der Seite oder ein Neustart nicht mitten in der Abfrage eine neue Karte zieht
+SITZUNG_JSON = BASE_DIR / "sitzung.json"
+SITZUNG_KEYS = (
+    "karte", "karten_richtung", "karten_tippen", "letzte_karte", "batch", "zug", "fristen",
+    "n_karte", "n_letzte_karte", "n_batch", "n_zug", "n_fristen",
+    "gelernt_heute", "sitzungs_datum",
+)
 NOTION_COLUMNS = ["kategorie", "russisch", "deutsch", "hinzugefuegt"]
 NOTION_GRUPPEN = ["Substantive", "Verben", "Adjektive", "Rest"]
 
