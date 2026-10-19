@@ -53,6 +53,7 @@ Die App öffnet sich unter <http://localhost:8501>. Beenden mit `Ctrl+C`.
 | `notion_verben.json` | Präsensformen + Imperativ der Notion-Verben (UTF-8) |
 | `progress.json` | Lernfortschritt, wird beim ersten Bewerten automatisch angelegt |
 | `notion_progress.json` | eigener Lernfortschritt des Tabs „Notion-Wörter" |
+| `notion_ausgeblendet.json` | aus der Wortbank entfernte Wörter (nur ausgeblendet) |
 | `requirements.txt` | Abhängigkeiten |
 | `start.command` | Startskript: git pull + App starten (Doppelklick im Finder) |
 
@@ -78,6 +79,13 @@ nach Substantiven, Verben, Adjektiven und „Rest" (alle übrigen Kategorien der
 Seite). Die Boxen funktionieren wie im Tab „Lernen", der Fortschritt liegt
 aber getrennt in `notion_progress.json` (Schlüssel `kategorie|russisch`, weil
 z. B. что als Fragewort und als Konjunktion vorkommt).
+
+**Wörter entfernen:** unter jeder Karte „🗑 Dieses Wort entfernen“, oder
+mehrere auf einmal im Bereich „🗑 Wörter entfernen / zurückholen“ – dort lassen
+sie sich auch wiederherstellen. Entfernte Wörter werden nur ausgeblendet (in
+der lokalen `notion_ausgeblendet.json`, auch in der Konjugation). So bringt der
+tägliche Import sie nicht zurück, auch wenn sie in Notion stehen bleiben; der
+Lernfortschritt bleibt erhalten.
 
 Neue Wörter kommen per `notion_import.py` dazu: Seiteninhalt als Markdown
 speichern und `python notion_import.py seite.md` aufrufen. Das Skript hängt

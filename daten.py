@@ -17,6 +17,7 @@ import gist
 from konfig import (
     COLUMNS,
     MAX_BOX,
+    NOTION_AUSGEBLENDET_JSON,
     NOTION_COLUMNS,
     NOTION_CSV,
     NOTION_VERBEN_JSON,
@@ -140,6 +141,19 @@ def _as_int(value, fallback: int = 0) -> int:
 
 def new_entry() -> dict:
     return {"box": 1, "treffer": 0, "richtig": 0, "falsch": 0, "nachholen": False}
+
+
+def load_ausgeblendet() -> set[str]:
+    """ids der aus der Wortbank entfernten Wörter; fehlt die Datei, ist nichts entfernt."""
+    try:
+        roh = json.loads(NOTION_AUSGEBLENDET_JSON.read_text(encoding="utf-8"))
+    except (FileNotFoundError, json.JSONDecodeError, OSError, UnicodeDecodeError):
+        return set()
+    return {str(i) for i in roh} if isinstance(roh, list) else set()
+
+
+def save_ausgeblendet(ids: set[str]) -> None:
+    _atomic_write(NOTION_AUSGEBLENDET_JSON, json.dumps(sorted(ids), ensure_ascii=False, indent=2))
 
 
 def _normalisiere(raw) -> dict:

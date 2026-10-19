@@ -1,5 +1,9 @@
 """Tab „Notion-Wörter“: die Wortbank aus Notion als Karteikarten, immer DE → RU.
 
+Wörter lassen sich hier aus der Wortbank entfernen (und zurückholen); sie
+werden nur ausgeblendet (notion_ausgeblendet.json), damit der tägliche Import
+sie nicht wieder hineinbringt.
+
 Eigener Fortschritt in notion_progress.json, damit sich die Boxen nicht mit
 vocab.csv vermischen. Alle Session-Keys tragen das Präfix `n_`, weil alle Tabs
 in jedem Lauf gerendert werden und sich sonst die Karte teilen würden.
@@ -11,6 +15,7 @@ import pandas as pd
 import streamlit as st
 
 from batch import batch_bereich
+from daten import save_ausgeblendet
 from karte import zeige_flashcard
 from konfig import DE_RU, MAX_BOX, NOTION_GRUPPEN, NOTION_PROGRESS_JSON
 from leitner import box, frist_setzen, grade, stand, ziehe
@@ -33,9 +38,52 @@ def _ziehe_karte(pool: list[str], progress: dict, offen: bool = True) -> None:
     st.session_state.n_aufgedeckt = False
 
 
-def tab_notion(df: pd.DataFrame, progress: dict) -> None:
+def _beschriftung(zeile) -> str:
+    return f"{zeile['russisch']} – {zeile['deutsch']}  ({zeile['kategorie']})"
+
+
+def _entfernen(ids, ausgeblendet: set[str]) -> None:
+    save_ausgeblendet(ausgeblendet | set(ids))
+    if st.session_state.n_karte in ids:
+        st.session_state.n_karte = None
+    st.rerun()
+
+
+def _verwalten(alle: pd.DataFrame, ausgeblendet: set[str]) -> None:
+    """Expander: Wörter gezielt entfernen oder entfernte zurückholen."""
+    with st.expander(f"🗑 Wörter entfernen / zurückholen ({len(ausgeblendet)} entfernt)"):
+        aktiv = alle[~alle["id"].isin(ausgeblendet)]
+        namen = dict(zip(aktiv["id"], aktiv.apply(_beschriftung, axis=1)))
+        weg = st.multiselect(
+            "Aus der Wortbank entfernen", list(namen), format_func=namen.get,
+            placeholder="Wörter suchen …", key="n_weg_auswahl",
+        )
+        if st.button("Entfernen", disabled=not weg, key="n_weg_knopf"):
+            _entfernen(weg, ausgeblendet)
+
+        entfernt = alle[alle["id"].isin(ausgeblendet)]
+        if not entfernt.empty:
+            namen = dict(zip(entfernt["id"], entfernt.apply(_beschriftung, axis=1)))
+            zurueck = st.multiselect(
+                "Entfernte Wörter zurückholen", list(namen), format_func=namen.get,
+                key="n_zurueck_auswahl",
+            )
+            if st.button("Zurückholen", disabled=not zurueck, key="n_zurueck_knopf"):
+                save_ausgeblendet(ausgeblendet - set(zurueck))
+                st.rerun()
+        st.caption(
+            "Entfernte Wörter werden nur ausgeblendet (auch in der Konjugation) – so "
+            "kommen sie auch dann nicht zurück, wenn sie in Notion stehen bleiben. "
+            "Der Lernfortschritt bleibt erhalten."
+        )
+
+
+def tab_notion(alle: pd.DataFrame, progress: dict, ausgeblendet: set[str]) -> None:
+    df = alle[~alle["id"].isin(ausgeblendet)]
     if df.empty:
-        st.info("Noch keine Notion-Wörter vorhanden – `notion_import.py` ausführen.")
+        if not alle.empty:
+            _verwalten(alle, ausgeblendet)
+        st.info("Keine Notion-Wörter vorhanden.")
         return
 
     heute = date.today()
@@ -65,7 +113,11 @@ def tab_notion(df: pd.DataFrame, progress: dict) -> None:
             .rename_axis("Box").rename("Karten"),
             height=180,
         )
+    _verwalten(alle, ausgeblendet)
     st.divider()
+    if not ids:
+        st.warning("Keine Wörter in dieser Auswahl.")
+        return
 
     batch_rest = batch_bereich("n_", ids, progress)
     if batch_rest is not None:
@@ -87,6 +139,8 @@ def tab_notion(df: pd.DataFrame, progress: dict) -> None:
         zeile["deutsch"], zeile["russisch"], karte, DE_RU, stand(zeile["id"], progress),
         st.session_state.n_aufgedeckt,
     )
+    if st.button("🗑 Dieses Wort entfernen", type="tertiary", key="n_entfernen"):
+        _entfernen([zeile["id"]], ausgeblendet)
 
     if not st.session_state.n_aufgedeckt:
         if st.button("🔄 Karte umdrehen", type="primary", width="stretch", key="n_umdrehen"):

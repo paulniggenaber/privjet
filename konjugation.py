@@ -59,7 +59,7 @@ def _felder(verb: dict) -> list[tuple[str, str]]:
 def tab_konjugation(notion: pd.DataFrame, konjugation: dict) -> None:
     verben = _verben(notion, konjugation)
     if not verben:
-        st.error("Keine Notion-Verben mit Konjugationsdaten (`notion_verben.json`) gefunden.")
+        st.info("Keine Verben verfügbar – alle entfernt oder ohne Konjugationsdaten (`notion_verben.json`).")
         return
 
     if st.session_state.konj_verb not in {v["infinitiv"] for v in verben}:

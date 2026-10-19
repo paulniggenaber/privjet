@@ -8,7 +8,14 @@ from datetime import date
 import pandas as pd
 import streamlit as st
 
-from daten import load_konjugation, load_notion, load_progress, load_texte, load_vocab
+from daten import (
+    load_ausgeblendet,
+    load_konjugation,
+    load_notion,
+    load_progress,
+    load_texte,
+    load_vocab,
+)
 from konfig import (
     DE_RU,
     MIXED,
@@ -92,6 +99,9 @@ def main() -> None:
         st.divider()
         st.caption(f"{len(df)} Vokabeln · {len(progress)} davon begonnen")
 
+    notion_alle = load_notion()
+    ausgeblendet = load_ausgeblendet()
+
     lernen, notion, konjugation, uebersetzen, verwalten = st.tabs(
         ["Lernen", "Notion-Wörter", "Konjugation", "Übersetzen", "Vokabeln verwalten"]
     )
@@ -100,9 +110,9 @@ def main() -> None:
             df, progress, niveaus or alle_niveaus, wortarten or alle_wortarten, richtung, modus
         )
     with notion:
-        tab_notion(load_notion(), load_progress(NOTION_PROGRESS_JSON))
+        tab_notion(notion_alle, load_progress(NOTION_PROGRESS_JSON), ausgeblendet)
     with konjugation:
-        tab_konjugation(load_notion(), load_konjugation())
+        tab_konjugation(notion_alle[~notion_alle["id"].isin(ausgeblendet)], load_konjugation())
     with uebersetzen:
         tab_uebersetzen(load_texte())
     with verwalten:
