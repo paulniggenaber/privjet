@@ -455,6 +455,74 @@
     "ru": "В субботу мы гуляем в парке.",
     "de": "Am Samstag gehen wir im Park spazieren."
   },
+  "Substantive|вторник": {
+    "ru": "Во вторник у меня урок русского языка.",
+    "de": "Am Dienstag habe ich Russischunterricht."
+  },
+  "Substantive|среда": {
+    "ru": "В среду мы идём в кино.",
+    "de": "Am Mittwoch gehen wir ins Kino."
+  },
+  "Substantive|четверг": {
+    "ru": "В четверг я занимаюсь спортом.",
+    "de": "Am Donnerstag mache ich Sport."
+  },
+  "Substantive|пятница": {
+    "ru": "В пятницу вечером я отдыхаю.",
+    "de": "Am Freitagabend ruhe ich mich aus."
+  },
+  "Substantive|воскресенье": {
+    "ru": "В воскресенье я долго сплю.",
+    "de": "Am Sonntag schlafe ich lange."
+  },
+  "Substantive|январь": {
+    "ru": "В январе в Москве очень холодно.",
+    "de": "Im Januar ist es in Moskau sehr kalt."
+  },
+  "Substantive|февраль": {
+    "ru": "В феврале часто идёт снег.",
+    "de": "Im Februar schneit es oft."
+  },
+  "Substantive|март": {
+    "ru": "Весна начинается в марте.",
+    "de": "Der Frühling beginnt im März."
+  },
+  "Substantive|апрель": {
+    "ru": "В апреле часто идёт дождь.",
+    "de": "Im April regnet es oft."
+  },
+  "Substantive|май": {
+    "ru": "Мой день рождения в мае.",
+    "de": "Mein Geburtstag ist im Mai."
+  },
+  "Substantive|июнь": {
+    "ru": "В июне у меня экзамены.",
+    "de": "Im Juni habe ich Prüfungen."
+  },
+  "Substantive|июль": {
+    "ru": "В июле мы едем на море.",
+    "de": "Im Juli fahren wir ans Meer."
+  },
+  "Substantive|август": {
+    "ru": "В августе очень жарко.",
+    "de": "Im August ist es sehr heiß."
+  },
+  "Substantive|сентябрь": {
+    "ru": "В сентябре начинается учёба.",
+    "de": "Im September beginnt das Studium."
+  },
+  "Substantive|октябрь": {
+    "ru": "Сейчас октябрь, и уже холодно.",
+    "de": "Jetzt ist Oktober, und es ist schon kalt."
+  },
+  "Substantive|ноябрь": {
+    "ru": "В ноябре дни короткие.",
+    "de": "Im November sind die Tage kurz."
+  },
+  "Substantive|декабрь": {
+    "ru": "В декабре мы празднуем Рождество.",
+    "de": "Im Dezember feiern wir Weihnachten."
+  },
   "Verben|быть": {
     "ru": "Вчера я был дома.",
     "de": "Gestern war ich zu Hause."
