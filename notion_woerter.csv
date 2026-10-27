@@ -245,8 +245,8 @@ Adverbien,неда́вно,kürzlich,2026-10-16
 Adverbien,по́здно,spät,2026-10-16
 Adverbien,ле́том,im Sommer,2026-10-16
 Adverbien,ве́чером,abends,2026-10-16
-Adverbien,ча́сто,oft,2026-10-16
-Adverbien,всегда́,immer,2026-10-16
+Kleine Wörter,ча́сто,oft,2026-10-16
+Kleine Wörter,всегда́,immer,2026-10-16
 Adverbien,о́чень,sehr,2026-10-16
 Adverbien,мно́го,viel,2026-10-16
 Adverbien,ма́ло,wenig,2026-10-16
@@ -261,9 +261,9 @@ Adverbien,там,dort,2026-10-16
 Adverbien,ря́дом,"nebenan, in der Nähe",2026-10-16
 Adverbien,далеко́,weit (weg),2026-10-16
 Adverbien,недалеко́ (от),nicht weit (von),2026-10-16
-Adverbien,ещё,noch,2026-10-16
-Adverbien,уже́,schon,2026-10-16
-Adverbien,то́же,auch,2026-10-16
+Kleine Wörter,ещё,noch,2026-10-16
+Kleine Wörter,уже́,schon,2026-10-16
+Kleine Wörter,то́же,auch,2026-10-16
 Adverbien,ну́жно / на́до,man muss (мне ну́жно = ich muss),2026-10-16
 Adverbien,мо́жно,"man darf, man kann",2026-10-16
 Adverbien,нельзя́,man darf nicht,2026-10-16
@@ -313,13 +313,13 @@ Präpositionen,на,"auf, an (wo?) / auf, zu (wohin?)",2026-10-16
 Präpositionen,из,aus,2026-10-16
 Präpositionen,от,von,2026-10-16
 Präpositionen,у,bei,2026-10-16
-Präpositionen,без,ohne,2026-10-16
+Kleine Wörter,без,ohne,2026-10-16
 Präpositionen,по́сле,nach (zeitlich),2026-10-16
 Präpositionen,к,zu,2026-10-16
 Präpositionen,по,"per, über (по телефо́ну)",2026-10-16
 Präpositionen,о / об,"über, von",2026-10-16
 Präpositionen,про,über,2026-10-16
-Präpositionen,с / со,mit,2026-10-16
+Kleine Wörter,с / со,mit,2026-10-16
 Präpositionen,за,für (+ Akk.) / hinter (+ Instr.),2026-10-16
 Präpositionen,пе́ред,vor (örtlich),2026-10-16
 Präpositionen,над,über (örtlich),2026-10-16
@@ -468,3 +468,19 @@ Substantive,сентя́брь,September,2026-10-27
 Substantive,октя́брь,Oktober,2026-10-27
 Substantive,ноя́брь,November,2026-10-27
 Substantive,дека́брь,Dezember,2026-10-27
+Kleine Wörter,сно́ва / опя́ть,wieder,2026-10-27
+Kleine Wörter,ещё раз,"noch einmal, nochmal",2026-10-27
+Kleine Wörter,в э́тот раз,dieses Mal,2026-10-27
+Kleine Wörter,в сле́дующий раз,nächstes Mal,2026-10-27
+Kleine Wörter,в пе́рвый раз,zum ersten Mal,2026-10-27
+Kleine Wörter,ка́ждый раз,jedes Mal,2026-10-27
+Kleine Wörter,иногда́,manchmal,2026-10-27
+Kleine Wörter,ре́дко,selten,2026-10-27
+Kleine Wörter,никогда́,nie,2026-10-27
+Kleine Wörter,то́лько,nur,2026-10-27
+Kleine Wörter,да́же,sogar,2026-10-27
+Kleine Wörter,почти́,fast,2026-10-27
+Kleine Wörter,сра́зу,sofort,2026-10-27
+Kleine Wörter,уже́ не,nicht mehr,2026-10-27
+Kleine Wörter,ещё не,noch nicht,2026-10-27
+Kleine Wörter,мо́жет быть,vielleicht,2026-10-27

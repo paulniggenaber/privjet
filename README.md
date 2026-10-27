@@ -52,7 +52,7 @@ Die App öffnet sich unter <http://localhost:8501>. Beenden mit `Ctrl+C`.
 | `notion_verben.json` | Präsensformen + Imperativ der Notion-Verben (UTF-8) |
 | `progress.json` | Lernfortschritt, wird beim ersten Bewerten automatisch angelegt |
 | `notion_progress.json` | Lernfortschritt des Tabs „Vokabeln" |
-| `notion_beispiele.json` | Beispielsätze zu Substantiven, Verben, Adjektiven (nicht in Notion) |
+| `notion_beispiele.json` | Beispielsätze zu Substantiven, Verben, Adjektiven, kleinen Wörtern (nicht in Notion) |
 | `notion_ausgeblendet.json` | aus der Wortbank entfernte Wörter (nur ausgeblendet) |
 | `sitzung.json` | laufende Lernsitzung (aktuelle Karten, Batches, Fristen) – übersteht Neuladen und Neustart |
 | `.streamlit/config.toml` | Sitzung bleibt 24 h statt 2 min erhalten, wenn der Browser-Tab schläft |
@@ -63,7 +63,7 @@ Die Abhängigkeiten laufen nur in eine Richtung, es gibt keine Zyklen:
 
 ```
 app  →  notion_woerter ┬→ karte, batch, leitner
-        konjugation ───┼→ vergleich
+        konjugation ───┤→ karte
         uebersetzen ───┴→ tastenfeld, vergleich
         verwalten
             └→ daten  →  konfig
@@ -77,12 +77,12 @@ laufende App testen.
 Der Tab „Vokabeln" fragt die Wortbank der Notion-Seite
 [Wortbank](https://app.notion.com/p/3f50147492c98110b057e5387d33a5ea) ab –
 immer Deutsch → Russisch, als Karteikarte zum Selbstbewerten. Gefiltert wird
-nach Substantiven, Verben, Adjektiven und „Rest" (alle übrigen Kategorien der
-Seite). Der Fortschritt liegt in `notion_progress.json` (Schlüssel
+nach Substantiven, Verben, Adjektiven, „Kleine Wörter" (immer, wieder, ohne,
+mit, noch einmal, dieses Mal …) und „Rest" (alle übrigen Kategorien der Seite). Der Fortschritt liegt in `notion_progress.json` (Schlüssel
 `kategorie|russisch`, weil z. B. что als Fragewort und als Konjunktion vorkommt).
 
-**Beispielsätze:** Nach dem Umdrehen steht bei Substantiven, Verben und
-Adjektiven rechts neben der Karte ein einfacher russischer Beispielsatz mit der
+**Beispielsätze:** Nach dem Umdrehen steht bei Substantiven, Verben,
+Adjektiven und kleinen Wörtern rechts neben der Karte ein einfacher russischer Beispielsatz mit der
 deutschen Übersetzung darunter. Die Sätze liegen nur in `notion_beispiele.json`
 (Schlüssel `Kategorie|Wort ohne Betonungszeichen`), nicht in Notion. Wörter ohne
 Eintrag – etwa neu hinzugekommene – zeigen einfach keinen Satz.
@@ -243,17 +243,18 @@ Meldung – der Rest der App läuft normal weiter.
 
 ## Tab „Konjugation"
 
-Abgefragt werden nur die Verben der Notion-Wortbank. Die App zeigt ein
-zufälliges Verb (Infinitiv mit Betonung und Bedeutung), du tippst alle sechs
-Präsensformen (я … они) und den Imperativ (du-Form) ein. „Prüfen & Lösung
-zeigen“ geht jederzeit, auch mit leeren Feldern. Danach siehst du jede Eingabe
-neben der Lösung, ✅ richtig, 🟡 fast (Tippfehler), ❌ falsch.
+Abgefragt werden nur die Verben der Notion-Wortbank, als Karteikarten – ohne
+russische Tastatur. Die App zeigt ein zufälliges Verb (Infinitiv mit Betonung
+und Bedeutung) und fragt die sechs Präsensformen (я … они) und den Imperativ
+nacheinander ab: vorne z. B. „ты …“, umdrehen, dann „✓ Gewusst“ oder
+„↺ Nochmal“. Unter der Karte stehen die schon abgefragten Formen. Am Ende
+gibt es eine Übersicht mit ✅/❌, die falschen Formen lassen sich gleich noch
+einmal durchgehen, „🔀 Anderes Verb“ überspringt.
 
 - Vollendete Verben (стать, познако́миться, уста́ть) haben kein Präsens –
   gefragt sind dann die Formen des einfachen Futurs; bei быть ebenso das Futur.
 - Verben ohne gebräuchlichen Imperativ (хоте́ть, ви́деть, нра́виться, …)
-  haben nur die sechs Präsensfelder.
-- ё darf als е getippt werden, Groß-/Kleinschreibung ist egal.
+  haben nur die sechs Präsensformen.
 - Kein Box-System: Gezählt wird nur für die laufende Sitzung.
 
 Die Formen stehen in `notion_verben.json` (Infinitiv ohne Betonungszeichen):

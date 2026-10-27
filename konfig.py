@@ -34,7 +34,7 @@ SITZUNG_KEYS = (
     "gelernt_heute", "sitzungs_datum",
 )
 NOTION_COLUMNS = ["kategorie", "russisch", "deutsch", "hinzugefuegt"]
-NOTION_GRUPPEN = ["Substantive", "Verben", "Adjektive", "Rest"]
+NOTION_GRUPPEN = ["Substantive", "Verben", "Adjektive", "Kleine Wörter", "Rest"]
 
 
 COLUMNS = ["russisch", "deutsch", "transkription", "wortart", "niveau", "beispiel"]

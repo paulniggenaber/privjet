@@ -846,5 +846,97 @@
   "Adjektive|здоровый": {
     "ru": "Я снова здоров.",
     "de": "Ich bin wieder gesund."
+  },
+  "Kleine Wörter|всегда": {
+    "ru": "Я всегда пью кофе утром.",
+    "de": "Morgens trinke ich immer Kaffee."
+  },
+  "Kleine Wörter|часто": {
+    "ru": "Я часто гуляю в парке.",
+    "de": "Ich gehe oft im Park spazieren."
+  },
+  "Kleine Wörter|ещё": {
+    "ru": "Я ещё студент.",
+    "de": "Ich bin noch Student."
+  },
+  "Kleine Wörter|уже": {
+    "ru": "Я уже дома.",
+    "de": "Ich bin schon zu Hause."
+  },
+  "Kleine Wörter|тоже": {
+    "ru": "Я тоже люблю музыку.",
+    "de": "Ich mag auch Musik."
+  },
+  "Kleine Wörter|без": {
+    "ru": "Я пью чай без сахара.",
+    "de": "Ich trinke Tee ohne Zucker."
+  },
+  "Kleine Wörter|с / со": {
+    "ru": "Я живу с другом.",
+    "de": "Ich wohne mit einem Freund zusammen."
+  },
+  "Kleine Wörter|снова / опять": {
+    "ru": "Сегодня опять идёт дождь.",
+    "de": "Heute regnet es wieder."
+  },
+  "Kleine Wörter|ещё раз": {
+    "ru": "Скажи, пожалуйста, ещё раз.",
+    "de": "Sag es bitte noch einmal."
+  },
+  "Kleine Wörter|в этот раз": {
+    "ru": "В этот раз я плачу.",
+    "de": "Dieses Mal bezahle ich."
+  },
+  "Kleine Wörter|в следующий раз": {
+    "ru": "В следующий раз мы идём в кино.",
+    "de": "Nächstes Mal gehen wir ins Kino."
+  },
+  "Kleine Wörter|в первый раз": {
+    "ru": "Я в первый раз в Москве.",
+    "de": "Ich bin zum ersten Mal in Moskau."
+  },
+  "Kleine Wörter|каждый раз": {
+    "ru": "Каждый раз я забываю ключ.",
+    "de": "Jedes Mal vergesse ich den Schlüssel."
+  },
+  "Kleine Wörter|иногда": {
+    "ru": "Иногда я готовлю ужин.",
+    "de": "Manchmal koche ich das Abendessen."
+  },
+  "Kleine Wörter|редко": {
+    "ru": "Я редко смотрю телевизор.",
+    "de": "Ich sehe selten fern."
+  },
+  "Kleine Wörter|никогда": {
+    "ru": "Я никогда не был в России.",
+    "de": "Ich war noch nie in Russland."
+  },
+  "Kleine Wörter|только": {
+    "ru": "У меня только десять минут.",
+    "de": "Ich habe nur zehn Minuten."
+  },
+  "Kleine Wörter|даже": {
+    "ru": "Он работает даже в субботу.",
+    "de": "Er arbeitet sogar am Samstag."
+  },
+  "Kleine Wörter|почти": {
+    "ru": "Я почти готов.",
+    "de": "Ich bin fast fertig."
+  },
+  "Kleine Wörter|сразу": {
+    "ru": "Я сразу позвоню.",
+    "de": "Ich rufe sofort an."
+  },
+  "Kleine Wörter|уже не": {
+    "ru": "Я уже не болею.",
+    "de": "Ich bin nicht mehr krank."
+  },
+  "Kleine Wörter|ещё не": {
+    "ru": "Я ещё не знаю.",
+    "de": "Ich weiß es noch nicht."
+  },
+  "Kleine Wörter|может быть": {
+    "ru": "Может быть, завтра будет снег.",
+    "de": "Vielleicht schneit es morgen."
   }
 }
