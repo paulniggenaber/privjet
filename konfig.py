@@ -19,6 +19,8 @@ PROGRESS_JSON = BASE_DIR / "progress.json"
 # Wortbank aus Notion: Daten (per notion_import.py gepflegt) und eigener Fortschritt
 NOTION_CSV = BASE_DIR / "notion_woerter.csv"
 NOTION_PROGRESS_JSON = BASE_DIR / "notion_progress.json"
+# Beispielsätze (Substantive, Verben, Adjektive) - nur hier, nicht in Notion
+NOTION_BEISPIELE_JSON = BASE_DIR / "notion_beispiele.json"
 # Aus der Wortbank entfernte Wörter (ids) - nur ausgeblendet, weil der tägliche
 # Import sie sonst aus Notion wieder in notion_woerter.csv schreiben würde
 NOTION_AUSGEBLENDET_JSON = BASE_DIR / "notion_ausgeblendet.json"
@@ -28,7 +30,6 @@ NOTION_AUSGEBLENDET_JSON = BASE_DIR / "notion_ausgeblendet.json"
 # der Seite oder ein Neustart nicht mitten in der Abfrage eine neue Karte zieht
 SITZUNG_JSON = BASE_DIR / "sitzung.json"
 SITZUNG_KEYS = (
-    "karte", "karten_richtung", "karten_tippen", "letzte_karte", "batch", "zug", "fristen",
     "n_karte", "n_letzte_karte", "n_batch", "n_zug", "n_fristen",
     "gelernt_heute", "sitzungs_datum",
 )
@@ -58,7 +59,6 @@ WIEDERHOLEN_SPAETESTENS = 10
 RU_DE, DE_RU, MIXED = "RU → DE", "DE → RU", "gemischt"
 
 
-M_KARTEN, M_TIPPEN, M_GEMISCHT = "Karten", "Tippen", "gemischt"
 
 
 STUFEN = {"A1": "A1 – leicht", "A2": "A2 – mittel", "B1": "B1 – fordernd"}

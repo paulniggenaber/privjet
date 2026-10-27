@@ -11,6 +11,7 @@ import streamlit as st
 
 from daten import (
     load_ausgeblendet,
+    load_beispiele,
     load_konjugation,
     load_notion,
     load_progress,
@@ -19,20 +20,9 @@ from daten import (
     load_vocab,
     save_sitzung,
 )
-from konfig import (
-    DE_RU,
-    MIXED,
-    M_GEMISCHT,
-    M_KARTEN,
-    M_TIPPEN,
-    NOTION_PROGRESS_JSON,
-    RU_DE,
-    SITZUNG_KEYS,
-    VOCAB_CSV,
-)
+from konfig import NOTION_PROGRESS_JSON, RU_DE, SITZUNG_KEYS, VOCAB_CSV
 from konjugation import DEFAULTS as KONJ_DEFAULTS
 from konjugation import tab_konjugation
-from lernen import tab_lernen
 from notion_woerter import DEFAULTS as NOTION_DEFAULTS
 from notion_woerter import tab_notion
 from uebersetzen import tab_uebersetzen
@@ -41,20 +31,12 @@ from verwalten import tab_verwalten
 
 def init_state() -> None:
     defaults = {
-        "karte": None,          # russisches Wort der aktuellen Karte
-        "aufgedeckt": False,
-        "karten_richtung": RU_DE,  # bei "gemischt" pro Karte einmal gewürfelt
-        "karten_tippen": False,    # bei Modus "gemischt" pro Karte einmal gewürfelt
-        "tipp_status": None,       # None | "richtig" | "fast" | "falsch"
-        "tipp_eingabe": "",
-        "tipp_pruefen": False,
         "text_id": None,
         "text_geprueft": False,
         "text_eingabe": "",
         "text_sig": None,
         "text_richtung": RU_DE,   # bei "gemischt" pro Text gewürfelt
         "text_neu": False,
-        "filter_sig": None,
         "gelernt_heute": 0,
         "sitzungs_datum": date.today().isoformat(),
         **KONJ_DEFAULTS,
@@ -94,35 +76,14 @@ def main() -> None:
 
     progress = load_progress()
 
-    with st.sidebar:
-        st.header("Filter")
-        alle_niveaus = sorted(n for n in df["niveau"].unique() if n)
-        alle_wortarten = sorted(w for w in df["wortart"].unique() if w)
-        niveaus = st.multiselect("Niveau", alle_niveaus, default=alle_niveaus)
-        wortarten = st.multiselect("Wortart", alle_wortarten, default=alle_wortarten)
-        richtung = st.radio("Abfragerichtung", [RU_DE, DE_RU, MIXED], index=0)
-        modus = st.radio(
-            "Modus",
-            [M_KARTEN, M_TIPPEN, M_GEMISCHT],
-            index=0,
-            help="Karten: selbst bewerten. Tippen: Antwort eingeben, die App prüft. "
-            "Gemischt: pro Karte zufällig das eine oder das andere.",
-        )
-        st.divider()
-        st.caption(f"{len(df)} Vokabeln · {len(progress)} davon begonnen")
-
     notion_alle = load_notion()
     ausgeblendet = load_ausgeblendet()
 
-    lernen, notion, konjugation, uebersetzen, verwalten = st.tabs(
-        ["Lernen", "Notion-Wörter", "Konjugation", "Übersetzen", "Vokabeln verwalten"]
+    vokabeln, konjugation, uebersetzen, verwalten = st.tabs(
+        ["Vokabeln", "Konjugation", "Übersetzen", "Vokabeln verwalten"]
     )
-    with lernen:
-        tab_lernen(
-            df, progress, niveaus or alle_niveaus, wortarten or alle_wortarten, richtung, modus
-        )
-    with notion:
-        tab_notion(notion_alle, load_progress(NOTION_PROGRESS_JSON), ausgeblendet)
+    with vokabeln:
+        tab_notion(notion_alle, load_progress(NOTION_PROGRESS_JSON), ausgeblendet, load_beispiele())
     with konjugation:
         tab_konjugation(notion_alle[~notion_alle["id"].isin(ausgeblendet)], load_konjugation())
     with uebersetzen:

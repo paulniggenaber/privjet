@@ -1,0 +1,782 @@
+{
+  "Substantive|семья": {
+    "ru": "У меня большая семья.",
+    "de": "Ich habe eine große Familie."
+  },
+  "Substantive|мама / мать": {
+    "ru": "Моя мама живёт в Кёльне.",
+    "de": "Meine Mama wohnt in Köln."
+  },
+  "Substantive|папа / отец": {
+    "ru": "Мой папа работает в офисе.",
+    "de": "Mein Papa arbeitet im Büro."
+  },
+  "Substantive|родители": {
+    "ru": "Мои родители живут в Германии.",
+    "de": "Meine Eltern leben in Deutschland."
+  },
+  "Substantive|брат": {
+    "ru": "У меня есть брат.",
+    "de": "Ich habe einen Bruder."
+  },
+  "Substantive|сестра": {
+    "ru": "Моя сестра учится в университете.",
+    "de": "Meine Schwester studiert an der Universität."
+  },
+  "Substantive|сын": {
+    "ru": "Их сын любит музыку.",
+    "de": "Ihr Sohn liebt Musik."
+  },
+  "Substantive|дочь": {
+    "ru": "У них есть дочь.",
+    "de": "Sie haben eine Tochter."
+  },
+  "Substantive|муж": {
+    "ru": "Её муж — врач.",
+    "de": "Ihr Mann ist Arzt."
+  },
+  "Substantive|жена": {
+    "ru": "Это моя жена.",
+    "de": "Das ist meine Frau."
+  },
+  "Substantive|бабушка": {
+    "ru": "Бабушка готовит вкусный суп.",
+    "de": "Oma kocht eine leckere Suppe."
+  },
+  "Substantive|дедушка": {
+    "ru": "Мой дедушка живёт в Москве.",
+    "de": "Mein Opa wohnt in Moskau."
+  },
+  "Substantive|дядя": {
+    "ru": "Мой дядя живёт в другом городе.",
+    "de": "Mein Onkel wohnt in einer anderen Stadt."
+  },
+  "Substantive|тётя": {
+    "ru": "Моя тётя очень любит чай.",
+    "de": "Meine Tante mag Tee sehr."
+  },
+  "Substantive|ребёнок (Pl. дети)": {
+    "ru": "Дети играют в парке.",
+    "de": "Die Kinder spielen im Park."
+  },
+  "Substantive|мальчик": {
+    "ru": "Этот мальчик — мой сын.",
+    "de": "Dieser Junge ist mein Sohn."
+  },
+  "Substantive|девочка": {
+    "ru": "Девочка пьёт молоко.",
+    "de": "Das Mädchen trinkt Milch."
+  },
+  "Substantive|мужчина": {
+    "ru": "Этот мужчина работает в магазине.",
+    "de": "Dieser Mann arbeitet im Laden."
+  },
+  "Substantive|женщина": {
+    "ru": "Эта женщина — моя учительница.",
+    "de": "Diese Frau ist meine Lehrerin."
+  },
+  "Substantive|человек": {
+    "ru": "Он очень хороший человек.",
+    "de": "Er ist ein sehr guter Mensch."
+  },
+  "Substantive|люди": {
+    "ru": "В парке много людей.",
+    "de": "Im Park sind viele Leute."
+  },
+  "Substantive|девушка": {
+    "ru": "Моя девушка из России.",
+    "de": "Meine Freundin kommt aus Russland."
+  },
+  "Substantive|друг (Pl. друзья)": {
+    "ru": "Я часто встречаюсь с друзьями.",
+    "de": "Ich treffe mich oft mit Freunden."
+  },
+  "Substantive|подруга": {
+    "ru": "Я гуляю с подругой.",
+    "de": "Ich gehe mit einer Freundin spazieren."
+  },
+  "Substantive|немец": {
+    "ru": "Я немец, я из Кёльна.",
+    "de": "Ich bin Deutscher, ich komme aus Köln."
+  },
+  "Substantive|студент": {
+    "ru": "Я студент, я изучаю науку о данных.",
+    "de": "Ich bin Student, ich studiere Data Science."
+  },
+  "Substantive|город": {
+    "ru": "Кёльн — большой город.",
+    "de": "Köln ist eine große Stadt."
+  },
+  "Substantive|дом": {
+    "ru": "Я сейчас дома.",
+    "de": "Ich bin jetzt zu Hause."
+  },
+  "Substantive|офис": {
+    "ru": "Я работаю в офисе.",
+    "de": "Ich arbeite im Büro."
+  },
+  "Substantive|Германия": {
+    "ru": "Я живу в Германии.",
+    "de": "Ich wohne in Deutschland."
+  },
+  "Substantive|Россия": {
+    "ru": "Летом я еду в Россию.",
+    "de": "Im Sommer fahre ich nach Russland."
+  },
+  "Substantive|Кёльн": {
+    "ru": "Кёльн — мой любимый город.",
+    "de": "Köln ist meine Lieblingsstadt."
+  },
+  "Substantive|Москва": {
+    "ru": "Москва — столица России.",
+    "de": "Moskau ist die Hauptstadt Russlands."
+  },
+  "Substantive|улица": {
+    "ru": "Я живу на этой улице.",
+    "de": "Ich wohne in dieser Straße."
+  },
+  "Substantive|центр": {
+    "ru": "Мы встречаемся в центре.",
+    "de": "Wir treffen uns im Zentrum."
+  },
+  "Substantive|парк": {
+    "ru": "Вечером я гуляю в парке.",
+    "de": "Abends gehe ich im Park spazieren."
+  },
+  "Substantive|магазин": {
+    "ru": "Где здесь магазин?",
+    "de": "Wo ist hier ein Laden?"
+  },
+  "Substantive|кафе": {
+    "ru": "Давай встретимся в кафе.",
+    "de": "Lass uns im Café treffen."
+  },
+  "Substantive|ресторан": {
+    "ru": "Это хороший ресторан.",
+    "de": "Das ist ein gutes Restaurant."
+  },
+  "Substantive|вокзал": {
+    "ru": "Вокзал недалеко от центра.",
+    "de": "Der Bahnhof ist nicht weit vom Zentrum."
+  },
+  "Substantive|метро": {
+    "ru": "Я еду на метро.",
+    "de": "Ich fahre mit der U-Bahn."
+  },
+  "Substantive|остановка": {
+    "ru": "Остановка рядом с домом.",
+    "de": "Die Haltestelle ist direkt beim Haus."
+  },
+  "Substantive|автобус": {
+    "ru": "Автобус опаздывает.",
+    "de": "Der Bus hat Verspätung."
+  },
+  "Substantive|музей": {
+    "ru": "В субботу мы идём в музей.",
+    "de": "Am Samstag gehen wir ins Museum."
+  },
+  "Substantive|аптека": {
+    "ru": "Аптека работает до вечера.",
+    "de": "Die Apotheke hat bis zum Abend geöffnet."
+  },
+  "Substantive|квартира": {
+    "ru": "У меня маленькая квартира.",
+    "de": "Ich habe eine kleine Wohnung."
+  },
+  "Substantive|комната": {
+    "ru": "Это моя комната.",
+    "de": "Das ist mein Zimmer."
+  },
+  "Substantive|кухня": {
+    "ru": "Мама на кухне.",
+    "de": "Mama ist in der Küche."
+  },
+  "Substantive|ванная": {
+    "ru": "Где ванная?",
+    "de": "Wo ist das Bad?"
+  },
+  "Substantive|окно": {
+    "ru": "Открой окно, пожалуйста.",
+    "de": "Mach bitte das Fenster auf."
+  },
+  "Substantive|дверь": {
+    "ru": "Закрой дверь, пожалуйста.",
+    "de": "Mach bitte die Tür zu."
+  },
+  "Substantive|стол": {
+    "ru": "Хлеб на столе.",
+    "de": "Das Brot liegt auf dem Tisch."
+  },
+  "Substantive|кровать": {
+    "ru": "Кровать очень удобная.",
+    "de": "Das Bett ist sehr bequem."
+  },
+  "Substantive|одежда": {
+    "ru": "Это дорогая одежда.",
+    "de": "Das ist teure Kleidung."
+  },
+  "Substantive|сумка": {
+    "ru": "Это твоя сумка?",
+    "de": "Ist das deine Tasche?"
+  },
+  "Substantive|цена": {
+    "ru": "Цена хорошая.",
+    "de": "Der Preis ist gut."
+  },
+  "Substantive|деньги": {
+    "ru": "У меня нет денег.",
+    "de": "Ich habe kein Geld."
+  },
+  "Substantive|рубль": {
+    "ru": "Это стоит сто рублей.",
+    "de": "Das kostet hundert Rubel."
+  },
+  "Substantive|евро": {
+    "ru": "Билет стоит десять евро.",
+    "de": "Das Ticket kostet zehn Euro."
+  },
+  "Substantive|билет": {
+    "ru": "У тебя есть билет?",
+    "de": "Hast du eine Fahrkarte?"
+  },
+  "Substantive|хлеб": {
+    "ru": "Я покупаю хлеб.",
+    "de": "Ich kaufe Brot."
+  },
+  "Substantive|молоко": {
+    "ru": "Я пью кофе с молоком.",
+    "de": "Ich trinke Kaffee mit Milch."
+  },
+  "Substantive|сыр": {
+    "ru": "Я люблю сыр.",
+    "de": "Ich mag Käse."
+  },
+  "Substantive|мясо": {
+    "ru": "Он не ест мясо.",
+    "de": "Er isst kein Fleisch."
+  },
+  "Substantive|рыба": {
+    "ru": "Сегодня на ужин рыба.",
+    "de": "Heute gibt es Fisch zum Abendessen."
+  },
+  "Substantive|суп": {
+    "ru": "Суп очень горячий.",
+    "de": "Die Suppe ist sehr heiß."
+  },
+  "Substantive|яблоко": {
+    "ru": "Я ем яблоко.",
+    "de": "Ich esse einen Apfel."
+  },
+  "Substantive|сахар": {
+    "ru": "Ты пьёшь чай с сахаром?",
+    "de": "Trinkst du Tee mit Zucker?"
+  },
+  "Substantive|вода": {
+    "ru": "Я пью много воды.",
+    "de": "Ich trinke viel Wasser."
+  },
+  "Substantive|чай": {
+    "ru": "Хочешь чай?",
+    "de": "Möchtest du Tee?"
+  },
+  "Substantive|кофе": {
+    "ru": "Утром я пью кофе.",
+    "de": "Morgens trinke ich Kaffee."
+  },
+  "Substantive|сок": {
+    "ru": "Дети пьют сок.",
+    "de": "Die Kinder trinken Saft."
+  },
+  "Substantive|завтрак": {
+    "ru": "Завтрак в восемь часов.",
+    "de": "Frühstück ist um acht Uhr."
+  },
+  "Substantive|обед": {
+    "ru": "Обед в час.",
+    "de": "Mittagessen ist um eins."
+  },
+  "Substantive|ужин": {
+    "ru": "Что у нас на ужин?",
+    "de": "Was gibt es bei uns zum Abendessen?"
+  },
+  "Substantive|бутылка": {
+    "ru": "Купи бутылку воды.",
+    "de": "Kauf eine Flasche Wasser."
+  },
+  "Substantive|чашка": {
+    "ru": "Хочешь чашку чая?",
+    "de": "Möchtest du eine Tasse Tee?"
+  },
+  "Substantive|час": {
+    "ru": "Я жду уже час.",
+    "de": "Ich warte schon eine Stunde."
+  },
+  "Substantive|минута": {
+    "ru": "Я буду через пять минут.",
+    "de": "Ich bin in fünf Minuten da."
+  },
+  "Substantive|день": {
+    "ru": "Сегодня хороший день.",
+    "de": "Heute ist ein guter Tag."
+  },
+  "Substantive|неделя": {
+    "ru": "Я работаю пять дней в неделю.",
+    "de": "Ich arbeite fünf Tage pro Woche."
+  },
+  "Substantive|месяц": {
+    "ru": "Я живу здесь уже месяц.",
+    "de": "Ich wohne schon einen Monat hier."
+  },
+  "Substantive|год": {
+    "ru": "Я изучаю русский уже год.",
+    "de": "Ich lerne schon seit einem Jahr Russisch."
+  },
+  "Substantive|время": {
+    "ru": "У меня нет времени.",
+    "de": "Ich habe keine Zeit."
+  },
+  "Substantive|университет": {
+    "ru": "Я учусь в университете.",
+    "de": "Ich studiere an der Universität."
+  },
+  "Substantive|магистратура": {
+    "ru": "Я учусь в магистратуре.",
+    "de": "Ich mache meinen Master."
+  },
+  "Substantive|курс": {
+    "ru": "Я на втором курсе.",
+    "de": "Ich bin im zweiten Studienjahr."
+  },
+  "Substantive|наука о данных": {
+    "ru": "Я изучаю науку о данных.",
+    "de": "Ich studiere Data Science."
+  },
+  "Substantive|обмен": {
+    "ru": "Я здесь по обмену.",
+    "de": "Ich bin im Austausch hier."
+  },
+  "Substantive|врач": {
+    "ru": "Мне нужен врач.",
+    "de": "Ich brauche einen Arzt."
+  },
+  "Substantive|учитель / учительница": {
+    "ru": "Наш учитель говорит только по-русски.",
+    "de": "Unser Lehrer spricht nur Russisch."
+  },
+  "Substantive|программист": {
+    "ru": "Мой брат — программист.",
+    "de": "Mein Bruder ist Programmierer."
+  },
+  "Substantive|встреча": {
+    "ru": "У меня встреча в два часа.",
+    "de": "Ich habe um zwei Uhr ein Meeting."
+  },
+  "Substantive|отпуск": {
+    "ru": "Летом у меня отпуск.",
+    "de": "Im Sommer habe ich Urlaub."
+  },
+  "Substantive|хобби": {
+    "ru": "Моё хобби — музыка.",
+    "de": "Mein Hobby ist Musik."
+  },
+  "Substantive|музыка": {
+    "ru": "Я люблю слушать музыку.",
+    "de": "Ich höre gern Musik."
+  },
+  "Substantive|телефон": {
+    "ru": "Где мой телефон?",
+    "de": "Wo ist mein Handy?"
+  },
+  "Substantive|язык": {
+    "ru": "Русский язык трудный, но интересный.",
+    "de": "Russisch ist schwer, aber interessant."
+  },
+  "Substantive|вопрос": {
+    "ru": "Можно вопрос?",
+    "de": "Darf ich etwas fragen?"
+  },
+  "Substantive|голова": {
+    "ru": "У него болит голова.",
+    "de": "Er hat Kopfschmerzen."
+  },
+  "Substantive|рука": {
+    "ru": "У меня болит рука.",
+    "de": "Mir tut der Arm weh."
+  },
+  "Substantive|нога": {
+    "ru": "Нога ещё болит.",
+    "de": "Das Bein tut noch weh."
+  },
+  "Substantive|глаз": {
+    "ru": "У неё красивые глаза.",
+    "de": "Sie hat schöne Augen."
+  },
+  "Substantive|зуб": {
+    "ru": "У меня болит зуб.",
+    "de": "Ich habe Zahnschmerzen."
+  },
+  "Substantive|здоровье": {
+    "ru": "Как здоровье?",
+    "de": "Wie geht es dir gesundheitlich?"
+  },
+  "Substantive|температура": {
+    "ru": "У ребёнка высокая температура.",
+    "de": "Das Kind hat hohes Fieber."
+  },
+  "Substantive|больница": {
+    "ru": "Мой дедушка в больнице.",
+    "de": "Mein Opa ist im Krankenhaus."
+  },
+  "Substantive|боль": {
+    "ru": "Это очень сильная боль.",
+    "de": "Das ist ein sehr starker Schmerz."
+  },
+  "Substantive|план": {
+    "ru": "Какие у тебя планы на выходные?",
+    "de": "Was hast du am Wochenende vor?"
+  },
+  "Substantive|выходные": {
+    "ru": "В выходные я отдыхаю.",
+    "de": "Am Wochenende ruhe ich mich aus."
+  },
+  "Substantive|утро": {
+    "ru": "Доброе утро!",
+    "de": "Guten Morgen!"
+  },
+  "Substantive|ночь": {
+    "ru": "Спокойной ночи!",
+    "de": "Gute Nacht!"
+  },
+  "Substantive|понедельник": {
+    "ru": "В понедельник я работаю.",
+    "de": "Am Montag arbeite ich."
+  },
+  "Substantive|суббота": {
+    "ru": "В субботу мы гуляем в парке.",
+    "de": "Am Samstag gehen wir im Park spazieren."
+  },
+  "Verben|быть": {
+    "ru": "Вчера я был дома.",
+    "de": "Gestern war ich zu Hause."
+  },
+  "Verben|знать": {
+    "ru": "Я не знаю.",
+    "de": "Ich weiß es nicht."
+  },
+  "Verben|понимать": {
+    "ru": "Ты меня понимаешь?",
+    "de": "Verstehst du mich?"
+  },
+  "Verben|думать": {
+    "ru": "Я думаю, что это хорошая идея.",
+    "de": "Ich denke, dass das eine gute Idee ist."
+  },
+  "Verben|хотеть": {
+    "ru": "Я хочу кофе.",
+    "de": "Ich möchte einen Kaffee."
+  },
+  "Verben|любить": {
+    "ru": "Я люблю гулять.",
+    "de": "Ich gehe gern spazieren."
+  },
+  "Verben|нравиться": {
+    "ru": "Мне нравится Москва.",
+    "de": "Moskau gefällt mir."
+  },
+  "Verben|интересоваться": {
+    "ru": "Я интересуюсь музыкой.",
+    "de": "Ich interessiere mich für Musik."
+  },
+  "Verben|работать": {
+    "ru": "Где ты работаешь?",
+    "de": "Wo arbeitest du?"
+  },
+  "Verben|учиться": {
+    "ru": "Я учусь в Кёльне.",
+    "de": "Ich studiere in Köln."
+  },
+  "Verben|изучать": {
+    "ru": "Я изучаю русский язык.",
+    "de": "Ich lerne Russisch."
+  },
+  "Verben|заниматься": {
+    "ru": "Вечером я занимаюсь спортом.",
+    "de": "Abends mache ich Sport."
+  },
+  "Verben|читать": {
+    "ru": "Я люблю читать.",
+    "de": "Ich lese gern."
+  },
+  "Verben|писать": {
+    "ru": "Я пишу сообщение.",
+    "de": "Ich schreibe eine Nachricht."
+  },
+  "Verben|говорить": {
+    "ru": "Вы говорите по-немецки?",
+    "de": "Sprechen Sie Deutsch?"
+  },
+  "Verben|рассказывать": {
+    "ru": "Он много рассказывает о Москве.",
+    "de": "Er erzählt viel über Moskau."
+  },
+  "Verben|отвечать": {
+    "ru": "Почему ты не отвечаешь?",
+    "de": "Warum antwortest du nicht?"
+  },
+  "Verben|звонить": {
+    "ru": "Я звоню маме каждый день.",
+    "de": "Ich rufe jeden Tag meine Mama an."
+  },
+  "Verben|смотреть": {
+    "ru": "Вечером мы смотрим фильм.",
+    "de": "Abends schauen wir einen Film."
+  },
+  "Verben|видеть": {
+    "ru": "Я тебя не вижу.",
+    "de": "Ich sehe dich nicht."
+  },
+  "Verben|искать": {
+    "ru": "Я ищу аптеку.",
+    "de": "Ich suche eine Apotheke."
+  },
+  "Verben|ждать": {
+    "ru": "Я жду автобус.",
+    "de": "Ich warte auf den Bus."
+  },
+  "Verben|делать": {
+    "ru": "Что ты делаешь?",
+    "de": "Was machst du?"
+  },
+  "Verben|помогать": {
+    "ru": "Я помогаю маме на кухне.",
+    "de": "Ich helfe Mama in der Küche."
+  },
+  "Verben|покупать": {
+    "ru": "Где ты покупаешь хлеб?",
+    "de": "Wo kaufst du Brot?"
+  },
+  "Verben|платить": {
+    "ru": "Сегодня я плачу!",
+    "de": "Heute zahle ich!"
+  },
+  "Verben|стоить": {
+    "ru": "Сколько стоит кофе?",
+    "de": "Wie viel kostet der Kaffee?"
+  },
+  "Verben|жить": {
+    "ru": "Мы живём в центре.",
+    "de": "Wir wohnen im Zentrum."
+  },
+  "Verben|снимать": {
+    "ru": "Я снимаю квартиру в Кёльне.",
+    "de": "Ich miete eine Wohnung in Köln."
+  },
+  "Verben|ехать": {
+    "ru": "Я еду домой.",
+    "de": "Ich fahre nach Hause."
+  },
+  "Verben|гулять": {
+    "ru": "Мы гуляем в парке.",
+    "de": "Wir gehen im Park spazieren."
+  },
+  "Verben|играть": {
+    "ru": "Дети играют на улице.",
+    "de": "Die Kinder spielen draußen."
+  },
+  "Verben|встречаться": {
+    "ru": "Мы встречаемся в субботу.",
+    "de": "Wir treffen uns am Samstag."
+  },
+  "Verben|познакомиться": {
+    "ru": "Мы познакомились в университете.",
+    "de": "Wir haben uns an der Uni kennengelernt."
+  },
+  "Verben|есть": {
+    "ru": "Что ты ешь на завтрак?",
+    "de": "Was isst du zum Frühstück?"
+  },
+  "Verben|пить": {
+    "ru": "Я пью чай без сахара.",
+    "de": "Ich trinke Tee ohne Zucker."
+  },
+  "Verben|готовить": {
+    "ru": "Мой папа хорошо готовит.",
+    "de": "Mein Papa kocht gut."
+  },
+  "Verben|обедать": {
+    "ru": "Где ты обедаешь?",
+    "de": "Wo isst du zu Mittag?"
+  },
+  "Verben|спать": {
+    "ru": "Ребёнок спит.",
+    "de": "Das Kind schläft."
+  },
+  "Verben|устать": {
+    "ru": "Я устал.",
+    "de": "Ich bin müde."
+  },
+  "Verben|звать": {
+    "ru": "Как тебя зовут?",
+    "de": "Wie heißt du?"
+  },
+  "Verben|болеть": {
+    "ru": "Я болею уже неделю.",
+    "de": "Ich bin schon eine Woche krank."
+  },
+  "Verben|отдыхать": {
+    "ru": "Летом мы отдыхаем на море.",
+    "de": "Im Sommer machen wir Urlaub am Meer."
+  },
+  "Verben|чувствовать себя": {
+    "ru": "Как ты себя чувствуешь?",
+    "de": "Wie fühlst du dich?"
+  },
+  "Verben|забывать": {
+    "ru": "Я всегда забываю его имя.",
+    "de": "Ich vergesse immer seinen Namen."
+  },
+  "Verben|успевать": {
+    "ru": "Ты успеваешь на автобус?",
+    "de": "Schaffst du den Bus?"
+  },
+  "Verben|начинать": {
+    "ru": "Мы начинаем в девять.",
+    "de": "Wir fangen um neun an."
+  },
+  "Verben|вставать": {
+    "ru": "Я встаю в семь часов.",
+    "de": "Ich stehe um sieben Uhr auf."
+  },
+  "Adjektive|хороший": {
+    "ru": "Это хорошая идея.",
+    "de": "Das ist eine gute Idee."
+  },
+  "Adjektive|красивый": {
+    "ru": "Какой красивый город!",
+    "de": "Was für eine schöne Stadt!"
+  },
+  "Adjektive|большой": {
+    "ru": "У нас большая квартира.",
+    "de": "Wir haben eine große Wohnung."
+  },
+  "Adjektive|маленький": {
+    "ru": "Это маленькое кафе.",
+    "de": "Das ist ein kleines Café."
+  },
+  "Adjektive|новый": {
+    "ru": "У меня новый телефон.",
+    "de": "Ich habe ein neues Handy."
+  },
+  "Adjektive|старый": {
+    "ru": "Это очень старый дом.",
+    "de": "Das ist ein sehr altes Haus."
+  },
+  "Adjektive|молодой": {
+    "ru": "Наш учитель очень молодой.",
+    "de": "Unser Lehrer ist sehr jung."
+  },
+  "Adjektive|трудный": {
+    "ru": "Русский язык трудный.",
+    "de": "Russisch ist schwer."
+  },
+  "Adjektive|лёгкий": {
+    "ru": "Это лёгкий вопрос.",
+    "de": "Das ist eine leichte Frage."
+  },
+  "Adjektive|интересный": {
+    "ru": "Это интересный музей.",
+    "de": "Das ist ein interessantes Museum."
+  },
+  "Adjektive|важный": {
+    "ru": "У меня важная встреча.",
+    "de": "Ich habe ein wichtiges Meeting."
+  },
+  "Adjektive|занятый": {
+    "ru": "Она сейчас занята.",
+    "de": "Sie ist gerade beschäftigt."
+  },
+  "Adjektive|свободный": {
+    "ru": "Этот стол свободен?",
+    "de": "Ist dieser Tisch frei?"
+  },
+  "Adjektive|любимый": {
+    "ru": "Какой твой любимый фильм?",
+    "de": "Was ist dein Lieblingsfilm?"
+  },
+  "Adjektive|другой": {
+    "ru": "Я живу в другом городе.",
+    "de": "Ich wohne in einer anderen Stadt."
+  },
+  "Adjektive|счастливый": {
+    "ru": "Я очень счастлив.",
+    "de": "Ich bin sehr glücklich."
+  },
+  "Adjektive|грустный": {
+    "ru": "Почему ты такой грустный?",
+    "de": "Warum bist du so traurig?"
+  },
+  "Adjektive|голодный": {
+    "ru": "Я очень голодный.",
+    "de": "Ich habe großen Hunger."
+  },
+  "Adjektive|дорогой": {
+    "ru": "Этот ресторан очень дорогой.",
+    "de": "Dieses Restaurant ist sehr teuer."
+  },
+  "Adjektive|дешёвый": {
+    "ru": "Здесь дешёвый кофе.",
+    "de": "Hier ist der Kaffee billig."
+  },
+  "Adjektive|тихий": {
+    "ru": "Это тихая улица.",
+    "de": "Das ist eine ruhige Straße."
+  },
+  "Adjektive|тёплый": {
+    "ru": "Сегодня тёплый день.",
+    "de": "Heute ist ein warmer Tag."
+  },
+  "Adjektive|горячий": {
+    "ru": "Осторожно, чай горячий!",
+    "de": "Vorsicht, der Tee ist heiß!"
+  },
+  "Adjektive|вкусный": {
+    "ru": "Какой вкусный суп!",
+    "de": "Was für eine leckere Suppe!"
+  },
+  "Adjektive|свежий": {
+    "ru": "Хлеб свежий?",
+    "de": "Ist das Brot frisch?"
+  },
+  "Adjektive|красный": {
+    "ru": "У неё красная сумка.",
+    "de": "Sie hat eine rote Tasche."
+  },
+  "Adjektive|синий": {
+    "ru": "Мне нравится синий цвет.",
+    "de": "Mir gefällt die Farbe Blau."
+  },
+  "Adjektive|чёрный": {
+    "ru": "Я пью чёрный кофе.",
+    "de": "Ich trinke schwarzen Kaffee."
+  },
+  "Adjektive|рад / рада": {
+    "ru": "Я рад тебя видеть!",
+    "de": "Ich freue mich, dich zu sehen!"
+  },
+  "Adjektive|устал / устала": {
+    "ru": "Она очень устала.",
+    "de": "Sie ist sehr müde."
+  },
+  "Adjektive|нужен / нужна / нужны": {
+    "ru": "Мне нужна помощь.",
+    "de": "Ich brauche Hilfe."
+  },
+  "Adjektive|больной": {
+    "ru": "Больной ребёнок спит.",
+    "de": "Das kranke Kind schläft."
+  },
+  "Adjektive|здоровый": {
+    "ru": "Я снова здоров.",
+    "de": "Ich bin wieder gesund."
+  }
+}

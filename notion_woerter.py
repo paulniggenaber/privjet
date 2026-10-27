@@ -1,4 +1,7 @@
-"""Tab „Notion-Wörter“: die Wortbank aus Notion als Karteikarten, immer DE → RU.
+"""Tab „Vokabeln“: die Wortbank aus Notion als Karteikarten, immer DE → RU.
+
+Nach dem Umdrehen steht rechts neben der Karte ein Beispielsatz (Substantive,
+Verben, Adjektive; aus notion_beispiele.json).
 
 Wörter lassen sich hier aus der Wortbank entfernen (und zurückholen); sie
 werden nur ausgeblendet (notion_ausgeblendet.json), damit der tägliche Import
@@ -78,7 +81,7 @@ def _verwalten(alle: pd.DataFrame, ausgeblendet: set[str]) -> None:
         )
 
 
-def tab_notion(alle: pd.DataFrame, progress: dict, ausgeblendet: set[str]) -> None:
+def tab_notion(alle: pd.DataFrame, progress: dict, ausgeblendet: set[str], beispiele: dict) -> None:
     df = alle[~alle["id"].isin(ausgeblendet)]
     if df.empty:
         if not alle.empty:
@@ -135,10 +138,25 @@ def tab_notion(alle: pd.DataFrame, progress: dict, ausgeblendet: set[str]) -> No
         "transkription": "",
         "beispiel": "",
     }
-    zeige_flashcard(
-        zeile["deutsch"], zeile["russisch"], karte, DE_RU, stand(zeile["id"], progress),
-        st.session_state.n_aufgedeckt,
-    )
+    def karte_zeigen() -> None:
+        zeige_flashcard(
+            zeile["deutsch"], zeile["russisch"], karte, DE_RU, stand(zeile["id"], progress),
+            st.session_state.n_aufgedeckt,
+        )
+
+    beispiel = beispiele.get(f'{zeile["kategorie"]}|{zeile["russisch"].replace(chr(0x301), "")}')
+    if beispiel:
+        # Gleiche Spaltenaufteilung vor und nach dem Umdrehen, sonst springt die Karte.
+        karten_sp, satz_sp = st.columns([3, 2], vertical_alignment="center")
+        with karten_sp:
+            karte_zeigen()
+        if st.session_state.n_aufgedeckt:
+            with satz_sp.container(border=True):
+                st.caption("Beispiel")
+                st.markdown(f"**{beispiel['ru']}**")
+                st.markdown(f":gray[{beispiel['de']}]")
+    else:
+        karte_zeigen()
     if st.button("🗑 Dieses Wort entfernen", type="tertiary", key="n_entfernen"):
         _entfernen([zeile["id"]], ausgeblendet)
 

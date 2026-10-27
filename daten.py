@@ -18,6 +18,7 @@ from konfig import (
     COLUMNS,
     MAX_BOX,
     NOTION_AUSGEBLENDET_JSON,
+    NOTION_BEISPIELE_JSON,
     NOTION_COLUMNS,
     NOTION_CSV,
     NOTION_VERBEN_JSON,
@@ -60,6 +61,22 @@ def load_notion() -> pd.DataFrame:
     df = df.drop_duplicates(subset=["kategorie", "russisch"], keep="first").reset_index(drop=True)
     df["id"] = df["kategorie"] + "|" + df["russisch"]
     return df
+
+
+@st.cache_data(show_spinner=False)
+def load_beispiele() -> dict:
+    """Beispielsätze: "Kategorie|Wort ohne Betonung" -> {"ru": …, "de": …}."""
+    try:
+        roh = json.loads(NOTION_BEISPIELE_JSON.read_text(encoding="utf-8"))
+    except (FileNotFoundError, json.JSONDecodeError, OSError, UnicodeDecodeError):
+        return {}
+    if not isinstance(roh, dict):
+        return {}
+    return {
+        str(k): {"ru": str(v["ru"]).strip(), "de": str(v["de"]).strip()}
+        for k, v in roh.items()
+        if isinstance(v, dict) and v.get("ru") and v.get("de")
+    }
 
 
 @st.cache_data(show_spinner=False)

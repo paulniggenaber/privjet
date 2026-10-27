@@ -18,7 +18,7 @@ pip install -r requirements.txt
 
 Am einfachsten per Doppelklick auf `start.command` im Finder (oder
 `./start.command` im Terminal). Das Skript holt per `git pull` die neuesten
-Notion-Wörter, legt bei Bedarf die virtuelle Umgebung an und startet die App.
+Wörter, legt bei Bedarf die virtuelle Umgebung an und startet die App.
 
 Manuell geht es so:
 
@@ -32,7 +32,7 @@ Die App öffnet sich unter <http://localhost:8501>. Beenden mit `Ctrl+C`.
 
 | Datei | Zweck |
 |---|---|
-| `app.py` | Einstiegspunkt: Seite, Sidebar, Tabs, Session-State |
+| `app.py` | Einstiegspunkt: Seite, Tabs, Session-State |
 | `konfig.py` | Pfade und Konstanten (Boxen, Intervalle, Richtungen, Modi) |
 | `daten.py` | Laden und Speichern von `vocab.csv`, `texte.json`, `progress.json` |
 | `leitner.py` | Box-System: gewichtete Kartenwahl und Bewertung |
@@ -40,9 +40,8 @@ Die App öffnet sich unter <http://localhost:8501>. Beenden mit `Ctrl+C`.
 | `karte.py` | die Flashcard mit der 3D-Drehung |
 | `gist.py` | Lesen/Schreiben einer Datei in einem GitHub-Gist (dauerhafter Fortschritt auf Streamlit Cloud) |
 | `batch.py` | Batch-Modus: N Karten einer Box üben, bis alle eine Box höher liegen |
-| `tastenfeld.py` | kyrillisches Tastenfeld (ЙЦУКЕН) |
-| `lernen.py` | Tab „Lernen" – Kartenwahl, Kartenmodus, Tippmodus |
-| `notion_woerter.py` | Tab „Notion-Wörter" – Wortbank aus Notion, Karten DE → RU |
+| `tastenfeld.py` | kyrillisches Tastenfeld (ЙЦУКЕН) für den Tab „Übersetzen" |
+| `notion_woerter.py` | Tab „Vokabeln" – Wortbank aus Notion, Karten DE → RU mit Beispielsatz |
 | `notion_import.py` | übernimmt neue Wörter aus der Notion-Seite in `notion_woerter.csv` (ohne Streamlit) |
 | `konjugation.py` | Tab „Konjugation" – Präsens + Imperativ der Notion-Verben |
 | `uebersetzen.py` | Tab „Übersetzen" |
@@ -52,7 +51,8 @@ Die App öffnet sich unter <http://localhost:8501>. Beenden mit `Ctrl+C`.
 | `texte.json` | Übersetzungstexte mit Musterlösung (UTF-8) |
 | `notion_verben.json` | Präsensformen + Imperativ der Notion-Verben (UTF-8) |
 | `progress.json` | Lernfortschritt, wird beim ersten Bewerten automatisch angelegt |
-| `notion_progress.json` | eigener Lernfortschritt des Tabs „Notion-Wörter" |
+| `notion_progress.json` | Lernfortschritt des Tabs „Vokabeln" |
+| `notion_beispiele.json` | Beispielsätze zu Substantiven, Verben, Adjektiven (nicht in Notion) |
 | `notion_ausgeblendet.json` | aus der Wortbank entfernte Wörter (nur ausgeblendet) |
 | `sitzung.json` | laufende Lernsitzung (aktuelle Karten, Batches, Fristen) – übersteht Neuladen und Neustart |
 | `.streamlit/config.toml` | Sitzung bleibt 24 h statt 2 min erhalten, wenn der Browser-Tab schläft |
@@ -62,25 +62,30 @@ Die App öffnet sich unter <http://localhost:8501>. Beenden mit `Ctrl+C`.
 Die Abhängigkeiten laufen nur in eine Richtung, es gibt keine Zyklen:
 
 ```
-app  →  lernen ┬→ karte, tastenfeld, vergleich
-        konjugation ┤                 │
-        uebersetzen ┘                 │
-        verwalten             │
-            └→ leitner  →  daten  →  konfig
+app  →  notion_woerter ┬→ karte, batch, leitner
+        konjugation ───┼→ vergleich
+        uebersetzen ───┴→ tastenfeld, vergleich
+        verwalten
+            └→ daten  →  konfig
 ```
 
 `vergleich.py` kommt ohne Streamlit aus – die Prüflogik lässt sich also ohne
 laufende App testen.
 
-## Notion-Wörter
+## Tab „Vokabeln"
 
-Der Tab „Notion-Wörter" fragt die Wortbank der Notion-Seite
+Der Tab „Vokabeln" fragt die Wortbank der Notion-Seite
 [Wortbank](https://app.notion.com/p/3f50147492c98110b057e5387d33a5ea) ab –
 immer Deutsch → Russisch, als Karteikarte zum Selbstbewerten. Gefiltert wird
 nach Substantiven, Verben, Adjektiven und „Rest" (alle übrigen Kategorien der
-Seite). Die Boxen funktionieren wie im Tab „Lernen", der Fortschritt liegt
-aber getrennt in `notion_progress.json` (Schlüssel `kategorie|russisch`, weil
-z. B. что als Fragewort und als Konjunktion vorkommt).
+Seite). Der Fortschritt liegt in `notion_progress.json` (Schlüssel
+`kategorie|russisch`, weil z. B. что als Fragewort und als Konjunktion vorkommt).
+
+**Beispielsätze:** Nach dem Umdrehen steht bei Substantiven, Verben und
+Adjektiven rechts neben der Karte ein einfacher russischer Beispielsatz mit der
+deutschen Übersetzung darunter. Die Sätze liegen nur in `notion_beispiele.json`
+(Schlüssel `Kategorie|Wort ohne Betonungszeichen`), nicht in Notion. Wörter ohne
+Eintrag – etwa neu hinzugekommene – zeigen einfach keinen Satz.
 
 **Wörter entfernen:** unter jeder Karte „🗑 Dieses Wort entfernen“, oder
 mehrere auf einmal im Bereich „🗑 Wörter entfernen / zurückholen“ – dort lassen
@@ -91,8 +96,9 @@ Lernfortschritt bleibt erhalten.
 
 Neue Wörter kommen per `notion_import.py` dazu: Seiteninhalt als Markdown
 speichern und `python notion_import.py seite.md` aufrufen. Das Skript hängt
-nur an bzw. aktualisiert Übersetzungen – gelöscht wird nichts. Eine geplante
-Claude-Routine macht das jeden Morgen um 6:30 und pusht, wenn es Neues gibt.
+nur an bzw. aktualisiert Übersetzungen – gelöscht wird nichts. Die tägliche
+Claude-Routine dafür ist pausiert (seit 27.10.2026); neue Wörter kommen nur
+noch dazu, wenn man den Import von Hand anstößt.
 
 ## Fortschritt auf Streamlit Cloud
 
@@ -115,7 +121,7 @@ den aktuellen Gist-Stand, sodass sich zwei Geräte nicht gegenseitig
 
 ## Batch lernen
 
-In den Tabs „Lernen" und „Notion-Wörter" startet „🎯 Batch lernen" jederzeit
+Im Tab „Vokabeln" startet „🎯 Batch lernen" jederzeit
 einen Batch: Box (1 → 2, 2 → 3, …) und Batchgröße wählen, die App zieht zufällig so viele Karten aus dieser Box (im
 aktuellen Filter). Sie werden so lange abgefragt, bis alle mindestens eine Box
 höher liegen. Bewertet wird normal: Box k braucht 2^(k-1) Treffer, „Nochmal"
@@ -151,52 +157,21 @@ Jede Vokabel liegt in einer Box von 1 bis 5. Neue Karten starten in Box 1.
 `progress.json` wird nach jeder Bewertung atomar geschrieben (temporäre Datei + `os.replace`).
 Fehlt die Datei oder ist sie beschädigt, startet die App mit leerem Fortschritt statt abzustürzen.
 
-## Eigene Wörter ergänzen
+## Tab „Vokabeln verwalten"
 
-`vocab.csv` ist eine normale, komma-getrennte CSV in **UTF-8** mit genau diesen sechs Spalten:
-
-| Spalte | Inhalt | Beispiel |
-|---|---|---|
-| `russisch` | russisches Wort – zugleich der eindeutige Schlüssel für den Fortschritt | `вода` |
-| `deutsch` | deutsche Übersetzung, mehrere Bedeutungen mit Komma | `das Wasser` |
-| `transkription` | deutsche Umschrift, Betonung mit Akzent markiert | `wadá` |
-| `wortart` | frei wählbar, füllt den Wortart-Filter | `Substantiv` |
-| `niveau` | frei wählbar, füllt den Niveau-Filter | `A1` |
-| `beispiel` | Beispielsatz Russisch — deutsche Übersetzung | `Я пью воду. — Ich trinke Wasser.` |
-
-Drei Wege, Wörter zu ergänzen:
-
-1. **Im Tab „Vokabeln verwalten"** unten in der Tabelle eine leere Zeile ausfüllen
-   und auf *Änderungen speichern* klicken.
-2. **CSV anhängen**: eigene Datei mit denselben Spalten hochladen. Sie wird
-   *angehängt*, nicht ersetzt; Wörter, die in `russisch` schon existieren, werden übersprungen.
-3. **Direkt in `vocab.csv`**: Zeile anhängen und die Datei als UTF-8 speichern.
-   Enthält ein Feld ein Komma oder Anführungszeichen, muss es in `"…"` stehen –
-   ein Tabellenprogramm macht das automatisch. Danach die App neu laden (Browser-Reload
-   genügt, der Cache wird beim Speichern über die App invalidiert; bei manueller
-   Bearbeitung der Datei einmal `R` in Streamlit drücken oder die App neu starten).
-
-Neu ergänzte Wörter landen automatisch in Box 1.
-Wird ein Wort in `russisch` umbenannt, gilt es als neue Vokabel – der alte
-Fortschrittseintrag bleibt verwaist in `progress.json` liegen und stört nicht.
-
-## Enthaltener Wortschatz
-
-362 Vokabeln des Grundwortschatzes, Niveau A1 (158) und A2 (204), gemischt aus
-Substantiven, Verben, Adjektiven, Adverbien, festen Wendungen sowie einigen
-Konjunktionen und Präpositionen. Die Liste ist eine eigene Zusammenstellung mit
-selbst geschriebenen Beispielsätzen und als Startpunkt gedacht – über die drei
-Wege oben lässt sie sich beliebig erweitern.
+Bearbeitet die ältere Vokabelliste `vocab.csv` (russisch, deutsch,
+transkription, wortart, niveau, beispiel). Seit der Tab „Lernen" entfernt ist,
+wird diese Liste nicht mehr abgefragt.
 
 ## Die Karten
 
 Jede Vokabel steht auf einer echten Flashcard, die sich beim Aufdecken um die
 senkrechte Achse dreht (CSS-`rotateY`, 0,75 s Animation):
 
-* **Vorderseite** (blau): Abfragerichtung und Box-Nummer, das Fragewort,
-  darunter Wortart und Niveau.
-* **Rückseite** (grün): Übersetzung, Transkription in eckigen Klammern und der
-  Beispielsatz – russischer Satz oben, deutsche Übersetzung darunter abgesetzt.
+* **Vorderseite** (blau): Abfragerichtung und Box-Stand, das deutsche Wort,
+  darunter die Kategorie.
+* **Rückseite** (grün): das russische Wort. Der Beispielsatz steht daneben
+  (siehe Tab „Vokabeln").
 
 Gedreht wird mit dem Button **„🔄 Karte umdrehen"** direkt unter der Karte;
 danach erscheinen **Nochmal** und **Gewusst**. Die Karte selbst ist bewusst
@@ -205,54 +180,9 @@ erreichen, ohne ins DOM der Elternseite zu greifen – dieser Hack bliebe drauß
 
 Technisch rendert `zeige_flashcard()` die Karte als in sich geschlossenes
 HTML-Dokument und bettet es über `st.iframe()` ein (mit Rückfall auf
-`st.components.v1.html` für ältere Streamlit-Versionen). Alle Felder aus
-`vocab.csv` werden vorher `html.escape()`-behandelt, es landet also kein
+`st.components.v1.html` für ältere Streamlit-Versionen). Alle Felder werden vorher `html.escape()`-behandelt, es landet also kein
 ungeprüftes Markup in der Seite. Das Farbschema der Karte ist bewusst
 eigenständig und funktioniert im hellen wie im dunklen Streamlit-Theme.
-
-## Die zwei Modi
-
-In der Sidebar unter **Modus**:
-
-| Modus | Ablauf |
-|---|---|
-| **Karten** | Karte umdrehen, Antwort ansehen, selbst mit *Nochmal* / *Gewusst* bewerten |
-| **Tippen** | Antwort eintippen, die App prüft und schlägt die Bewertung vor |
-| **gemischt** | pro Karte zufällig das eine oder das andere; über der Karte steht, was gerade dran ist |
-
-### Tippmodus
-
-Antwort eingeben und **Eingabetaste** drücken (oder *Prüfen* klicken). Die Karte
-dreht sich auf, darunter steht das Urteil:
-
-* **Richtig** → grün, ein Button *Weiter →*, die Karte steigt eine Box auf.
-* **Fast** → gelb bei einem Tippfehler. Beide Buttons erscheinen, du entscheidest,
-  ob es zählt.
-* **Falsch** → rot mit der richtigen Antwort. *Nochmal* ist vorausgewählt, aber
-  *Zählt als gewusst* bleibt daneben – falls die App eine gültige Übersetzung
-  nicht erkannt hat, behältst du das letzte Wort.
-
-Beim Vergleich wird großzügig normalisiert: Groß-/Kleinschreibung, Satzzeichen und
-überflüssige Leerzeichen sind egal, der Artikel darf weg (`Wasser` statt
-`das Wasser`), bei mehreren Bedeutungen genügt eine (`sagen` statt
-`sprechen, sagen`), Klammerzusätze dürfen fehlen (`Guten Tag` statt
-`Guten Tag! (höflich)`), Umlaute dürfen umschrieben werden (`schoen` für `schön`,
-`heisse` für `heiße`) und im Russischen zählt `е` auch für `ё` (`ребенок` für
-`ребёнок`). Tippfehler landen über einen Ähnlichkeitsvergleich
-(`difflib`, ab 82 %) in der Kategorie *fast*.
-
-**Richtung RU → DE:** du tippst deutsch, ganz normal über die Tastatur.
-
-**Richtung DE → RU:** du tippst kyrillisch. Weil ein deutsches Tastaturlayout das
-nicht hergibt, klappt unter dem Eingabefeld ein Tastenfeld im russischen
-Standardlayout **ЙЦУКЕН** auf – alle 33 Buchstaben inklusive ё, ъ und ь, dazu
-Leerzeichen, Rücktaste und eine Feststelltaste für Großbuchstaben. Es erscheint
-nur in dieser Richtung.
-
-**Auf Dauer bequemer:** macOS bringt das russische Layout mit
-(*Systemeinstellungen → Tastatur → Eingabequellen → + → Russisch*). Danach
-wechselt `Ctrl+Leertaste` die Sprache und du tippst direkt ins Feld – auch in die
-Vokabeltabelle. Die Belegung ist dieselbe wie im eingebauten Tastenfeld.
 
 ## Tab „Übersetzen"
 
@@ -338,8 +268,7 @@ Die Formen stehen in `notion_verben.json` (Infinitiv ohne Betonungszeichen):
 }
 ```
 
-Ein Notion-Verb ohne Eintrag in dieser Datei taucht im Tab nicht auf. Die
-morgendliche Routine ergänzt neue Verben dort automatisch.
+Ein Notion-Verb ohne Eintrag in dieser Datei taucht im Tab nicht auf.
 
 ## Bekannte Einschränkung
 
