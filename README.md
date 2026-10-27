@@ -28,6 +28,11 @@ streamlit run app.py
 
 Die App öffnet sich unter <http://localhost:8501>. Beenden mit `Ctrl+C`.
 
+**Am Handy:** Im selben WLAN läuft die App auch unter `http://<IP des Macs>:8501` –
+`start.command` zeigt die Adresse beim Start an. Am Handy und am Mac lernst du mit
+demselben Fortschritt. Solange die App läuft, hält `start.command` den Mac per
+`caffeinate` wach (Zuklappen lässt einen Laptop trotzdem schlafen).
+
 ## Dateien
 
 | Datei | Zweck |

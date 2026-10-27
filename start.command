@@ -15,4 +15,13 @@ if [ ! -x .venv/bin/streamlit ]; then
 fi
 
 echo "Vokabeltrainer läuft auf http://localhost:8501 - beenden mit Ctrl+C oder Fenster schließen."
+IP=$(ipconfig getifaddr en0 || ipconfig getifaddr en1)
+if [ -n "$IP" ]; then
+    echo "Am Handy (gleiches WLAN): http://$IP:8501"
+fi
+
+# Mac wach halten, solange die App läuft - sonst ist sie am Handy weg.
+# exec behält die PID, caffeinate endet also mit Streamlit.
+caffeinate -is -w $$ &
+
 exec .venv/bin/streamlit run app.py --server.headless false
