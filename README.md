@@ -38,24 +38,17 @@ demselben Fortschritt. Solange die App läuft, hält `start.command` den Mac per
 | Datei | Zweck |
 |---|---|
 | `app.py` | Einstiegspunkt: Seite, Tabs, Session-State |
-| `konfig.py` | Pfade und Konstanten (Boxen, Intervalle, Richtungen, Modi) |
-| `daten.py` | Laden und Speichern von `vocab.csv`, `texte.json`, `progress.json` |
+| `konfig.py` | Pfade und Konstanten (Boxen, Gewichte, Kategorien) |
+| `daten.py` | Laden und Speichern der Wortbank, Zusatzdaten, Fortschritt und Sitzung |
 | `leitner.py` | Box-System: gewichtete Kartenwahl und Bewertung |
-| `vergleich.py` | Textvergleich ohne Streamlit: Antwortprüfung, Stichwortabgleich |
 | `karte.py` | die Flashcard mit der 3D-Drehung |
 | `gist.py` | Lesen/Schreiben einer Datei in einem GitHub-Gist (dauerhafter Fortschritt auf Streamlit Cloud) |
 | `batch.py` | Batch-Modus: N Karten einer Box üben, bis alle eine Box höher liegen |
-| `tastenfeld.py` | kyrillisches Tastenfeld (ЙЦУКЕН) für den Tab „Übersetzen" |
 | `notion_woerter.py` | Tab „Vokabeln" – Wortbank aus Notion, Karten DE → RU mit Beispielsatz |
 | `notion_import.py` | übernimmt neue Wörter aus der Notion-Seite in `notion_woerter.csv` (ohne Streamlit) |
 | `konjugation.py` | Tab „Konjugation" – Präsens + Imperativ der Notion-Verben |
-| `uebersetzen.py` | Tab „Übersetzen" |
-| `verwalten.py` | Tab „Vokabeln verwalten" |
-| `vocab.csv` | Vokabeldaten (UTF-8) |
 | `notion_woerter.csv` | Wortbank aus Notion: kategorie, russisch, deutsch, hinzugefuegt |
-| `texte.json` | Übersetzungstexte mit Musterlösung (UTF-8) |
 | `notion_verben.json` | Präsensformen + Imperativ der Notion-Verben (UTF-8) |
-| `progress.json` | Lernfortschritt, wird beim ersten Bewerten automatisch angelegt |
 | `notion_progress.json` | Lernfortschritt des Tabs „Vokabeln" |
 | `notion_beispiele.json` | Beispielsätze zu Substantiven, Verben, Adjektiven, kleinen Wörtern (nicht in Notion) |
 | `notion_ausgeblendet.json` | aus der Wortbank entfernte Wörter (nur ausgeblendet) |
@@ -68,14 +61,9 @@ Die Abhängigkeiten laufen nur in eine Richtung, es gibt keine Zyklen:
 
 ```
 app  →  notion_woerter ┬→ karte, batch, leitner
-        konjugation ───┤→ karte
-        uebersetzen ───┴→ tastenfeld, vergleich
-        verwalten
+        konjugation ───┘→ karte
             └→ daten  →  konfig
 ```
-
-`vergleich.py` kommt ohne Streamlit aus – die Prüflogik lässt sich also ohne
-laufende App testen.
 
 ## Tab „Vokabeln"
 
@@ -107,10 +95,10 @@ noch dazu, wenn man den Import von Hand anstößt.
 
 ## Fortschritt auf Streamlit Cloud
 
-Ein Push auf `main` lässt `progress.json` auf Streamlit Cloud bestehen. Ob
+Ein Push auf `main` lässt `notion_progress.json` auf Streamlit Cloud bestehen. Ob
 der Fortschritt einen kompletten Neustart übersteht (Reboot, Aufwachen nach
 Inaktivität), ist nicht geprüft. Als Absicherung kann er in einem privaten
-GitHub-Gist liegen, mit den Dateien `progress.json` und `notion_progress.json`.
+GitHub-Gist liegen, in der Datei `notion_progress.json`.
 Aktiv wird das, sobald in den Streamlit-Secrets steht:
 
 ```toml
@@ -159,14 +147,8 @@ Jede Vokabel liegt in einer Box von 1 bis 5. Neue Karten starten in Box 1.
   „· zuletzt falsch“. Die 10-Karten-Frist gilt für die laufende Sitzung, die
   Markierung „zuletzt falsch“ bleibt gespeichert.
 
-`progress.json` wird nach jeder Bewertung atomar geschrieben (temporäre Datei + `os.replace`).
+`notion_progress.json` wird nach jeder Bewertung atomar geschrieben (temporäre Datei + `os.replace`).
 Fehlt die Datei oder ist sie beschädigt, startet die App mit leerem Fortschritt statt abzustürzen.
-
-## Tab „Vokabeln verwalten"
-
-Bearbeitet die ältere Vokabelliste `vocab.csv` (russisch, deutsch,
-transkription, wortart, niveau, beispiel). Seit der Tab „Lernen" entfernt ist,
-wird diese Liste nicht mehr abgefragt.
 
 ## Die Karten
 
@@ -188,63 +170,6 @@ HTML-Dokument und bettet es über `st.iframe()` ein (mit Rückfall auf
 `st.components.v1.html` für ältere Streamlit-Versionen). Alle Felder werden vorher `html.escape()`-behandelt, es landet also kein
 ungeprüftes Markup in der Seite. Das Farbschema der Karte ist bewusst
 eigenständig und funktioniert im hellen wie im dunklen Streamlit-Theme.
-
-## Tab „Übersetzen"
-
-Ein russischer Text wird angezeigt, du überträgst ihn ins Deutsche, danach
-erscheint die Musterlösung zum Vergleich.
-
-* **Schwierigkeit** oben links: `A1 – leicht`, `A2 – mittel`, `B1 – fordernd`.
-  Die Liste baut sich aus den Niveaus in `texte.json`, eine neue Stufe taucht
-  also automatisch auf.
-* **Richtung** daneben:
-  * `RU → DE` – russischer Text, du übersetzt ins Deutsche.
-  * `DE → RU` – deutscher Text, du übersetzt ins Russische. Unter dem
-    Eingabefeld klappt dafür das kyrillische Tastenfeld auf.
-  * `gemischt` – pro Text zufällig die eine oder die andere Richtung; über dem
-    Text steht, was gerade dran ist.
-
-  Beide Richtungen nutzen dieselben Texte: das jeweils andere Feld aus
-  `texte.json` wird zur Musterlösung. Ein Richtungswechsel zieht einen neuen
-  Text, damit im Eingabefeld nichts in der falschen Sprache stehen bleibt.
-* **🔀 Anderer Text** zieht einen anderen Text derselben Stufe, nie denselben zweimal.
-* Nach **Musterlösung zeigen** kommt die Referenzübersetzung, darunter ein
-  Stichwort-Abgleich und die Liste der nicht wiedergefundenen Wörter.
-* **Nächster Text →** leert das Eingabefeld und verdeckt die Lösung wieder.
-
-Mitgeliefert sind **12 Texte** (je vier pro Stufe) zwischen 57 und 78 Wörtern,
-alle im geforderten Rahmen von 50–100.
-
-### Was der Stichwort-Abgleich ist – und was nicht
-
-Eine freie Übersetzung lässt sich ohne Sprachmodell nicht sinnvoll benoten: zu
-jedem Satz gibt es viele richtige Varianten. Die App zählt deshalb nur, welche
-Inhaltswörter der Musterlösung in deinem Text vorkommen – tolerant gegenüber
-Beugung (Wortstamm und Ähnlichkeitsvergleich), aber **blind für Synonyme und
-umgestellte Sätze**. Er arbeitet in beiden Richtungen, für Deutsch wie für
-Kyrillisch, mit je eigener Stoppwortliste. Eine gute Übersetzung kann also unter 100 % landen. Der
-Balken taugt zum Aufspüren übersprungener Sätze, nicht als Note. **Die Bewertung
-bleibt bei dir** – so steht es auch in der App.
-
-### Eigene Texte ergänzen
-
-`texte.json` ist eine Liste von Objekten mit genau fünf Feldern:
-
-```json
-{
-  "id": "a1-mein-tag",
-  "niveau": "A1",
-  "titel": "Мой день",
-  "russisch": "Меня зовут Анна. …",
-  "deutsch": "Ich heiße Anna. …"
-}
-```
-
-`id` muss eindeutig sein, `niveau` ist frei wählbar und füllt die Auswahlliste.
-`russisch` und `deutsch` sind je nach Richtung Quelle oder Musterlösung – beide Felder sollten also für sich stehen können.
-Einträge, bei denen ein Feld fehlt oder leer ist, werden beim Laden still
-übersprungen. Fehlt die Datei ganz oder ist das JSON kaputt, zeigt der Tab eine
-Meldung – der Rest der App läuft normal weiter.
 
 ## Tab „Konjugation"
 

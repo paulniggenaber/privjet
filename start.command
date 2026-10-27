@@ -1,7 +1,7 @@
 #!/bin/bash
 # Startet den Vokabeltrainer lokal - per Doppelklick im Finder oder ./start.command.
 # Holt vorher die neuesten Notion-Wörter (git pull). Der Lernfortschritt liegt in
-# progress.json / notion_progress.json in diesem Ordner und wird von git nie angefasst.
+# notion_progress.json in diesem Ordner und wird von git nie angefasst.
 
 cd "$(dirname "$0")" || exit 1
 

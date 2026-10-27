@@ -6,10 +6,6 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent
 
 
-VOCAB_CSV = BASE_DIR / "vocab.csv"
-
-
-TEXTE_JSON = BASE_DIR / "texte.json"
 NOTION_VERBEN_JSON = BASE_DIR / "notion_verben.json"
 
 
@@ -37,9 +33,6 @@ NOTION_COLUMNS = ["kategorie", "russisch", "deutsch", "hinzugefuegt"]
 NOTION_GRUPPEN = ["Substantive", "Verben", "Adjektive", "Kleine Wörter", "Rest"]
 
 
-COLUMNS = ["russisch", "deutsch", "transkription", "wortart", "niveau", "beispiel"]
-
-
 MAX_BOX = 5
 
 
@@ -56,9 +49,4 @@ FEHLER_FAKTOR = 10
 WIEDERHOLEN_SPAETESTENS = 10
 
 
-RU_DE, DE_RU, MIXED = "RU → DE", "DE → RU", "gemischt"
-
-
-
-
-STUFEN = {"A1": "A1 – leicht", "A2": "A2 – mittel", "B1": "B1 – fordernd"}
+DE_RU = "DE → RU"

@@ -1,4 +1,4 @@
-"""Laden und Speichern von vocab.csv, notion_woerter.csv, texte.json und progress.json.
+"""Laden und Speichern von notion_woerter.csv, den Notion-Zusatzdaten und dem Fortschritt.
 
 Geschrieben wird immer atomar (temporäre Datei + os.replace), gelesen
 immer explizit als UTF-8. Defekte Dateien führen nie zum Absturz.
@@ -15,7 +15,6 @@ import streamlit as st
 
 import gist
 from konfig import (
-    COLUMNS,
     MAX_BOX,
     NOTION_AUSGEBLENDET_JSON,
     NOTION_BEISPIELE_JSON,
@@ -24,23 +23,7 @@ from konfig import (
     NOTION_VERBEN_JSON,
     PROGRESS_JSON,
     SITZUNG_JSON,
-    TEXTE_JSON,
-    VOCAB_CSV,
 )
-
-
-@st.cache_data(show_spinner=False)
-def load_vocab() -> pd.DataFrame:
-    """Liest vocab.csv als UTF-8 und normalisiert die Spalten."""
-    df = pd.read_csv(VOCAB_CSV, encoding="utf-8", dtype=str, keep_default_na=False)
-    for col in COLUMNS:
-        if col not in df.columns:
-            df[col] = ""
-    df = df[COLUMNS].fillna("")
-    for col in COLUMNS:
-        df[col] = df[col].astype(str).str.strip()
-    df = df[df["russisch"] != ""]
-    return df.drop_duplicates(subset="russisch", keep="first").reset_index(drop=True)
 
 
 @st.cache_data(show_spinner=False)
@@ -80,23 +63,6 @@ def load_beispiele() -> dict:
 
 
 @st.cache_data(show_spinner=False)
-def load_texte() -> list[dict]:
-    """Liest texte.json als UTF-8. Fehlt oder bricht die Datei, bleibt es leer."""
-    try:
-        roh = json.loads(TEXTE_JSON.read_text(encoding="utf-8"))
-    except (FileNotFoundError, json.JSONDecodeError, OSError, UnicodeDecodeError):
-        return []
-    if not isinstance(roh, list):
-        return []
-    pflicht = ("id", "niveau", "titel", "russisch", "deutsch")
-    return [
-        {feld: str(eintrag[feld]).strip() for feld in pflicht}
-        for eintrag in roh
-        if isinstance(eintrag, dict) and all(eintrag.get(f) for f in pflicht)
-    ]
-
-
-@st.cache_data(show_spinner=False)
 def load_konjugation() -> dict:
     """Liest notion_verben.json: Infinitiv (ohne Betonung) -> Präsensformen + Imperativ.
 
@@ -126,16 +92,6 @@ def load_konjugation() -> dict:
             "hinweis": str(eintrag.get("hinweis") or ""),
         }
     return verben
-
-
-def save_vocab(df: pd.DataFrame) -> None:
-    """Schreibt vocab.csv atomar als UTF-8 und leert den Cache."""
-    clean = df.reindex(columns=COLUMNS).fillna("")
-    for col in COLUMNS:
-        clean[col] = clean[col].astype(str).str.strip()
-    clean = clean[clean["russisch"] != ""].drop_duplicates(subset="russisch", keep="first")
-    _atomic_write(VOCAB_CSV, clean.to_csv(index=False))
-    load_vocab.clear()
 
 
 def _atomic_write(path: Path, text: str) -> None:
