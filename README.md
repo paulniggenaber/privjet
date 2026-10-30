@@ -3,6 +3,19 @@
 Lokale Streamlit-App zum Lernen russischer Vokabeln nach dem **Leitner-System**.
 Läuft komplett offline: kein Netzwerkzugriff, keine Datenbank, nur Dateien im Projektordner.
 
+## Web-Version (Hauptversion seit 30.10.2026)
+
+Die App läuft als passwortgeschützte Unterseite unter
+<https://paulniggenaber.com/privjet/> (Computer und Handy, ein gemeinsamer
+Fortschritt in einer Cloudflare-D1-Datenbank). Der Code dafür liegt im
+Website-Ordner `~/Desktop/jobhunt/website` (`privjet/`, `functions/privjet/`),
+die Wörter, Beispielsätze und Verbformen kommen aus diesem Repo:
+nach Änderungen an `notion_woerter.csv`, `notion_beispiele.json` oder
+`notion_verben.json` dort `./deploy.sh` ausführen.
+
+Die lokale Streamlit-App unten speichert weiter nur in die lokalen Dateien und
+ist mit der Web-Version **nicht** synchron.
+
 ## Setup
 
 Voraussetzung: Python 3.11 (neuere 3.x funktionieren ebenfalls), Streamlit ab 1.49.
