@@ -12,7 +12,6 @@ vocab.csv vermischen. Alle Session-Keys tragen das Präfix `n_`, weil alle Tabs
 in jedem Lauf gerendert werden und sich sonst die Karte teilen würden.
 """
 
-from datetime import date
 
 import pandas as pd
 import streamlit as st
@@ -89,13 +88,11 @@ def tab_notion(alle: pd.DataFrame, progress: dict, ausgeblendet: set[str], beisp
         st.info("Keine Notion-Wörter vorhanden.")
         return
 
-    heute = date.today()
     gruppen = st.pills(
         "Wortart", NOTION_GRUPPEN, selection_mode="multi", default=NOTION_GRUPPEN, key="n_gruppen"
     ) or NOTION_GRUPPEN
     gefiltert = df[df["kategorie"].map(_gruppe).isin(gruppen)]
 
-    neu_heute = int((gefiltert["hinzugefuegt"] == heute.isoformat()).sum())
     sig = tuple(sorted(gruppen))
     filter_geaendert = st.session_state.n_filter_sig is not None and sig != st.session_state.n_filter_sig
     st.session_state.n_filter_sig = sig
@@ -105,11 +102,10 @@ def tab_notion(alle: pd.DataFrame, progress: dict, ausgeblendet: set[str], beisp
     boxen = [box(w, progress) for w in ids]
     anteil = sum((b - 1) / (MAX_BOX - 1) for b in boxen) / len(boxen) if boxen else 0.0
     st.progress(anteil, text=f"Deck-Fortschritt: {anteil:.0%} ({len(ids)} Karten im Filter)")
-    m1, m2, m3, m4 = st.columns(4)
+    m1, m2, m3 = st.columns(3)
     m1.metric("In Box 1", boxen.count(1))
     m2.metric("Begonnen", sum(1 for w in ids if w in progress))
     m3.metric("In Box 5", boxen.count(MAX_BOX))
-    m4.metric("Neu heute", neu_heute)
     with st.expander("Box-Verteilung"):
         st.bar_chart(
             pd.Series(boxen).value_counts().reindex(range(1, MAX_BOX + 1), fill_value=0)

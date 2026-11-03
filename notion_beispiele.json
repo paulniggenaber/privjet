@@ -938,5 +938,85 @@
   "Kleine Wörter|может быть": {
     "ru": "Может быть, завтра будет снег.",
     "de": "Vielleicht schneit es morgen."
+  },
+  "Verben|идти": {
+    "ru": "Я иду домой.",
+    "de": "Ich gehe nach Hause."
+  },
+  "Verben|мочь": {
+    "ru": "Ты можешь мне помочь?",
+    "de": "Kannst du mir helfen?"
+  },
+  "Verben|спрашивать": {
+    "ru": "Он часто спрашивает меня о работе.",
+    "de": "Er fragt mich oft nach der Arbeit."
+  },
+  "Verben|слушать": {
+    "ru": "Я слушаю музыку в метро.",
+    "de": "Ich höre Musik in der U-Bahn."
+  },
+  "Verben|брать": {
+    "ru": "Я всегда беру кофе с собой.",
+    "de": "Ich nehme immer Kaffee mit."
+  },
+  "Verben|давать": {
+    "ru": "Мама даёт мне хорошие советы.",
+    "de": "Mama gibt mir gute Ratschläge."
+  },
+  "Verben|помнить": {
+    "ru": "Ты помнишь его имя?",
+    "de": "Erinnerst du dich an seinen Namen?"
+  },
+  "Verben|открывать": {
+    "ru": "Я открываю окно.",
+    "de": "Ich öffne das Fenster."
+  },
+  "Verben|учить": {
+    "ru": "Я учу русские слова каждый день.",
+    "de": "Ich lerne jeden Tag russische Wörter."
+  },
+  "Verben|заказывать": {
+    "ru": "Мы заказываем пиццу.",
+    "de": "Wir bestellen Pizza."
+  },
+  "Adjektive|плохой": {
+    "ru": "Сегодня плохая погода.",
+    "de": "Heute ist schlechtes Wetter."
+  },
+  "Adjektive|холодный": {
+    "ru": "Я не люблю холодную погоду.",
+    "de": "Ich mag kein kaltes Wetter."
+  },
+  "Adjektive|быстрый": {
+    "ru": "Это очень быстрый поезд.",
+    "de": "Das ist ein sehr schneller Zug."
+  },
+  "Adjektive|медленный": {
+    "ru": "Интернет здесь медленный.",
+    "de": "Das Internet hier ist langsam."
+  },
+  "Adjektive|длинный": {
+    "ru": "Это был длинный день.",
+    "de": "Das war ein langer Tag."
+  },
+  "Adjektive|короткий": {
+    "ru": "У меня короткий вопрос.",
+    "de": "Ich habe eine kurze Frage."
+  },
+  "Adjektive|умный": {
+    "ru": "Моя сестра очень умная.",
+    "de": "Meine Schwester ist sehr klug."
+  },
+  "Adjektive|скучный": {
+    "ru": "Фильм был скучный.",
+    "de": "Der Film war langweilig."
+  },
+  "Adjektive|весёлый": {
+    "ru": "У него весёлый характер.",
+    "de": "Er hat einen fröhlichen Charakter."
+  },
+  "Adjektive|белый": {
+    "ru": "Я хочу белое вино.",
+    "de": "Ich möchte Weißwein."
   }
 }
